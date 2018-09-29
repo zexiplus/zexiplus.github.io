@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Float&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="webFront javascript css html vue react nodejs " />
+  
+  
+  
+  
+  <meta name="description" content="Electron使用javascript, html, css 构建跨平台桌面应用  https://electronjs.org/  1npm i electron@latest 目录[TOC] 封装/打包 &amp;amp; 脚手架模版 electron-vue  https://github.com/SimulatedGREG/electron-vue   vue 在 electron环境下的脚手架">
+<meta name="keywords" content="webFront javascript css html vue react nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Float&#39;s blog">
+<meta property="og:url" content="http://zexiplus.github.io/2018/08/13/Electron/index.html">
+<meta property="og:site_name" content="Float&#39;s blog">
+<meta property="og:description" content="Electron使用javascript, html, css 构建跨平台桌面应用  https://electronjs.org/  1npm i electron@latest 目录[TOC] 封装/打包 &amp;amp; 脚手架模版 electron-vue  https://github.com/SimulatedGREG/electron-vue   vue 在 electron环境下的脚手架">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-02T12:50:07.856Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Float&#39;s blog">
+<meta name="twitter:description" content="Electron使用javascript, html, css 构建跨平台桌面应用  https://electronjs.org/  1npm i electron@latest 目录[TOC] 封装/打包 &amp;amp; 脚手架模版 electron-vue  https://github.com/SimulatedGREG/electron-vue   vue 在 electron环境下的脚手架">
+  
+    <link rel="alternate" href="/atom.xml" title="Float&#39;s blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Electron" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2018/08/13/Electron/" class="article-date">
+	  <time datetime="2018-08-13T09:06:58.216Z" itemprop="datePublished">2018-08-13</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Electron"><a href="#Electron" class="headerlink" title="Electron"></a>Electron</h1><p>使用javascript, html, css 构建跨平台桌面应用</p>
+<blockquote>
+<p><a href="https://electronjs.org/" target="_blank" rel="noopener">https://electronjs.org/</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i electron@latest</span><br></pre></td></tr></table></figure>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>[TOC]</p>
+<h3 id="封装-打包-amp-脚手架模版"><a href="#封装-打包-amp-脚手架模版" class="headerlink" title="封装/打包 &amp; 脚手架模版"></a>封装/打包 &amp; 脚手架模版</h3><ul>
+<li><p><strong>electron-vue</strong></p>
+<blockquote>
+<p><a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener">https://github.com/SimulatedGREG/electron-vue</a></p>
+</blockquote>
+<blockquote>
+<p>vue 在 electron环境下的脚手架</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化项目结构</span></span><br><span class="line">vue init simulatedgreg/electron-vue my-project</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> my-project</span><br><span class="line">yarn </span><br><span class="line"><span class="comment"># 开发模式</span></span><br><span class="line">yarn run dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译生成二进制文件</span></span><br><span class="line">yarn run build</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>electron-forge</strong></p>
+<blockquote>
+<p>可打包成二进制文件</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/electron-userland/electron-forge" target="_blank" rel="noopener">https://github.com/electron-userland/electron-forge</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @electron-forge/cli@beta</span><br><span class="line">electron-forge init my-new-app</span><br><span class="line"><span class="built_in">cd</span> my-new-app</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开发模式下打开应用</span></span><br><span class="line">npm start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成二进制文件</span></span><br><span class="line">npm run package</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成二进制文件的压缩包</span></span><br><span class="line">npm run make</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用说明, 两种方法</p>
+</blockquote>
+<ul>
+<li>使用electron-forge init projectname 来初始化项目, 然后在此项目内开发</li>
+<li>基于已有的项目, 把package.json文件内的 script , config, dependencies 和 devDependdencies 复制进来</li>
+</ul>
+</li>
+<li><p><strong>electron-packager</strong></p>
+<blockquote>
+<p><a href="https://github.com/electron-userland/electron-packager" target="_blank" rel="noopener">https://github.com/electron-userland/electron-packager</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">electron-packager &lt;sourcedir&gt; &lt;appname&gt; --platform=&lt;platform&gt; --arch=&lt;arch&gt; [optional flags...]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>electron-builder</strong></p>
+<blockquote>
+<p><a href="https://github.com/electron-userland/electron-builder" target="_blank" rel="noopener">https://github.com/electron-userland/electron-builder</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download </span></span><br><span class="line">yarn add electron-builder --dev</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><h4 id="app"><a href="#app" class="headerlink" title="app"></a>app</h4><blockquote>
+<p>主线程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/app" target="_blank" rel="noopener">https://electronjs.org/docs/api/app</a></p>
+</blockquote>
+<blockquote>
+<p>监听应用程序的生命周期, 控制窗口操作</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line">app.on(<span class="string">'window-all-closed'</span>, () =&gt; &#123;</span><br><span class="line">    app.quit()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使程序获得焦点</span></span><br><span class="line">app.focus() </span><br><span class="line"></span><br><span class="line"><span class="comment">// 退出程序</span></span><br><span class="line">app.quit()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐藏程序</span></span><br><span class="line">app.hide()</span><br></pre></td></tr></table></figure>
+<h4 id="BrowserWindow"><a href="#BrowserWindow" class="headerlink" title="BrowserWindow"></a>BrowserWindow</h4><blockquote>
+<p><a href="https://electronjs.org/docs/api/browser-window" target="_blank" rel="noopener">https://electronjs.org/docs/api/browser-window</a></p>
+</blockquote>
+<blockquote>
+<p>创建或销毁窗口 </p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BowserWindow &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>).remote</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> win = <span class="keyword">new</span> BowserWindow(&#123;</span><br><span class="line">    width: <span class="number">400</span>,</span><br><span class="line">    height: <span class="number">400</span>,</span><br><span class="line">    minWidth: <span class="number">400</span>,</span><br><span class="line">    minHeight: <span class="number">400</span>,</span><br><span class="line">    resizable: <span class="literal">true</span>,</span><br><span class="line">    frame: <span class="literal">false</span>, <span class="comment">// 无边框</span></span><br><span class="line">    show: <span class="literal">true</span>, <span class="comment">// 显示或隐藏</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">win.loadURL(path.join(<span class="string">`file://<span class="subst">$&#123;__dirname&#125;</span>/app/index.html`</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听页面 window.close() 事件</span></span><br><span class="line">win.on(<span class="string">'close'</span>, () =&gt; &#123;</span><br><span class="line">    app = <span class="literal">null</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听页面的crash事件并给出提示框</span></span><br><span class="line">win.on(<span class="string">'crash'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> option = &#123;</span><br><span class="line">      type: <span class="string">'info'</span>,</span><br><span class="line">      message: <span class="string">'This process has crashed.'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    electron.dialog.showMessageDialog(option, fn)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">win.on(<span class="string">'move'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    app.getSize() <span class="comment">// 获得尺寸</span></span><br><span class="line">    app.getPosition() <span class="comment">// 获得位置</span></span><br><span class="line">&#125;)</span><br><span class="line">win.on(<span class="string">'resize'</span>, fn)</span><br><span class="line">win.show()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>app/index.html</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:window.close()"</span>&gt;</span>点击关闭窗口<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:process.crash()"</span>&gt;</span>点击触发crash<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="dialog-对话框"><a href="#dialog-对话框" class="headerlink" title="dialog 对话框"></a>dialog 对话框</h4><blockquote>
+<p><a href="https://electronjs.org/docs/api/dialog" target="_blank" rel="noopener">https://electronjs.org/docs/api/dialog</a></p>
+</blockquote>
+<blockquote>
+<p>打开文件夹</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; dialog &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>).remote</span><br><span class="line"></span><br><span class="line">dialog.showOpenDialog(&#123;</span><br><span class="line">    properties: [<span class="string">'openDirectory'</span>, <span class="string">'openFile'</span>, <span class="string">'multiSelections'</span>],<span class="comment">//允许选择目录,文件,多选 </span></span><br><span class="line">    defaultPath: <span class="string">''</span>, <span class="comment">// 默认打开路径</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">filePaths</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// filePaths 为路径数组</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>保存文件操作</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dialog.showSaveDialog(&#123;</span><br><span class="line">    defaultPath: <span class="string">''</span>,</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">filename</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>系统通知对话框</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dialog.showMessageDialog(&#123;</span><br><span class="line">    type: <span class="string">'info'</span>,</span><br><span class="line">    title: <span class="string">'Renderer Process Crashed'</span>,</span><br><span class="line">    message: <span class="string">'This process has crashed.'</span>,</span><br><span class="line">    buttons: [<span class="string">'Reload'</span>, <span class="string">'Close'</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="IpcRenderer"><a href="#IpcRenderer" class="headerlink" title="IpcRenderer"></a>IpcRenderer</h4><blockquote>
+<p>从渲染进程到主进程的异步通讯</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/ipc-renderer" target="_blank" rel="noopener">https://electronjs.org/docs/api/ipc-renderer</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 绑定信道事件</span></span><br><span class="line">ipcRenderer.on(channel, <span class="function"><span class="keyword">function</span> (<span class="params">event, arg</span>) </span>&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 向主进程发送事件</span></span><br><span class="line">ipcRenderer.send(channel, args)</span><br></pre></td></tr></table></figure>
+<h4 id="ipcMain"><a href="#ipcMain" class="headerlink" title="ipcMain"></a>ipcMain</h4><blockquote>
+<p>从主进程到渲染进程通讯</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/ipc-main" target="_blank" rel="noopener">https://electronjs.org/docs/api/ipc-main</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipcMain.on(channel, <span class="function"><span class="keyword">function</span> (<span class="params">event, arg</span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h4><blockquote>
+<p>渲染进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/remote" target="_blank" rel="noopener">https://electronjs.org/docs/api/remote</a></p>
+</blockquote>
+<blockquote>
+<p>在渲染进程中使用主进程模块, 方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>).remote</span><br><span class="line"><span class="keyword">let</span> win = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">    width: <span class="number">700</span>,</span><br><span class="line">    height: <span class="number">700</span>,</span><br><span class="line">&#125;)</span><br><span class="line">win.loadURL(<span class="string">'http://www.github.com'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="globalShortcut"><a href="#globalShortcut" class="headerlink" title="globalShortcut"></a>globalShortcut</h4><blockquote>
+<p>快捷键监听</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/accelerator" target="_blank" rel="noopener">https://electronjs.org/docs/api/accelerator</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app, globalShortcut &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line">app.on(<span class="string">'ready'</span>, () =&gt; &#123;</span><br><span class="line">    globalShortcut.register(<span class="string">'CommandOrControl+Y'</span>, () =&gt; &#123;</span><br><span class="line">        <span class="comment">// do something </span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="clipboard"><a href="#clipboard" class="headerlink" title="clipboard"></a>clipboard</h4><blockquote>
+<p>主线程, 渲染进程可用 </p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/clipboard" target="_blank" rel="noopener">https://electronjs.org/docs/api/clipboard</a></p>
+</blockquote>
+<blockquote>
+<p>剪贴板</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; clipboard &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 复制纯文本</span></span><br><span class="line">clipboard.writeText(<span class="string">'some string'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取剪贴板中的内容</span></span><br><span class="line"><span class="keyword">let</span> clipText = clipboard.readText()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 带有格式的文本</span></span><br><span class="line">clipboard.writeHTML(<span class="string">'&lt;p&gt;this is a p&lt;/p&gt;'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取带有格式的剪贴板内容</span></span><br><span class="line"><span class="keyword">let</span> clipHtml = clipboard.readHTML()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 复制图片到剪贴板</span></span><br><span class="line">clipboard.writeImage(image)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取剪贴板的图片</span></span><br><span class="line"><span class="keyword">let</span> img = clipboard.readImage()</span><br></pre></td></tr></table></figure>
+<h4 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h4><blockquote>
+<p>主进程, 渲染进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/shell" target="_blank" rel="noopener">https://electronjs.org/docs/api/shell</a></p>
+</blockquote>
+<blockquote>
+<p>系统级别调用命令</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; shell &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用默认浏览器打开网址</span></span><br><span class="line">shell.openExternal(<span class="string">'https://www.github.com'</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">// 在finder中显示文件 返回Boolean值, 成功为true, 失败为false</span></span><br><span class="line">shell.showItemInFolder(fullPath)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以默认应用打开文件 返回Boolean值, 成功为true, 失败为false</span></span><br><span class="line">shell.openItem(fullPath) </span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除文件 返回Boolean值, 成功为true, 失败为false</span></span><br><span class="line">shell.moveItemToTrash(fullPath)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 放出系统提示音</span></span><br><span class="line">shell.beep()</span><br></pre></td></tr></table></figure>
+<h4 id="systemPreferences"><a href="#systemPreferences" class="headerlink" title="systemPreferences"></a>systemPreferences</h4><blockquote>
+<p>主进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/system-preferences" target="_blank" rel="noopener">https://electronjs.org/docs/api/system-preferences</a></p>
+</blockquote>
+<blockquote>
+<p>获取 系统偏好设置</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sys = <span class="built_in">require</span>(<span class="string">'electron'</span>).systemPreferences</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否是黑暗模式 mac os有效</span></span><br><span class="line">sys.isDarkMode()</span><br></pre></td></tr></table></figure>
+<h4 id="tray"><a href="#tray" class="headerlink" title="tray"></a>tray</h4><blockquote>
+<p>主进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/tray" target="_blank" rel="noopener">https://electronjs.org/docs/api/tray</a></p>
+</blockquote>
+<blockquote>
+<p>系统托盘</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app, Menu, Tray &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"><span class="keyword">let</span> tray = <span class="literal">null</span></span><br><span class="line">app.on(<span class="string">'ready'</span>, () =&gt; &#123;</span><br><span class="line">    tray = <span class="keyword">new</span> Tray(<span class="string">'/path/to/myicon'</span>)</span><br><span class="line">    <span class="keyword">const</span> contextMenu.buildFromTemplate([</span><br><span class="line">        &#123;<span class="attr">label</span>: <span class="string">'Item1'</span>, <span class="attr">type</span>: <span class="string">'radio'</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">label</span>: <span class="string">'Item2'</span>, <span class="attr">type</span>: <span class="string">'radio'</span>, <span class="attr">checked</span>: <span class="literal">true</span>&#125;</span><br><span class="line">    ])</span><br><span class="line">    <span class="comment">// 设置鼠标提示</span></span><br><span class="line">    tray.setToolTip(<span class="string">'hello my guest'</span>)</span><br><span class="line">    <span class="comment">// 设置菜单内容</span></span><br><span class="line">    tray.setContextMenu(contextMenu)</span><br><span class="line">    <span class="comment">// 销毁托盘</span></span><br><span class="line">    tray.destory()</span><br><span class="line">    <span class="comment">// 设置图标</span></span><br><span class="line">    tray.setImage(image)</span><br><span class="line">    </span><br><span class="line">    tray.on(<span class="string">'click'</span>, (event, bounds, position) =&gt; &#123;</span><br><span class="line">        <span class="comment">// event 事件对象, bounds 系统托盘图标的边界, position 事件的位置信息</span></span><br><span class="line">    &#125;) </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h4><blockquote>
+<p>主进程, 渲染进程可用, 在 app 模块ready事件之后可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/screen" target="_blank" rel="noopener">https://electronjs.org/docs/api/screen</a></p>
+</blockquote>
+<blockquote>
+<p>检测屏幕, 光标位置信息</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> electron = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; app, BrowserWindow &#125; = electron</span><br><span class="line"></span><br><span class="line">app.on(<span class="string">'ready'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; screen &#125; = electron</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获得显示器长宽</span></span><br><span class="line">    <span class="keyword">const</span> &#123; width, height &#125; = screen.getPrimaryDisplay().workAreaSize</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获得所有显示器列表数组</span></span><br><span class="line">    <span class="keyword">const</span> displays = screen.getAllDisplays()</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取鼠标绝对位置</span></span><br><span class="line">    <span class="keyword">const</span> cursor = screen.getCursorScreenPoint()</span><br><span class="line">   	</span><br><span class="line">    <span class="comment">// 返回菜单的高度</span></span><br><span class="line">    <span class="keyword">const</span> menu = screen.getMenuBarHeight()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="session"><a href="#session" class="headerlink" title="session"></a>session</h4><blockquote>
+<p>主进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/session" target="_blank" rel="noopener">https://electronjs.org/docs/api/session</a></p>
+</blockquote>
+<blockquote>
+<p>管理浏览器会话, cookie, 缓存</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"><span class="keyword">let</span> win = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">    width: <span class="number">800</span>,</span><br><span class="line">    height: <span class="number">600</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">win.loadURL(<span class="string">'http://www.github.com'</span>)</span><br><span class="line"><span class="keyword">const</span> session = win.webContents.session</span><br><span class="line"><span class="built_in">console</span>.log(session.getUserAgent())</span><br></pre></td></tr></table></figure>
+<h4 id="Menu"><a href="#Menu" class="headerlink" title="Menu"></a>Menu</h4><blockquote>
+<p>主进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/menu" target="_blank" rel="noopener">https://electronjs.org/docs/api/menu</a></p>
+</blockquote>
+<blockquote>
+<p>创建原生应用菜单</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app, Menu &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> template = [</span><br><span class="line">    &#123;</span><br><span class="line">        label: <span class="string">'Edit'</span>,</span><br><span class="line">        submenu: [</span><br><span class="line">            &#123;<span class="attr">role</span>: <span class="string">'undo'</span>&#125;,</span><br><span class="line">            &#123;<span class="attr">role</span>: <span class="string">'redo'</span>&#125;,</span><br><span class="line">            &#123;<span class="attr">role</span>: <span class="string">'delete'</span>&#125;,</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> menu = Menu.buildFromTemplate(template)</span><br><span class="line">Menu.setApplicationMenu(menu)</span><br></pre></td></tr></table></figure>
+<h4 id="Notification"><a href="#Notification" class="headerlink" title="Notification"></a>Notification</h4><blockquote>
+<p> 主进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/notification" target="_blank" rel="noopener">https://electronjs.org/docs/api/notification</a></p>
+</blockquote>
+<blockquote>
+<p>系统通知栏</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Notification <span class="keyword">from</span> <span class="string">'electron'</span></span><br><span class="line"></span><br><span class="line">Notification.isSuported() <span class="comment">// 返回系统是否支持通知</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> opt = &#123;</span><br><span class="line">    title: <span class="string">'通知'</span>,</span><br><span class="line">    body: <span class="string">'这是一条通知'</span>,</span><br><span class="line">    icon: <span class="string">'/assets/img/nogify.png'</span>,</span><br><span class="line">    sound: <span class="string">'/assets/sound/notify.mp3'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> notify = <span class="keyword">new</span> Notification(opt)</span><br><span class="line"><span class="comment">// 显示这条通知</span></span><br><span class="line">notify.show()</span><br></pre></td></tr></table></figure>
+<h4 id="webContents"><a href="#webContents" class="headerlink" title="webContents"></a>webContents</h4><blockquote>
+<p>主进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/web-contents" target="_blank" rel="noopener">https://electronjs.org/docs/api/web-contents</a></p>
+</blockquote>
+<blockquote>
+<p>渲染和控制web页面</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"><span class="keyword">let</span> win = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">    width: <span class="number">800</span>,</span><br><span class="line">    height: <span class="number">600</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> contents = win.webContents</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取app所有的web 页内容, 是一个数组</span></span><br><span class="line">contents.getAllWebContents()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前焦点的web 内容页</span></span><br><span class="line">contents.getFocusedWebContents()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主进程向渲染进程发消息</span></span><br><span class="line">contents.send(channel, <span class="function"><span class="keyword">function</span> (<span class="params">args</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// do someting </span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="webFrame"><a href="#webFrame" class="headerlink" title="webFrame"></a>webFrame</h4><blockquote>
+<p>渲染进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/web-frame" target="_blank" rel="noopener">https://electronjs.org/docs/api/web-frame</a></p>
+</blockquote>
+<blockquote>
+<p>自定义渲染页面</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; webFrame &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面放大2倍</span></span><br><span class="line">webFrame.setZoomFactor(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前页面的缩放倍数</span></span><br><span class="line">webFrame.getZoomFactor()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入text到焦点元素</span></span><br><span class="line">webFrame.insertText(text)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 释放不在使用的内存</span></span><br><span class="line">webFrame.clearCache()</span><br></pre></td></tr></table></figure>
+<h4 id="webView"><a href="#webView" class="headerlink" title="webView"></a>webView</h4><blockquote>
+<p>渲染进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/webview-tag" target="_blank" rel="noopener">https://electronjs.org/docs/api/webview-tag</a></p>
+</blockquote>
+<blockquote>
+<p>类似于iframe 在进程中显示独立的网页</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">webview</span> <span class="attr">id</span>=<span class="string">"view"</span> </span></span><br><span class="line"><span class="tag">         <span class="attr">src</span>=<span class="string">"https://www.github.com"</span> </span></span><br><span class="line"><span class="tag">         <span class="attr">plugins</span>                // 可以访问插件</span></span><br><span class="line"><span class="tag">         <span class="attr">preload</span>=<span class="string">"./test.js"</span>    // 指定事先加载脚本</span></span><br><span class="line"><span class="tag">         </span></span><br><span class="line"><span class="tag">         &gt;</span><span class="tag">&lt;/<span class="name">webview</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="powerMonitor"><a href="#powerMonitor" class="headerlink" title="powerMonitor"></a>powerMonitor</h4><blockquote>
+<p>主进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/power-monitor" target="_blank" rel="noopener">https://electronjs.org/docs/api/power-monitor</a></p>
+</blockquote>
+<blockquote>
+<p>监控系统级事件</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> electron = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; app &#125; = electron</span><br><span class="line"></span><br><span class="line"><span class="comment">// 必须在程序启动后监听系统电源事件</span></span><br><span class="line">app.on(<span class="string">'ready'</span>, () =&gt; &#123;</span><br><span class="line">    electron.powerMonitor.on(<span class="string">'suspend'</span>, () =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'the system is going to sleep'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="powerSaveBlocker"><a href="#powerSaveBlocker" class="headerlink" title="powerSaveBlocker"></a>powerSaveBlocker</h4><blockquote>
+<p>主进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/power-save-blocker" target="_blank" rel="noopener">https://electronjs.org/docs/api/power-save-blocker</a></p>
+</blockquote>
+<blockquote>
+<p>组织系统进入休眠状态</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; powerSaveBlocker &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 阻止系统休眠</span></span><br><span class="line"><span class="keyword">const</span> id = powerSaveBlocker.start(<span class="string">'prevent-display-sleep'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消</span></span><br><span class="line">powerSaveBlocker.stop(id)</span><br></pre></td></tr></table></figure>
+<h4 id="cookies"><a href="#cookies" class="headerlink" title="cookies"></a>cookies</h4><blockquote>
+<p>主线程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/cookies" target="_blank" rel="noopener">https://electronjs.org/docs/api/cookies</a></p>
+</blockquote>
+<blockquote>
+<p>查询和修改一个会话的cookies</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; session &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置cookie</span></span><br><span class="line"><span class="keyword">const</span> cookie = &#123;</span><br><span class="line">    url: <span class="string">'http:// www.github.com'</span>,</span><br><span class="line">    name: <span class="string">'dummy_name'</span>,</span><br><span class="line">    value: <span class="string">'dummy_value'</span>,</span><br><span class="line">&#125;</span><br><span class="line">session.defaultSession.cookies.set(cookie, err =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取cookie</span></span><br><span class="line">session.defaultSession.cookies.get(&#123;<span class="attr">url</span>: <span class="string">'http://www.github.com'</span>&#125;, (err, cookies) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err, cookies)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="DesktopCapturer"><a href="#DesktopCapturer" class="headerlink" title="DesktopCapturer"></a>DesktopCapturer</h4><blockquote>
+<p>渲染进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/desktop-capturer" target="_blank" rel="noopener">https://electronjs.org/docs/api/desktop-capturer</a></p>
+</blockquote>
+<blockquote>
+<p>录屏, 截屏</p>
+</blockquote>
+<h4 id="net"><a href="#net" class="headerlink" title="net"></a>net</h4><blockquote>
+<p>主进程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/net" target="_blank" rel="noopener">https://electronjs.org/docs/api/net</a></p>
+</blockquote>
+<blockquote>
+<p>使用Chromium的原生网络库发出HTTP / HTTPS请求</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; net &#125; = <span class="built_in">require</span>(<span class="string">'electron'</span>)</span><br><span class="line"><span class="keyword">const</span> request = net.request(<span class="string">'https://www.github.com'</span>)</span><br><span class="line">request.on(<span class="string">'response'</span>, res =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="client-request"><a href="#client-request" class="headerlink" title="client-request"></a>client-request</h4><blockquote>
+<p>主线程可用</p>
+</blockquote>
+<blockquote>
+<p><a href="https://electronjs.org/docs/api/client-request" target="_blank" rel="noopener">https://electronjs.org/docs/api/client-request</a></p>
+</blockquote>
+<blockquote>
+<p>发起http/https请求</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; ClientRequest &#125; = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> request = <span class="keyword">new</span> ClientRequest(&#123;</span><br><span class="line">    method: <span class="string">'GET'</span>,</span><br><span class="line">    protocol: <span class="string">'https:'</span>,</span><br><span class="line">    hostname: <span class="string">'github.com'</span>,</span><br><span class="line">    port: <span class="number">443</span>,</span><br><span class="line">    path: <span class="string">'/'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">request.on(<span class="string">'login'</span>, (authInfo) =&gt; &#123;&#125;)</span><br><span class="line">request.on(<span class="string">'response'</span>, res =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/wechatpay.JPG',
+  alipayImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/alipay.JPG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>float(zexiplus)</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/08/13/Electron/" target="_blank" title="">http://zexiplus.github.io/2018/08/13/Electron/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/13/Markdown/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/09/Requirejs/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Electron"><span class="nav-number">1.</span> <span class="nav-text">Electron</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.0.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装-打包-amp-脚手架模版"><span class="nav-number">1.0.2.</span> <span class="nav-text">封装/打包 &amp; 脚手架模版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API"><span class="nav-number">1.0.3.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#app"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">app</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BrowserWindow"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">BrowserWindow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dialog-对话框"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">dialog 对话框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IpcRenderer"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">IpcRenderer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ipcMain"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">ipcMain</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remote"><span class="nav-number">1.0.3.6.</span> <span class="nav-text">remote</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#globalShortcut"><span class="nav-number">1.0.3.7.</span> <span class="nav-text">globalShortcut</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clipboard"><span class="nav-number">1.0.3.8.</span> <span class="nav-text">clipboard</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shell"><span class="nav-number">1.0.3.9.</span> <span class="nav-text">shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#systemPreferences"><span class="nav-number">1.0.3.10.</span> <span class="nav-text">systemPreferences</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tray"><span class="nav-number">1.0.3.11.</span> <span class="nav-text">tray</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#screen"><span class="nav-number">1.0.3.12.</span> <span class="nav-text">screen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#session"><span class="nav-number">1.0.3.13.</span> <span class="nav-text">session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Menu"><span class="nav-number">1.0.3.14.</span> <span class="nav-text">Menu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Notification"><span class="nav-number">1.0.3.15.</span> <span class="nav-text">Notification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webContents"><span class="nav-number">1.0.3.16.</span> <span class="nav-text">webContents</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webFrame"><span class="nav-number">1.0.3.17.</span> <span class="nav-text">webFrame</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webView"><span class="nav-number">1.0.3.18.</span> <span class="nav-text">webView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#powerMonitor"><span class="nav-number">1.0.3.19.</span> <span class="nav-text">powerMonitor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#powerSaveBlocker"><span class="nav-number">1.0.3.20.</span> <span class="nav-text">powerSaveBlocker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookies"><span class="nav-number">1.0.3.21.</span> <span class="nav-text">cookies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DesktopCapturer"><span class="nav-number">1.0.3.22.</span> <span class="nav-text">DesktopCapturer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#net"><span class="nav-number">1.0.3.23.</span> <span class="nav-text">net</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#client-request"><span class="nav-number">1.0.3.24.</span> <span class="nav-text">client-request</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2018 Float&#39;s blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Float&#39;s blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 float(zexiplus) All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

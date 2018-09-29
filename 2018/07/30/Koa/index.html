@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Float&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="webFront javascript css html vue react nodejs " />
+  
+  
+  
+  
+  <meta name="description" content="koa 官方doc  link 笔记 link  catalogue[TOC] 1. koa app Index.js  123456789101112131415161718192021const Koa = require(&apos;koa&apos;)const app = new Koa()// compute response timeapp.use(async (ctx, next) =&amp;gt; &amp;#1">
+<meta name="keywords" content="webFront javascript css html vue react nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Float&#39;s blog">
+<meta property="og:url" content="http://zexiplus.github.io/2018/07/30/Koa/index.html">
+<meta property="og:site_name" content="Float&#39;s blog">
+<meta property="og:description" content="koa 官方doc  link 笔记 link  catalogue[TOC] 1. koa app Index.js  123456789101112131415161718192021const Koa = require(&apos;koa&apos;)const app = new Koa()// compute response timeapp.use(async (ctx, next) =&amp;gt; &amp;#1">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-10T02:52:06.099Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Float&#39;s blog">
+<meta name="twitter:description" content="koa 官方doc  link 笔记 link  catalogue[TOC] 1. koa app Index.js  123456789101112131415161718192021const Koa = require(&apos;koa&apos;)const app = new Koa()// compute response timeapp.use(async (ctx, next) =&amp;gt; &amp;#1">
+  
+    <link rel="alternate" href="/atom.xml" title="Float&#39;s blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Koa" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/30/Koa/" class="article-date">
+	  <time datetime="2018-07-30T07:13:44.512Z" itemprop="datePublished">2018-07-30</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="koa"><a href="#koa" class="headerlink" title="koa"></a>koa</h1><blockquote>
+<p>官方doc  <a href="https://koajs.com/" target="_blank" rel="noopener">link</a></p>
+<p>笔记 <a href="https://github.com/zexiplus/koa2-note" target="_blank" rel="noopener">link</a></p>
+</blockquote>
+<h4 id="catalogue"><a href="#catalogue" class="headerlink" title="catalogue"></a>catalogue</h4><p>[TOC]</p>
+<h4 id="1-koa-app"><a href="#1-koa-app" class="headerlink" title="1. koa app"></a>1. koa app</h4><blockquote>
+<p>Index.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line"></span><br><span class="line"><span class="comment">// compute response time</span></span><br><span class="line">app.use(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">	<span class="keyword">const</span> startTime = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">	<span class="keyword">await</span> next()</span><br><span class="line">	<span class="keyword">const</span> endTime = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">	<span class="keyword">const</span> time = endTime - startTime</span><br><span class="line">	</span><br><span class="line">	ctx.set(<span class="string">'X-Response-Time'</span>, <span class="string">`<span class="subst">$&#123;time&#125;</span>ms`</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">	ctx.body = <span class="string">'hello world'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'the server is listenning at 3000 port'</span>)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>app’s attributes</th>
+<th>using</th>
+<th>explian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app.listen</td>
+<td>app.listen(3000)</td>
+<td>监听端口</td>
+</tr>
+<tr>
+<td>app.env</td>
+<td>app.env == ‘development’</td>
+<td>app环境变量</td>
+</tr>
+<tr>
+<td>app.use</td>
+<td>app.use(function (ctx, next) {})</td>
+<td>使用中间件</td>
+</tr>
+<tr>
+<td>app.keys</td>
+<td>app.keys = [‘name’, ‘xiaoxixi’]</td>
+<td>设置cookie</td>
+</tr>
+<tr>
+<td>app.context.db</td>
+<td>app.context.db = new Db()</td>
+<td>全局context 设置</td>
+</tr>
+<tr>
+<td>app.slient</td>
+<td>app.slient = true</td>
+<td>关闭警告模式(error事件不会出发)</td>
+</tr>
+<tr>
+<td>app.on</td>
+<td>app.on(‘error \</td>
+<td>‘)</td>
+<td>监听事件</td>
+</tr>
+<tr>
+<td>app.proxy</td>
+<td>app.proxy = true</td>
+<td>设置代理</td>
+</tr>
+<tr>
+<td>app.callback()</td>
+<td>http.createServer(app.callback())</td>
+<td>返回可以被http/connect使用的回调函数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-middleware"><a href="#2-middleware" class="headerlink" title="2. middleware"></a>2. middleware</h4><h6 id="define-middleware"><a href="#define-middleware" class="headerlink" title="define middleware"></a>define middleware</h6><blockquote>
+<p>middleware/log.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span> (<span class="params"> ctx </span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`request method is <span class="subst">$&#123;ctx.method&#125;</span>`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`request header is <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(ctx.header)&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"> ctx, next </span>) </span>&#123;</span><br><span class="line">        log(ctx)</span><br><span class="line">        <span class="keyword">await</span> next()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="use-middleware"><a href="#use-middleware" class="headerlink" title="use middleware"></a>use middleware</h6><blockquote>
+<p>index.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> log = <span class="built_in">require</span>(<span class="string">'./middleware/log.js'</span>)</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line"></span><br><span class="line">app.use(log())</span><br></pre></td></tr></table></figure>
+<h4 id="3-router"><a href="#3-router" class="headerlink" title="3.router"></a>3.router</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 手动实现路由</span></span><br><span class="line"></span><br><span class="line">app.use(<span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> body</span><br><span class="line">    <span class="keyword">switch</span> (ctx.request.url) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'/'</span>:</span><br><span class="line">            body = <span class="string">'hello one'</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'/home'</span>:</span><br><span class="line">            body = <span class="string">'hello home'</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">    ctx.body = body</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// koa-router 中间件</span></span><br><span class="line"><span class="keyword">const</span> Router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义2个子路由</span></span><br><span class="line"><span class="keyword">const</span> config = <span class="keyword">new</span> Router()</span><br><span class="line"><span class="keyword">const</span> home = <span class="keyword">new</span> Router()</span><br><span class="line"></span><br><span class="line">home.get(<span class="string">'/one'</span>, ctx =&gt; &#123;</span><br><span class="line">   ctx.body = <span class="string">'home one'</span> </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">config.get(<span class="string">'/user'</span>, ctx =&gt; &#123;</span><br><span class="line">    ctx.body = <span class="string">'user'</span></span><br><span class="line">&#125;).get(<span class="string">'/setting'</span>, ctx =&gt; &#123;</span><br><span class="line">    ctx.body = setting</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建父路由，装载子路由</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> Router()</span><br><span class="line">router.use(<span class="string">'/home'</span>, home.routes(), home.allowedMethods())</span><br><span class="line">router.use(<span class="string">'/config'</span>, config.routes(), config.allowedMethods())</span><br><span class="line"></span><br><span class="line"><span class="comment">// app对象使用父路由</span></span><br><span class="line">app.use(router.routes()).use(router.allowedMethods())</span><br></pre></td></tr></table></figure>
+<h4 id="4-ctx"><a href="#4-ctx" class="headerlink" title="4.ctx"></a>4.ctx</h4><blockquote>
+<p><strong>context(ctx)</strong>  包含http-response 和 http-request 对象</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>ctx’s attributes</th>
+<th></th>
+<th>Explian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ctx.request</td>
+<td></td>
+<td>koa 请求对象</td>
+</tr>
+<tr>
+<td>ctx.response</td>
+<td></td>
+<td>koa 响应对象</td>
+</tr>
+<tr>
+<td>ctx.req</td>
+<td></td>
+<td>node http 请求</td>
+</tr>
+<tr>
+<td>ctx.res</td>
+<td></td>
+<td>node http 响应</td>
+</tr>
+<tr>
+<td>ctx.state</td>
+<td>ctx.state.user = db.find({name: ‘xiaoxixi’})</td>
+<td>推荐的命名空间</td>
+</tr>
+<tr>
+<td>ctx.app</td>
+<td></td>
+<td>对 app 引用</td>
+</tr>
+<tr>
+<td>ctx.cookies.set</td>
+<td>ctx.cookies.set(‘name’, ‘xiaoxix’, { signed: true })</td>
+<td>设置响应体cookie</td>
+</tr>
+<tr>
+<td>ctx.cookies.get</td>
+<td>ctx.cookies.get(‘name’)</td>
+<td>获取cookie</td>
+</tr>
+<tr>
+<td>ctx.throw</td>
+<td>ctx.throw(400, ‘not found’)</td>
+<td>手动抛出错误</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5-ctx-request"><a href="#5-ctx-request" class="headerlink" title="5. ctx.request"></a>5. ctx.request</h4><table>
+<thead>
+<tr>
+<th>ctx.request attribute</th>
+<th>alias</th>
+<th>Explian</th>
+<th>demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ctx.request.header</td>
+<td>ctx.header, ctx.request.headers,  ctx.headers</td>
+<td>请求头</td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.request.method</td>
+<td>ctx.method</td>
+<td>请求方法</td>
+<td>ctx.method = ‘post’</td>
+</tr>
+<tr>
+<td>ctx.request.origin</td>
+<td>ctx.origin</td>
+<td>请求源地址(协议和地址)</td>
+<td>=&gt;  <a href="http://bing.com" target="_blank" rel="noopener">http://bing.com</a></td>
+</tr>
+<tr>
+<td>ctx.request.length</td>
+<td></td>
+<td>请求长度  Content-Length</td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.request.url</td>
+<td>ctx.url</td>
+<td>请求url(不包括host)</td>
+<td>/path?a=123&amp;b=456</td>
+</tr>
+<tr>
+<td>ctx.requset.path</td>
+<td>ctx.path</td>
+<td>请求路径</td>
+<td>/path</td>
+</tr>
+<tr>
+<td>ctx.request.href</td>
+<td>ctx.href</td>
+<td>请求href(protocol, host and url)</td>
+<td>(<a href="http://example.com/foo/bar?q=1" target="_blank" rel="noopener">http://example.com/foo/bar?q=1</a>)</td>
+</tr>
+<tr>
+<td>ctx.request.queryString</td>
+<td>ctx.queryString</td>
+<td>查询字符串</td>
+<td>a=123&amp;b=456</td>
+</tr>
+<tr>
+<td>ctx.request.search</td>
+<td>ctx.search</td>
+<td>完整的查询字符串</td>
+<td>?a=123&amp;b=456</td>
+</tr>
+<tr>
+<td>ctx.request.host</td>
+<td>ctx.host</td>
+<td>请求的主机</td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.request.type</td>
+<td></td>
+<td>请求类型</td>
+<td>image/png</td>
+</tr>
+<tr>
+<td>ctx.request.charset</td>
+<td></td>
+<td>请求的字体类别</td>
+<td>‘utf-8’</td>
+</tr>
+<tr>
+<td>ctx.request.query</td>
+<td>ctx.query</td>
+<td>请求的查询对象</td>
+<td>ctx.request.query = {color: ‘blue’, age: 12}</td>
+</tr>
+<tr>
+<td>ctx.request.fresh</td>
+<td>ctx.fresh     true 没有改变，   false改变了</td>
+<td>请求体没有改变</td>
+<td>If (ctx.fresh) {ctx.status = 304}</td>
+</tr>
+<tr>
+<td>ctx.request.stale</td>
+<td>ctx.stale</td>
+<td>ctx.fresh的反义词</td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.request.secure</td>
+<td>ctx.secure</td>
+<td>检查协议是否为https</td>
+<td>ctx.protocol === ‘https’</td>
+</tr>
+<tr>
+<td>ctx.request.ip</td>
+<td>ctx.ip</td>
+<td>请求主机的ip</td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.request.ips</td>
+<td>ctx.ips</td>
+<td>请求主机的ip数组</td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.request.is(types)</td>
+<td>ctx.is(typs)</td>
+<td>判断请求的类型</td>
+<td>// With Content-Type: text/html; charset=utf-8 ctx.is(‘html’); // =&gt; ‘html’ ctx.is(‘text/html’); // =&gt; ‘text/html’ ctx.is(‘text/*’, ‘text/html’); // =&gt; ‘text/html’                                   ctx.is(‘text/json’) // =&gt; false</td>
+</tr>
+<tr>
+<td>ctx.request.accepts(types)</td>
+<td>ctx.accepts(types)</td>
+<td>判断请求的类型是否为可接受的</td>
+<td>// Accept: text/html ctx.accepts(‘html’); // =&gt; “html”</td>
+</tr>
+<tr>
+<td>ctx.request.acceptsEncoding()</td>
+<td>ctx.acceptsEncoding()</td>
+<td>判断可接受的编码类型</td>
+<td>// Accept-Encoding: gzip ctx.acceptsEncodings(‘gzip’, ‘deflate’, ‘identity’); // =&gt; “gzip”  ctx.acceptsEncodings([‘gzip’, ‘deflate’, ‘identity’]); // =&gt; “gzip”</td>
+</tr>
+<tr>
+<td>ctx.request.acceptsCharset()</td>
+<td>ctx.acceptsCharset()</td>
+<td>判断可接受的字符类型</td>
+<td>// Accept-Charset: utf-8, iso-8859-1;q=0.2, utf-7;q=0.5 ctx.acceptsCharsets(); // =&gt; [“utf-8”, “utf-7”, “iso-8859-1”]</td>
+</tr>
+<tr>
+<td>ctx.request.accerptsLanguages()</td>
+<td>ctx.acceptsLanguages()</td>
+<td>判断可接受的语言类型</td>
+<td>// Accept-Language: en;q=0.8, es, pt ctx.acceptsLanguages(‘es’, ‘en’); // =&gt; “es”  ctx.acceptsLanguages([‘en’, ‘es’]); // =&gt; “es”</td>
+</tr>
+<tr>
+<td>ctx.request.socket</td>
+<td></td>
+<td>返回request的socket连接对象</td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.request.get(filed)</td>
+<td></td>
+<td>获得请求头字段</td>
+<td>request.get(‘Content-Type‘)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-ctx-response"><a href="#6-ctx-response" class="headerlink" title="6.ctx.response"></a>6.ctx.response</h4><table>
+<thead>
+<tr>
+<th>ctx.response.attributes</th>
+<th>alias</th>
+<th>Explian</th>
+<th>Demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ctx.response.header</td>
+<td>ctx.response.headers</td>
+<td>响应头对象</td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.response.socket</td>
+<td></td>
+<td>响应socket</td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.response.status</td>
+<td>ctx.status</td>
+<td>获得/设置响应的状态码</td>
+<td>ctx.status=200              ctx.status  // =&gt; 304</td>
+</tr>
+<tr>
+<td>ctx.response.message</td>
+<td>ctx.message</td>
+<td>获得/设置响应的状态码信息</td>
+<td>ctx.message = ‘ok’              ctx.message // =&gt; ‘not found’</td>
+</tr>
+<tr>
+<td>ctx.response.length</td>
+<td>ctx.length</td>
+<td>获得/设置响应的长度</td>
+<td>ctx.length = 199                          ctx.length // =&gt; 300</td>
+</tr>
+<tr>
+<td>ctx.response.body</td>
+<td>ctx.body</td>
+<td>获得/设置响应体</td>
+<td>ctx.body = ‘hello world’              ctx.body // =&gt; ‘123’</td>
+</tr>
+<tr>
+<td>ctx.response.get(field)</td>
+<td></td>
+<td>获得相应头字段</td>
+<td>ctx.response.get(‘Content-Type’)</td>
+</tr>
+<tr>
+<td>ctx.response.append(field,val)</td>
+<td></td>
+<td>添加响应头字段</td>
+<td>ctx.response.append(‘Link’, ‘localhost’)</td>
+</tr>
+<tr>
+<td>ctx.response.set(object)</td>
+<td>ctx.set(object)</td>
+<td>设置响应头信息</td>
+<td>ctx.set({‘Etag’: ‘1234’,   ‘Last-Modified’: date })</td>
+</tr>
+<tr>
+<td>ctx.response.remove(field)</td>
+<td>ctx.remove(field)</td>
+<td>删除响应头字段</td>
+<td>ctx.remove(‘Content-Type’)</td>
+</tr>
+<tr>
+<td>ctx.response.type</td>
+<td></td>
+<td>获取/设置响应体类型</td>
+<td>ctx.response.type // =&gt; text/html                                 ctx.response.type = ‘image/png’</td>
+</tr>
+<tr>
+<td>ctx.response.is(types)</td>
+<td></td>
+<td>判断响应体的类型</td>
+<td>if(ctx.response.is(‘html’)) return</td>
+</tr>
+<tr>
+<td>ctx.response.redirect(url)</td>
+<td>ctx.redirect(url)</td>
+<td>响应跳转</td>
+<td>ctx.redirect(‘back’); ctx.redirect(‘back’, ‘/index.html’); ctx.redirect(‘/login’);      ctx.redirect(‘<a href="http://google.com&#39;)" target="_blank" rel="noopener">http://google.com&#39;)</a>;</td>
+</tr>
+<tr>
+<td>ctx.response.attachment(filename)</td>
+<td>ctx.attachment(filename)</td>
+<td>触发浏览器下载</td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.response.headerSent</td>
+<td>ctx.headerSent</td>
+<td>检查是否已经发送响应头</td>
+<td>if (ctx.headerSent) { // do}</td>
+</tr>
+<tr>
+<td>ctx.response.lastModified</td>
+<td>ctx.lastModified</td>
+<td>返回/设置Last-Modified响应头的日期对象</td>
+<td>ctx.lastModified = new Date();</td>
+</tr>
+<tr>
+<td>ctx.response.etag</td>
+<td>ctx.etag</td>
+<td></td>
+<td>ctx.etag = crypto.createHash(‘md5’).update(ctx.body).digest(‘hex’);</td>
+</tr>
+<tr>
+<td>ctx.response.vary(field)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ctx.response.flushHeaders()</td>
+<td></td>
+<td>刷新响应头，并开始响应体</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/wechatpay.JPG',
+  alipayImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/alipay.JPG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>float(zexiplus)</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/07/30/Koa/" target="_blank" title="">http://zexiplus.github.io/2018/07/30/Koa/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/30/Performance/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/30/Graphic/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#koa"><span class="nav-number">1.</span> <span class="nav-text">koa</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#catalogue"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">catalogue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-koa-app"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">1. koa app</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-middleware"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">2. middleware</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#define-middleware"><span class="nav-number">1.0.0.3.0.1.</span> <span class="nav-text">define middleware</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#use-middleware"><span class="nav-number">1.0.0.3.0.2.</span> <span class="nav-text">use middleware</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-router"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">3.router</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-ctx"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">4.ctx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-ctx-request"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">5. ctx.request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-ctx-response"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">6.ctx.response</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2018 Float&#39;s blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Float&#39;s blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 float(zexiplus) All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
