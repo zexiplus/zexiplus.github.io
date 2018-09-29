@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="网络协议原理收录了一些网络协议, 网络状态的总结 目录[TOC] 浏览器输入url后发生了什么？1.DNS域名解析；2.建立TCP连接；3.发送HTTP请求；4.服务器处理请求；5.返回响应结果； 6.关闭TCP连接； 7.浏览器解析HTML；8.浏览器布局渲染； 步骤详解 建立tcp连接   ​    客户端：“你好，在家不，有你快递。” ​    服务端：“在的，送来就行。” ​    客户端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/08/30/Network-protocol/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="网络协议原理收录了一些网络协议, 网络状态的总结 目录[TOC] 浏览器输入url后发生了什么？1.DNS域名解析；2.建立TCP连接；3.发送HTTP请求；4.服务器处理请求；5.返回响应结果； 6.关闭TCP连接； 7.浏览器解析HTML；8.浏览器布局渲染； 步骤详解 建立tcp连接   ​    客户端：“你好，在家不，有你快递。” ​    服务端：“在的，送来就行。” ​    客户端">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/08/30/Network-protocol/imgs/tcp.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/30/Network-protocol/imgs/http_request.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/30/Network-protocol/imgs/closeLink.jpg">
+<meta property="og:updated_time" content="2018-09-08T06:34:25.432Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="网络协议原理收录了一些网络协议, 网络状态的总结 目录[TOC] 浏览器输入url后发生了什么？1.DNS域名解析；2.建立TCP连接；3.发送HTTP请求；4.服务器处理请求；5.返回响应结果； 6.关闭TCP连接； 7.浏览器解析HTML；8.浏览器布局渲染； 步骤详解 建立tcp连接   ​    客户端：“你好，在家不，有你快递。” ​    服务端：“在的，送来就行。” ​    客户端">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/30/Network-protocol/imgs/tcp.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Network-protocol" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2018/08/30/Network-protocol/" class="article-date">
+	  <time datetime="2018-08-30T06:06:18.703Z" itemprop="datePublished">2018-08-30</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="网络协议原理"><a href="#网络协议原理" class="headerlink" title="网络协议原理"></a>网络协议原理</h1><p>收录了一些网络协议, 网络状态的总结</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>[TOC]</p>
+<h3 id="浏览器输入url后发生了什么？"><a href="#浏览器输入url后发生了什么？" class="headerlink" title="浏览器输入url后发生了什么？"></a>浏览器输入url后发生了什么？</h3><p>1.DNS域名解析；<br>2.建立TCP连接；<br>3.发送HTTP请求；<br>4.服务器处理请求；<br>5.返回响应结果；</p>
+<p>6.关闭TCP连接；</p>
+<p>7.浏览器解析HTML；<br>8.浏览器布局渲染；</p>
+<h4 id="步骤详解"><a href="#步骤详解" class="headerlink" title="步骤详解"></a>步骤详解</h4><ul>
+<li><strong>建立tcp连接</strong></li>
+</ul>
+<p><img src="./imgs/tcp.jpg" alt="tcp三次握手"></p>
+<p>​    客户端：“你好，在家不，有你快递。”</p>
+<p>​    服务端：“在的，送来就行。”</p>
+<p>​    客户端：“好嘞。”</p>
+<ul>
+<li><strong>发送http请求</strong></li>
+</ul>
+<p><img src="./imgs/http_request.jpg" alt="http-request"></p>
+<ul>
+<li><strong>关闭tcp连接</strong></li>
+</ul>
+<p><img src="./imgs/closeLink.jpg" alt="closeLink"></p>
+<pre><code>客户端：“兄弟，我这边没数据要传了，咱关闭连接吧。”
+
+服务端：“收到，我看看我这边有木有数据了。”
+
+服务端：“兄弟，我这边也没数据要传你了，咱可以关闭连接了。”
+
+客户端：“好嘞。”
+</code></pre><ul>
+<li><p><strong>浏览器解析html</strong></p>
+<p>浏览器需要加载解析的不仅仅是HTML，还包括CSS、JS。以及还要加载图片、视频等其他媒体资源。</p>
+<p>浏览器通过解析HTML，生成DOM树<strong>(dom tree)</strong>，解析CSS，生成CSS规则树，然后通过DOM树和CSS规则树生成渲染树。渲染树与DOM树不同，渲染树中并没有head、display为none等不必显示的节点。</p>
+<p>要注意的是，浏览器的解析过程并非是串连进行的，比如在解析CSS的同时，可以继续加载解析HTML，但在解析执行JS脚本时，会停止解析后续HTML，这就会出现阻塞问题。</p>
+</li>
+<li><p><strong>浏览器布局渲染</strong></p>
+<p>根据渲染树<strong>(render tree)</strong>布局，计算CSS样式，即每个节点在页面中的大小和位置等几何信息。HTML默认是流式布局的，CSS和js会打破这种布局，改变DOM的外观样式以及大小和位置。这时就要提到两个重要概念：replaint和reflow。</p>
+</li>
+</ul>
+<p>  <strong>replaint(重绘)</strong>：屏幕的一部分重画，不影响整体布局，比如某个CSS的背景色变了，但元素的几何尺寸和位置不               变。<br>    <strong>reflow(重构)</strong>： 意味着元件的几何尺寸变了，我们需要重新验证并计算渲染树。是渲染树的一部分或全部发生了变化。这就是Reflow，或是Layout。</p>
+<pre><code>所以我们应该尽量减少reflow和replaint，我想这也是为什么现在很少有用table布局的原因之一。
+
+最后浏览器绘制各个节点，将页面展示给用户。
+</code></pre><h3 id="http头信息"><a href="#http头信息" class="headerlink" title="http头信息"></a>http头信息</h3><ul>
+<li><p><strong>请求头对象例子</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    host: <span class="string">"localhost:3001"</span>,</span><br><span class="line">    referer: <span class="string">"localhost:3001/request"</span>,</span><br><span class="line">    connection: <span class="string">"keep-alive"</span>,</span><br><span class="line">    upgrade-insecure-requests: <span class="string">"1"</span>,</span><br><span class="line">    user-agent: <span class="string">"AppleWebKit/537.36 Chrome/67.0.3396.87 Safari/537.36"</span>,</span><br><span class="line">    accept: <span class="string">"text/html,application/xhtml+xml,image/webp,image/apng,*/*;q=0.8"</span>,</span><br><span class="line">    accept-encoding: <span class="string">"gzip, deflate, br"</span>,</span><br><span class="line">    accept-language: <span class="string">"zh-CN,zh;q=0.9,en;q=0.8,zh-HK;q=0.7"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>请求头信息</strong></p>
+<p>| 字段            | 含义                                                         |<br>| ————— | ———————————————————— |<br>| Accept          | 浏览器能够处理的内容类型                                     |<br>| Accept-Charset  | 浏览器能够显示的字符集                                       |<br>| Accept-Encoding | 浏览器能够处理的压缩编码                                     |<br>| Accept-Language | 浏览器当前设置的语言                                         |<br>| Host            | 发出请求的页面所在域                                         |<br>| Referer         | 发送请求页面的url                                            |<br>| Cookie          | 当前页面设置的任何cookie                                     |<br>| Connection      | 浏览器与服务器之间的连接类型,Connection : Keep-Alive 功能避免了建立或者重新建立连接, 超过5秒建立新的连接， 最大请求100次, connection: ‘keep-alive, timeout = 5,max = 100’ |<br>| User-Agent      | 浏览器类型字符串                                             |</p>
+</li>
+<li><p><strong>响应头信息</strong></p>
+<blockquote>
+<p>expires 和 cache-control : max-age = 1000 与缓存有关， expires 是一个过期日期， max-age是时长， 二者可以相互推算</p>
+</blockquote>
+<p>| 响应头                   | 解释                                                         |<br>| ———————— | ———————————————————— |<br>| Allow                    | 服务器支持哪些请求方法（如GET、POST等）                      |<br>| Content-Encoding         | 文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。 |<br>| Content-Length           | 表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。 |<br>| Content-Type             | 表示后面的文档属于什么MIME类型。Servlet默认为text/plain，但通常需要显式地指定为text/html。 |<br>| Date                     | 当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦。 |<br>| Expires                  | 应该在什么时候认为文档已经过期，从而不再缓存它               |<br>| Last-Modified            | 文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304（Not Modified）状态。Last-Modified也可用setDateHeader方法来设置。 |<br>| Location                 | 表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302。 |<br>| Refresh                  | 表示浏览器应该在多少时间之后刷新文档，以秒计。除了刷新当前文档之外，你还可以通过setHeader(“Refresh”, “5; URL=<a href="http://host/path&quot;)让浏览器读取指定的页面。" target="_blank" rel="noopener">http://host/path&quot;)让浏览器读取指定的页面。</a> |<br>| Server                   | 服务器名字。Servlet一般不设置这个值，而是由Web服务器自己设置。 |<br>| Set-Cookie               | 设置和页面关联的Cookie。                                     |<br>| WWW-Authenticate         | 客户应该在Authorization头中提供什么类型的授权信息？在包含401（Unauthorized）状态行的应答中这个头是必需的。例如，response.setHeader(“WWW-Authenticate”, “BASIC realm=＼”executives＼””)。  。 |<br>| Etag                     | 是资源的特定版本识别符, 可以让缓存更高效,如果没有改变, web服务器不需要发送完整的响应. 例如  ETag  :  “33a64df551425fcc55e4d42a148795d9f25f89d4” |<br>| Cache-Control : no-cache | 缓存设置时间                                                 |</p>
+</li>
+</ul>
+<h3 id="http-状态"><a href="#http-状态" class="headerlink" title="http 状态"></a>http 状态</h3><ul>
+<li><p><strong>常用状态码</strong></p>
+<p>| status code | information                                    |<br>| ———– | ———————————————- |<br>| 200         | 请求成功                                       |<br>| 201         | 已创建, 请求成功并且服务器创建了新资源         |<br>| 202         | 已接受, 服务器已接受请求, 但尚未处理           |<br>| 304         | 未修改                                         |<br>| 301         | 永久移动                                       |<br>| 302         | 临时移动                                       |<br>| 400         | 参数错误                                       |<br>| 401         | 请求未授权                                     |<br>| 403         | 拒绝访问                                       |<br>| 404         | 地址不存在                                     |<br>| 405         | 客户端请求中的方法被禁止（一般是请求方式错误） |<br>| 500         | 服务器报错                                     |<br>| 501         | 尚未实施, 服务器还不存在请求功能               |<br>| 502         | 请求超时，无效网关                             |<br>| 503         | 服务器超载或者维护，无法响应                   |</p>
+</li>
+<li><p><strong>全部请求头</strong></p>
+<p>| status code | information                     |<br>| ———– | ——————————- |<br>| 100         | continue                        |<br>| 101         | switching protocols             |<br>| 102         | processing                      |<br>| 200         | ok                              |<br>| 201         | created                         |<br>| 202         | accepted                        |<br>| 203         | non-authoritative information   |<br>| 204         | no content                      |<br>| 205         | reset content                   |<br>| 206         | partial content                 |<br>| 207         | multi-status                    |<br>| 208         | already reported                |<br>| 226         | im used                         |<br>| 300         | multiple choices                |<br>| 302         | found                           |<br>| 303         | see other                       |<br>| 304         | not modified                    |<br>| 305         | use proxy                       |<br>| 307         | temporary redirect              |<br>| 308         | permanent redirect              |<br>| 400         | bad request                     |<br>| 401         | unauthorized                    |<br>| 402         | payment required                |<br>| 403         | forbidden                       |<br>| 404         | not found                       |<br>| 405         | method not allowed              |<br>| 406         | not acceptable                  |<br>| 407         | proxy authentication required   |<br>| 408         | request timeout                 |<br>| 409         | conflict                        |<br>| 410         | gone                            |<br>| 411         | length required                 |<br>| 412         | precondition failed             |<br>| 413         | payload too large               |<br>| 414         | uri too long                    |<br>| 415         | unsupported media type          |<br>| 416         | range not satisfiable           |<br>| 417         | expectation failed              |<br>| 418         | I’m a teapot                    |<br>| 422         | unprocessable entity            |<br>| 423         | locked                          |<br>| 424         | failed dependency               |<br>| 426         | upgrade required                |<br>| 428         | precondition required           |<br>| 429         | too many requests               |<br>| 431         | request header fields too large |<br>| 500         | internal server error           |<br>| 501         | not implemented                 |<br>| 502         | bad gateway                     |<br>| 503         | service unavailable             |<br>| 504         | gateway timeout                 |<br>| 505         | http version not supported      |<br>| 506         | variant also negotiates         |<br>| 507         | insufficient storage            |<br>| 508         | loop detected                   |<br>| 510         | not extended                    |<br>| 511         | network authentication required |</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>John Doe</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/08/30/Network-protocol/" target="_blank" title="">http://yoursite.com/2018/08/30/Network-protocol/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/30/Software-config/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/30/Linux/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络协议原理"><span class="nav-number">1.</span> <span class="nav-text">网络协议原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.0.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器输入url后发生了什么？"><span class="nav-number">1.0.2.</span> <span class="nav-text">浏览器输入url后发生了什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤详解"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">步骤详解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http头信息"><span class="nav-number">1.0.3.</span> <span class="nav-text">http头信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-状态"><span class="nav-number">1.0.4.</span> <span class="nav-text">http 状态</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 Hexo All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Hexo
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 John Doe All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

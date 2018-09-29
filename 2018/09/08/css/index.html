@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="cssLearn css and make pages pretty catalogue[TOC] design principle  移动优先原则，及默认的css样式为移动样式，然后通过媒体查询 用 桌面样式覆盖 整体字体在 14px 到 20px 之间 保持适当行距（1.5倍） 段落采用缩进或隔行，不能两者同时用，首段不用隔行或缩进   font-face 123456789101112131">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/09/08/css/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="cssLearn css and make pages pretty catalogue[TOC] design principle  移动优先原则，及默认的css样式为移动样式，然后通过媒体查询 用 桌面样式覆盖 整体字体在 14px 到 20px 之间 保持适当行距（1.5倍） 段落采用缩进或隔行，不能两者同时用，首段不用隔行或缩进   font-face 123456789101112131">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/09/08/css/imgs/font-style.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/08/css/imgs/3d.jpg">
+<meta property="og:updated_time" content="2018-09-18T03:51:05.842Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="cssLearn css and make pages pretty catalogue[TOC] design principle  移动优先原则，及默认的css样式为移动样式，然后通过媒体查询 用 桌面样式覆盖 整体字体在 14px 到 20px 之间 保持适当行距（1.5倍） 段落采用缩进或隔行，不能两者同时用，首段不用隔行或缩进   font-face 123456789101112131">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/08/css/imgs/font-style.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-css" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2018/09/08/css/" class="article-date">
+	  <time datetime="2018-09-08T06:57:48.422Z" itemprop="datePublished">2018-09-08</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="css"><a href="#css" class="headerlink" title="css"></a>css</h1><p>Learn css and make pages pretty</p>
+<h3 id="catalogue"><a href="#catalogue" class="headerlink" title="catalogue"></a>catalogue</h3><p>[TOC]</p>
+<h3 id="design-principle"><a href="#design-principle" class="headerlink" title="design principle"></a>design principle</h3><blockquote>
+<ol>
+<li>移动优先原则，及默认的css样式为移动样式，然后通过媒体查询 用 桌面样式覆盖</li>
+<li>整体字体在 14px 到 20px 之间</li>
+<li>保持适当行距（1.5倍）</li>
+<li>段落采用缩进或隔行，不能两者同时用，首段不用隔行或缩进</li>
+</ol>
+</blockquote>
+<h4 id="font-face"><a href="#font-face" class="headerlink" title="font-face"></a>font-face</h4><p><img src="./imgs/font-style.png" alt="font-style"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 定义字体 */</span></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'myfont'</span>; <span class="comment">/* 自定义名 */</span></span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>)  <span class="comment">/* 路径，格式 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 定义字体多种形态 */</span></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'Roboto'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'Roboto-Light-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>);</span><br><span class="line">  <span class="attribute">font-style</span>: normal;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">300</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'Roboto'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'Roboto-LightItalic-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>);</span><br><span class="line">  <span class="attribute">font-style</span>: italic;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">300</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'Roboto'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'Roboto-Bold-webfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>);</span><br><span class="line">  <span class="attribute">font-style</span>: normal;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用字体 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.use</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'Robot'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="responsive-img"><a href="#responsive-img" class="headerlink" title="responsive img"></a>responsive img</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 在retina 屏上加载standard-big.png图片, 标准屏幕加载standard.png图片, 老旧浏览器不支持srcset则加载src属性 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/standard.png"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">srcset</span>=<span class="string">"images/standard.png 1x, images/standard-big.png 2x"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">style</span>=<span class="string">"width: 100%"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 告知浏览器photo-big.jpg 2000px宽, photo-small.jpg 1000px宽，屏幕宽度大于960px以960px加载photo-big.jpg, 其他情况下以100%的宽度加载photo-small.jpg  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'images/photo-small.jpg'</span></span></span><br><span class="line"><span class="tag">         <span class="attr">srcset</span>=<span class="string">'images/photo-big.jpg 2000w,</span></span></span><br><span class="line"><span class="tag"><span class="string">                 images/photo-small.jpg 1000w'</span></span></span><br><span class="line"><span class="tag">         <span class="attr">sizes</span>=<span class="string">'(min-width: 960px) 960px,</span></span></span><br><span class="line"><span class="tag"><span class="string">                100vw'</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在移动设备和宽屏设备加载不同的图片 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">picture</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">'(min-width: 401px)'</span></span></span><br><span class="line"><span class="tag">          <span class="attr">srcset</span>=<span class="string">'images/photo-big.jpg'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">media</span>=<span class="string">'(max-width: 400px)'</span></span></span><br><span class="line"><span class="tag">          <span class="attr">srcset</span>=<span class="string">'images/photo-tall.jpg'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'images/photo-small.jpg'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">picture</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="css-selector"><a href="#css-selector" class="headerlink" title="css selector"></a>css selector</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 选择前面有 &lt;p&gt; 元素的每个 &lt;ul&gt; 元素。 */</span></span><br><span class="line"><span class="selector-tag">p</span>~<span class="selector-tag">ul</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* pseudo-class */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 访问过且鼠标滑过的链接 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 选择.container 的第一个p元素 */</span></span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">p</span><span class="selector-pseudo">:first-of-type</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 选择.container 的最后一个p元素 */</span></span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-tag">p</span><span class="selector-pseudo">:last-of-type</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 属性选择器  class以foundicon- 开头的的元素 */</span></span><br><span class="line"><span class="selector-attr">[class*="foundicon-"]</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="BFC-block-formating-context"><a href="#BFC-block-formating-context" class="headerlink" title="BFC(block formating context)"></a>BFC(block formating context)</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 创建bfc</span></span><br><span class="line"><span class="comment">	float: 值不为none;</span></span><br><span class="line"><span class="comment">	position: 值不为static或relative;</span></span><br><span class="line"><span class="comment">	overflow: 值不为visible;</span></span><br><span class="line"><span class="comment">	display: 值为 table-cell, table-caption, inline-block, flex, inline-flex</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 最常用方法 */</span></span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="BFC的应用"><a href="#BFC的应用" class="headerlink" title="BFC的应用"></a>BFC的应用</h4><p>1.解决margin重叠（为每个带有margin的块包裹一个新的bfc）</p>
+<p>2.解决浮动元素无法撑开父元素的高度（给包父元素设置为bfc）</p>
+<p>3.解决文字环绕浮动元素（给包含文字的元素设置bfc）</p>
+<h4 id="media-queries"><a href="#media-queries" class="headerlink" title="media queries"></a>media queries</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> only screen and (min-width: <span class="number">401px</span>) and (max-width: <span class="number">960px</span>) &#123;</span><br><span class="line">    <span class="selector-id">#main</span> &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="FLOAT-layout"><a href="#FLOAT-layout" class="headerlink" title="FLOAT layout"></a>FLOAT layout</h4><ol>
+<li>clear: left; 排除 当前元素之前 float: left;元素对此元素的影响， 但之前元素的float: left仍对自身有效；</li>
+<li>如果一个父元素中有浮动元素，若让子元素撑开父元素的高度，方法一：在父元素末尾添加clear: both;的元素。方法二：在父元素增加 overflow: hidden;属性。</li>
+</ol>
+<h4 id="FLEX布局（flexible弹性布局）"><a href="#FLEX布局（flexible弹性布局）" class="headerlink" title="FLEX布局（flexible弹性布局）"></a>FLEX布局（flexible弹性布局）</h4><p><a href="https://codepen.io/zexiplus/pen/ELppKb" target="_blank" rel="noopener">demo1</a> <a href="https://codepen.io/zexiplus/pen/wjxbEN" target="_blank" rel="noopener">demo2</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">flex</span>;</span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">inline-flex</span>;</span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">-webkit-flex</span>; <span class="comment">/* Safari */</span></span><br><span class="line"><span class="comment">/* 注：容器设置为flex后，子元素自动成为容器成员， 子元素的float, clear, vertical-align 都将失效 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 容器上的5个属性 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 排列方向 */</span></span><br><span class="line">flex-direction: row | row-reverse | column | column-reverse;</span><br><span class="line"><span class="comment">/* 当flex-direction 从 row 变为 column 时，justify-content 的意义变为 align-items */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 换行规则  */</span></span><br><span class="line">flex-wrap: nowrap | wrap | wrap-reverse;</span><br><span class="line"><span class="comment">/* nowrap ： 不换行，所有item排列成一排，width ： 100% 被忽略 */</span></span><br><span class="line"><span class="comment">/* wrap ： 换行显示 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 水平对齐规则 */</span> </span><br><span class="line">justify-content: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line"><span class="comment">/* space-between: 等间隔排列 第一项前无间隔 */</span></span><br><span class="line"><span class="comment">/* space-around : 等间隔排列 第一项前有间隔 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 垂直对齐规则 */</span></span><br><span class="line">align-items: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line"><span class="comment">/* stretch: flex-item 被纵向拉伸至flex-contanier 一样的高度 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多轴对其规则 */</span></span><br><span class="line">align-content: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 子属性 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 宽度倍数 flex */</span></span><br><span class="line"><span class="selector-tag">flex</span>: <span class="selector-tag">initial</span>; <span class="comment">/* 原始宽度 */</span></span><br><span class="line"><span class="selector-tag">flex</span>: 1; <span class="comment">/* 单位宽度（若其他item没设置，则被拉伸填满）*/</span></span><br><span class="line"><span class="selector-tag">flex</span>: 2; <span class="comment">/* 单位宽度的两倍 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 排列顺序 default 0 用此属性改变排列顺序 */</span></span><br><span class="line"><span class="selector-tag">order</span>: &lt;<span class="selector-tag">integer</span>&gt;; </span><br><span class="line"></span><br><span class="line"><span class="comment">/* 如果存在剩余空间， 放大的倍数 */</span></span><br><span class="line"><span class="selector-tag">flex-grow</span>: &lt;<span class="selector-tag">number</span>&gt;; <span class="comment">/* default 0 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 如果空间不足， 缩小 */</span></span><br><span class="line"><span class="selector-tag">flex-shrink</span>: &lt;<span class="selector-tag">number</span>&gt;; <span class="comment">/* default 1 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 属性定义了在分配多余空间之前，项目占据的主轴空间（main size） */</span></span><br><span class="line">flex-basis: &lt;length&gt; | auto; /* default auto */</span><br><span class="line"></span><br><span class="line"><span class="comment">/* align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。 */</span></span><br><span class="line">align-self: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 其他 */</span></span><br><span class="line"><span class="selector-tag">margin-left</span>: <span class="selector-tag">auto</span>; <span class="comment">/* 会把item撑到右侧 */</span></span><br></pre></td></tr></table></figure>
+<h4 id="css-transition"><a href="#css-transition" class="headerlink" title="css-transition"></a>css-transition</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* transition */</span></span><br><span class="line"><span class="selector-class">.trans</span> &#123;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">1s</span> ease-out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="css3-3D"><a href="#css3-3D" class="headerlink" title="css3-3D"></a>css3-3D</h4><p><a href="https://codepen.io/zexiplus/pen/NMOVrX" target="_blank" rel="noopener">demo-cube</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 父元素设置之后，其后代元素便会有3d效果 */</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">trnasform-style</span>: preserve-<span class="number">3</span>d; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    perspective: 300px;  // 景深  </span><br><span class="line">    perspective-origin: 0px 0px; // 视角起始点</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.trans</span> &#123;</span><br><span class="line">   <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(10px, 10px, 10px) | <span class="built_in">translateX</span>(30px) | <span class="built_in">translateY</span>(30px) | 		      <span class="built_in">translateZ</span>(30px);</span><br><span class="line">   <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(90deg) | <span class="built_in">rotateY</span>(90deg) | <span class="built_in">rotateZ</span>(90deg);</span><br><span class="line">   <span class="attribute">transform</span>: <span class="built_in">scale3d</span>(1, 1, 1) | <span class="built_in">scaleX</span>(1.2) | <span class="built_in">scaleY</span>(1.2) |  <span class="built_in">scaleZ</span>(1.2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="./imgs/3d.jpg" alt="3d"></p>
+<h4 id="css-filter滤镜-组合能达到神奇的效果"><a href="#css-filter滤镜-组合能达到神奇的效果" class="headerlink" title="css: filter滤镜(组合能达到神奇的效果)"></a>css: filter滤镜(组合能达到神奇的效果)</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">// 灰度</span><br><span class="line"><span class="selector-class">.grayscale</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">grayscale</span>(1) // <span class="number">0</span>~<span class="number">1</span> 代表灰度</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 褐色</span><br><span class="line"><span class="selector-class">.sepia</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">sepia</span>(.5)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 饱和度</span><br><span class="line"><span class="selector-class">.saturate</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">saturate</span>(5)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 色相旋转 </span><br><span class="line"><span class="selector-class">.hue-rotate</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">hue-rotate</span>(90deg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 反色</span><br><span class="line"><span class="selector-class">.invert</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">invert</span>(1)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 透明度</span><br><span class="line"><span class="selector-class">.opacity</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">opacity</span>(.5)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 亮度</span><br><span class="line"><span class="selector-class">.brightness</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">brightness</span>(2)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 对比度</span><br><span class="line"><span class="selector-class">.contrast</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">contrast</span>(.4)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 模糊</span><br><span class="line"><span class="selector-class">.blur</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(10px)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 阴影</span><br><span class="line"><span class="selector-class">.drop-shadow</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(5px 5px 10px #ccc)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="css-实现长宽比例一致div容器"><a href="#css-实现长宽比例一致div容器" class="headerlink" title="css 实现长宽比例一致div容器"></a>css 实现长宽比例一致div容器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">”container”</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">”dummy”</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">”content”</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 原理：父容器设置一个bfc（overflow：hidden），让子元素能撑开父元素，站位dummy div设置margen-top为100%，把父元素的高度撑到和其宽一样，.content div用来放真正的内容 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>:relative;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="selector-class">.dummy</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">100%</span>; <span class="comment">/* 指代父容器宽度的 100% 撑开父元素 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="less"><a href="#less" class="headerlink" title="less"></a>less</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &amp; 指代自身</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// @定义变量</span></span><br><span class="line"><span class="variable">@apple:</span> <span class="number">#fff</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用变量</span></span><br><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">@apple</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="others"><a href="#others" class="headerlink" title="others"></a>others</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 单行超出显示省略号：*/</span></span><br><span class="line"><span class="selector-tag">White-space</span><span class="selector-pseudo">:nowrap</span>;</span><br><span class="line"><span class="selector-tag">overflow</span><span class="selector-pseudo">:hidden</span>;</span><br><span class="line"><span class="selector-tag">text-overflow</span><span class="selector-pseudo">:ellipsis</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多行文本超出显示省略号 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">display</span><span class="selector-pseudo">:-webkit-box</span>;</span><br><span class="line"><span class="selector-tag">-webkit-line-cap</span><span class="selector-pseudo">:3</span>;</span><br><span class="line"><span class="selector-tag">-webkit-box-orient</span>: <span class="selector-tag">vertical</span>;</span><br><span class="line"><span class="selector-tag">overflow</span><span class="selector-pseudo">:hidden</span>;</span><br><span class="line"><span class="selector-tag">text-overflow</span><span class="selector-pseudo">:ellipsis</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  单行文字均匀对齐 */</span></span><br><span class="line"><span class="selector-tag">text-align-last</span>: <span class="selector-tag">justify</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 不定宽元素居中 */</span></span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">table</span>;</span><br><span class="line"><span class="selector-tag">margin</span>: 0 <span class="selector-tag">auto</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 只允许在空格处换行 */</span></span><br><span class="line"><span class="selector-tag">word-wrap</span><span class="selector-pseudo">:break-word</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 设置起始，结束位置元素样式 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:last-child</span>&#123;&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:first-child</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 第n个p元素 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-child(n)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 缩放元素 */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">scale</span>(0<span class="selector-class">.6</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 滚动条样式 */</span></span><br><span class="line">1.	<span class="selector-pseudo">::-weskit-scrollbar</span> 滚动条整体部分</span><br><span class="line">2.	<span class="selector-pseudo">::-webkit-scrollbar-button</span> 滚动条两端的按钮</span><br><span class="line">3.	<span class="selector-pseudo">::-webkit-scrollbar-track</span> 外层轨道</span><br><span class="line">4.	<span class="selector-pseudo">::-webkit-scrollbar-track-piece</span> 内层轨道，滚动条中间部分（除去）</span><br><span class="line">5.	<span class="selector-pseudo">::-webkit-scrollbar-thumb</span> （滚动条里面可以拖动的那个）</span><br><span class="line">6.	<span class="selector-pseudo">::-webkit-scrollbar-corner</span> 边角</span><br><span class="line">7.	<span class="selector-pseudo">::-webkit-resizer</span> 定义右下角拖动块的样式</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 计算样式 */</span></span><br><span class="line"><span class="selector-tag">width</span>: <span class="selector-tag">calc</span>(~"100% <span class="selector-tag">-</span> 40<span class="selector-tag">px</span>");</span><br><span class="line"></span><br><span class="line">// :before , :after 伪类</span><br><span class="line"><span class="selector-class">.redStar</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">'*'</span>;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 可继承属性恢复初始值 */</span></span><br><span class="line"><span class="selector-tag">line-height</span>: <span class="selector-tag">initial</span>;</span><br><span class="line"><span class="selector-tag">font-size</span>: <span class="selector-tag">initial</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 内容可选择 */</span></span><br><span class="line">user-select: none | text | all | element</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 倍数行距 当前字体乘以1.3 */</span></span><br><span class="line"><span class="selector-tag">line-height</span>: 1<span class="selector-class">.3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 背景图片大小自适应元素宽度高度 */</span></span><br><span class="line"><span class="selector-tag">background-size</span>: 100% 100%;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>John Doe</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/09/08/css/" target="_blank" title="">http://yoursite.com/2018/09/08/css/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/09/08/shortCuts/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/08/debug/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#css"><span class="nav-number">1.</span> <span class="nav-text">css</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#catalogue"><span class="nav-number">1.0.1.</span> <span class="nav-text">catalogue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#design-principle"><span class="nav-number">1.0.2.</span> <span class="nav-text">design principle</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#font-face"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">font-face</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#responsive-img"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">responsive img</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css-selector"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">css selector</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC-block-formating-context"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">BFC(block formating context)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC的应用"><span class="nav-number">1.0.2.5.</span> <span class="nav-text">BFC的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#media-queries"><span class="nav-number">1.0.2.6.</span> <span class="nav-text">media queries</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FLOAT-layout"><span class="nav-number">1.0.2.7.</span> <span class="nav-text">FLOAT layout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FLEX布局（flexible弹性布局）"><span class="nav-number">1.0.2.8.</span> <span class="nav-text">FLEX布局（flexible弹性布局）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css-transition"><span class="nav-number">1.0.2.9.</span> <span class="nav-text">css-transition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css3-3D"><span class="nav-number">1.0.2.10.</span> <span class="nav-text">css3-3D</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css-filter滤镜-组合能达到神奇的效果"><span class="nav-number">1.0.2.11.</span> <span class="nav-text">css: filter滤镜(组合能达到神奇的效果)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css-实现长宽比例一致div容器"><span class="nav-number">1.0.2.12.</span> <span class="nav-text">css 实现长宽比例一致div容器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less"><span class="nav-number">1.0.3.</span> <span class="nav-text">less</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#others"><span class="nav-number">1.0.4.</span> <span class="nav-text">others</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 Hexo All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Hexo
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 John Doe All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

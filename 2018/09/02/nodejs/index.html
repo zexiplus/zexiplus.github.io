@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="Nodejsnodejs 参考指南 Catalague[TOC] Module require过的文件会加载到缓存，所以多次 require 同一个文件（模块）不会重复加载 ( a-&amp;gt;b,b-&amp;gt;a )循环引用并不会报错，导致的结果是 require 的结果是空对象 {}，原因是 b require 了 a，a 又去 require 了 b，此时 b 还没初始化好，所以只能拿到初始值 {">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/09/02/nodejs/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Nodejsnodejs 参考指南 Catalague[TOC] Module require过的文件会加载到缓存，所以多次 require 同一个文件（模块）不会重复加载 ( a-&amp;gt;b,b-&amp;gt;a )循环引用并不会报错，导致的结果是 require 的结果是空对象 {}，原因是 b require 了 a，a 又去 require 了 b，此时 b 还没初始化好，所以只能拿到初始值 {">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-19T06:47:56.863Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Nodejsnodejs 参考指南 Catalague[TOC] Module require过的文件会加载到缓存，所以多次 require 同一个文件（模块）不会重复加载 ( a-&amp;gt;b,b-&amp;gt;a )循环引用并不会报错，导致的结果是 require 的结果是空对象 {}，原因是 b require 了 a，a 又去 require 了 b，此时 b 还没初始化好，所以只能拿到初始值 {">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-nodejs" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2018/09/02/nodejs/" class="article-date">
+	  <time datetime="2018-09-02T12:51:47.045Z" itemprop="datePublished">2018-09-02</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Nodejs"><a href="#Nodejs" class="headerlink" title="Nodejs"></a>Nodejs</h1><p>nodejs 参考指南</p>
+<h2 id="Catalague"><a href="#Catalague" class="headerlink" title="Catalague"></a>Catalague</h2><p>[TOC]</p>
+<h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><ul>
+<li>require过的文件会加载到缓存，所以多次 require 同一个文件（模块）不会重复加载</li>
+<li>( a-&gt;b,b-&gt;a )循环引用并不会报错，导致的结果是 require 的结果是空对象 {}，原因是 b require 了 a，a 又去 require 了 b，此时 b 还没初始化好，所以只能拿到初始值 {}</li>
+<li>module.exports 初始值为一个空对象 {}</li>
+<li>exports 是指向的 module.exports 的引用</li>
+<li>require() 返回的是 module.exports 而不是 exports</li>
+<li><strong>require.cache</strong>  保存了当前模块引用的所有模块</li>
+</ul>
+<h2 id="Node-REPL"><a href="#Node-REPL" class="headerlink" title="Node REPL"></a>Node REPL</h2><ul>
+<li>.break 退出noderepl</li>
+<li>.help 查看所有node repl命令</li>
+</ul>
+<h2 id="Develop-Cli"><a href="#Develop-Cli" class="headerlink" title="Develop Cli"></a>Develop Cli</h2><blockquote>
+<p>常用node开发调试 cli命令</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看npm 配置 (全局node_modules路径位置之类)</span></span><br><span class="line">npm config list </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置npm配置npm install 全局安装路径</span></span><br><span class="line">npm config set prefix /usr/local/node_modules</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 检查node代码</span></span><br><span class="line">node inspect myscript.js</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 根据进程端口查看进程信息</span></span><br><span class="line">lsof -i :3000</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 根据pid 杀死进程</span></span><br><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure>
+<h2 id="Built-in-module"><a href="#Built-in-module" class="headerlink" title="Built-in module"></a>Built-in module</h2><h4 id="os"><a href="#os" class="headerlink" title="os"></a>os</h4><blockquote>
+<p><strong>获取系统信息</strong></p>
+</blockquote>
+<blockquote>
+<p><a href="http://nodejs.cn/api/os.html#os_os_platform" target="_blank" rel="noopener">http://nodejs.cn/api/os.html#os_os_platform</a></p>
+</blockquote>
+<ul>
+<li><p><strong>os.platform()</strong></p>
+<blockquote>
+<p>显示系统平台， 等价于 process.platform</p>
+</blockquote>
+<blockquote>
+<p>darwin - mac系统， win32 - window系统， linux- linux系统</p>
+</blockquote>
+</li>
+<li><p><strong>os.arch()</strong></p>
+<blockquote>
+<p>系统架构 例如 ‘x64’</p>
+</blockquote>
+</li>
+<li><p><strong>os.cpus()</strong></p>
+<blockquote>
+<p>返回系统的cpus数组</p>
+</blockquote>
+</li>
+<li><p><strong>os.userInfo()</strong></p>
+<blockquote>
+<p>返回用户信息</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">uid</span>: <span class="number">-1</span>,</span><br><span class="line">  gid: <span class="number">-1</span>,</span><br><span class="line">  username: <span class="string">'Administrator'</span>,</span><br><span class="line">  homedir: <span class="string">'C:\\Users\\Administrator'</span>,</span><br><span class="line">  shell: <span class="literal">null</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>os.hostname()</strong></p>
+<blockquote>
+<p>返回计算机主机名 例如 ipanel-pc</p>
+</blockquote>
+</li>
+<li><p><strong>os.homedir()</strong></p>
+<blockquote>
+<p>返回当前用户home目录路径 例如 ‘C:\Users\Administrator’</p>
+</blockquote>
+</li>
+<li><p><strong>os.freemem()</strong></p>
+<blockquote>
+<p>返回空闲系统内存字节数 例如 4228706304</p>
+</blockquote>
+</li>
+<li><p><strong>os.totalmem()</strong></p>
+<blockquote>
+<p>返回系统的总内存数</p>
+</blockquote>
+</li>
+<li><p><strong>os.networkInterfaces()</strong></p>
+<blockquote>
+<p>返回网络信息对象 ，如下</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="string">'本地连接 3'</span>:</span><br><span class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'fe80::94e1:8930:9f9c:b6c1'</span>,</span><br><span class="line">       netmask: <span class="string">'ffff:ffff:ffff:ffff::'</span>,</span><br><span class="line">       family: <span class="string">'IPv6'</span>,</span><br><span class="line">       mac: <span class="string">'6c:4b:90:0d:74:d3'</span>,</span><br><span class="line">      ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="cluster"><a href="#cluster" class="headerlink" title="cluster"></a>cluster</h4><blockquote>
+<p>集群</p>
+</blockquote>
+<blockquote>
+<p><a href="http://nodejs.cn/api/cluster.html" target="_blank" rel="noopener">http://nodejs.cn/api/cluster.html</a></p>
+</blockquote>
+<ul>
+<li><p><strong>cluster.isMaster</strong></p>
+<blockquote>
+<p>一个node程序只有一个主进程, 此方法返回当前程序是否在主进程</p>
+</blockquote>
+</li>
+<li><p><strong>cluster.fork()</strong></p>
+<blockquote>
+<p>只在<strong>主进程</strong>中可用, 复制出一个工作进程, 工作进程可以共享任意tcp连接</p>
+</blockquote>
+</li>
+<li><p><strong>cluster.workers</strong></p>
+<blockquote>
+<p>返回所有进程的对象, 以进程id为键, 的哈希表</p>
+</blockquote>
+</li>
+<li><p><strong>cluster.woker</strong></p>
+<blockquote>
+<p>当前工作对象的引用</p>
+</blockquote>
+</li>
+<li><p><strong>cluster.on(‘message’, function (worker, message, handle) {})</strong></p>
+<blockquote>
+<p>当<strong>主进程</strong>收到工作进程的任意消息时触发</p>
+</blockquote>
+</li>
+<li><p><strong>process.on(‘message’, function () {})</strong></p>
+<blockquote>
+<p>当<strong>工作进程</strong>收到主进程的消息时触发</p>
+</blockquote>
+</li>
+<li><p><strong>worker.send(message, [handle])</strong></p>
+<blockquote>
+<p>发送一个消息给<strong>工作进程或主进程</strong>，也可以附带发送一个handle</p>
+</blockquote>
+</li>
+<li><p><strong>process.send({msg: ‘hello’})</strong></p>
+<blockquote>
+<p>从工作进程中发送消息给主进程</p>
+</blockquote>
+</li>
+<li><p><strong>cluster.js demo</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cluster = <span class="built_in">require</span>(<span class="string">'cluster'</span>)</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cpuNum = <span class="built_in">require</span>(<span class="string">'os'</span>).cpus().length</span><br><span class="line"><span class="keyword">let</span> workers = []</span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; cpuNum; i ++) &#123;</span><br><span class="line">        workers.push(cluster.fork())</span><br><span class="line">        <span class="comment">// 向工作进程发送消息</span></span><br><span class="line">        workers[i].send(<span class="string">'hello child cluster'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    cluster.on(<span class="string">'exit'</span>, worker =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;worker.process.pid&#125;</span> 工作进程已退出`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 监听工作进程的消息事件</span></span><br><span class="line">    cluster.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">worker, msg</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`from worker message is<span class="subst">$&#123;msg&#125;</span>`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 监听来自主进程的消息事件</span></span><br><span class="line">    process.on(<span class="string">'message'</span>, msg =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`receive <span class="subst">$&#123;msg&#125;</span>`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        res.end(<span class="string">'hello world'</span>)</span><br><span class="line">        <span class="comment">// 向主进程发送消息</span></span><br><span class="line">        process.send(<span class="string">'the same to next'</span>)</span><br><span class="line">        cluster.worker.send(<span class="string">'i am a server'</span>)</span><br><span class="line">    &#125;).listen(<span class="number">3000</span>) <span class="comment">// 共享http端口</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="stream"><a href="#stream" class="headerlink" title="stream"></a>stream</h4><blockquote>
+<p>流， 分为可读，可写， 可读写 都是EventEmitter的实例</p>
+</blockquote>
+<blockquote>
+<p><a href="http://nodejs.cn/api/stream.html" target="_blank" rel="noopener">http://nodejs.cn/api/stream.html</a></p>
+</blockquote>
+<ul>
+<li><p><strong>事件</strong></p>
+<ul>
+<li><strong>data</strong> - 当有数据可读时触发。</li>
+</ul>
+<ul>
+<li><strong>end</strong> - 没有更多的数据可读时触发。</li>
+<li><strong>error</strong> - 在接收和写入过程中发生错误时触发。</li>
+<li><strong>finish</strong> - 所有数据已被写入到底层系统时触发。</li>
+</ul>
+</li>
+<li><p><strong>stream.Writable(obj)</strong></p>
+<blockquote>
+<p>创建可写流 , obj 必须要有_write方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; Writable &#125; = <span class="built_in">require</span>(<span class="string">'stream'</span>)</span><br><span class="line"><span class="keyword">const</span> writable = <span class="keyword">new</span> Writable(&#123;</span><br><span class="line">    _write(chunk, encoding, callback) &#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">        callback()</span><br><span class="line">    &#125; </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="buffer"><a href="#buffer" class="headerlink" title="buffer"></a>buffer</h4><blockquote>
+<p>node二进制数据</p>
+</blockquote>
+<ul>
+<li><p><strong>buf.toString(encoding)</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">buf.toString(<span class="string">'utf8'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="process"><a href="#process" class="headerlink" title="process"></a>process</h4><blockquote>
+<p>process 对象是全局对象， 不需要手动require引入</p>
+</blockquote>
+<blockquote>
+<p><a href="http://nodejs.cn/api/process.html" target="_blank" rel="noopener">http://nodejs.cn/api/process.html</a></p>
+</blockquote>
+<ul>
+<li><p><strong>process.env</strong></p>
+<blockquote>
+<p>系统环境变量</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 运行程序时设置环境变量 </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> windows </span></span><br><span class="line">set NODE_ENV=test node test.js  </span><br><span class="line"><span class="meta">#</span><span class="bash"> uinx</span></span><br><span class="line">NODE_ENV=test node test.js</span><br><span class="line"><span class="meta">#</span><span class="bash"> 跨平台</span></span><br><span class="line">npm i cross-env -g             </span><br><span class="line">cross-env NODE_ENV=test node test.js</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> node 程序中设置</span></span><br><span class="line">process.env.NODE_ENV = 'test'</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>process.exit(code)</strong></p>
+<blockquote>
+<p>指定当前进程立即退出</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以 success 方式退出node进程</span></span><br><span class="line">process.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以 fail 方式退出node进程</span></span><br><span class="line">process.exit(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>process.argv</strong></p>
+<blockquote>
+<p>运行node程序的参数数组</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node one.js hello world </span><br><span class="line"><span class="meta">#</span><span class="bash"> process.argv =&gt; [<span class="string">'/usr/bin/node'</span>, <span class="string">'/home/code/one.js'</span>, <span class="string">'hello'</span>, <span class="string">'world'</span>]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>process.cwd()</strong></p>
+<blockquote>
+<p>process.cwd() 代表 <strong>node 进程</strong>当前工作的目录,  <strong>__dirname</strong>只返回当前文件的路径</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /usr/lib/other.js</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`process.cwd is <span class="subst">$&#123;process.cwd()&#125;</span>`</span>) <span class="comment">// /usr/lib</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`__dirname is <span class="subst">$&#123;__dirname&#125;</span>`</span>)       <span class="comment">// /usr/lib</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// /usr/main.js</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./lib/other'</span>)</span><br><span class="line"><span class="comment">// /usr</span></span><br><span class="line"><span class="comment">// /usr/lib</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>process.nextTick(cb)</strong></p>
+<blockquote>
+<p>一旦当前事件轮询队列的任务全部完成 , 所有cb就会依次调用</p>
+</blockquote>
+</li>
+<li><p><strong>process.stdout</strong></p>
+<blockquote>
+<p>输出流， 是一个可写流， console.log 也属于process.stdout</p>
+</blockquote>
+<ul>
+<li><p><strong>process.stdout.write()</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把用户输入输出到终端</span></span><br><span class="line">process.stdin.pipe(process.stdout)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>process.stdin</strong></p>
+<blockquote>
+<p>输入流， 可读流</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">process.stdin.setEncoding(<span class="string">'utf8'</span>)</span><br><span class="line">process.stdin.on(<span class="string">'readable'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> chunk = process.stdin.read()</span><br><span class="line">    process.stdout.write(<span class="string">`receive data is <span class="subst">$&#123;chunk&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br><span class="line">process.stdin.on(<span class="string">'end'</span>, () =&gt; &#123;</span><br><span class="line">    process.stdout.write(<span class="string">'end'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>process.on(‘exit’, cb)</strong></p>
+<blockquote>
+<p>进程退出事件</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.on(<span class="string">'exit'</span>, code =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`退出码<span class="subst">$&#123;code&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>process.kill(pid[,signal])</strong></p>
+<blockquote>
+<p>结束进程</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.kill(<span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="child-process"><a href="#child-process" class="headerlink" title="child_process"></a>child_process</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cp = <span class="built_in">require</span>(<span class="string">'child_process'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// spawn 第一个参数命令，第二个参数 命令的参数</span></span><br><span class="line"><span class="keyword">let</span> ls = cp.spawn(<span class="string">'ls'</span>, [<span class="string">'-lh'</span>, <span class="string">'/usr'</span>])</span><br><span class="line">ls.stdout.on(<span class="string">'data'</span>, (data) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line">ls.stdin.on(<span class="string">'data'</span>, data =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line">ls.stderr.on(<span class="string">'data'</span>, err =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.err(err)</span><br><span class="line">&#125;)</span><br><span class="line">ls.on(<span class="string">'close'</span>, code =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`退出码<span class="subst">$&#123;code&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="path"><a href="#path" class="headerlink" title="path"></a>path</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//内置路径处理模块</span></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment">//return 'currPath/www'</span></span><br><span class="line">path.join(__dirname,<span class="string">'www/'</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment">//把路径解析为绝对路径的函数 返回 </span></span><br><span class="line">path.resolve(<span class="string">'/usr'</span>,<span class="string">'./local'</span>,<span class="string">'bin'</span>)   </span><br><span class="line"></span><br><span class="line"><span class="comment">// Returns: '/foo/bar/baz/asdf'</span></span><br><span class="line">path.join(<span class="string">'/foo'</span>, <span class="string">'bar'</span>, <span class="string">'baz/asdf'</span>, <span class="string">'quux'</span>, <span class="string">'..'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Returns:</span></span><br><span class="line"><span class="comment">// &#123; root: 'C:\\',//   dir: 'C:\\path\\dir',</span></span><br><span class="line"><span class="comment">//   base: 'file.txt',//   ext: '.txt',//   name: 'file' &#125;</span></span><br><span class="line">path.parse(<span class="string">'C:\\path\\dir\\file.txt'</span>);</span><br><span class="line">┌─────────────────────┬────────────┐</span><br><span class="line">│          dir        │    base    │</span><br><span class="line">├──────┬              ├──────┬─────┤</span><br><span class="line">│ root │              │ name │ ext │<span class="string">"  /    home/user/dir / file  .txt "</span></span><br><span class="line">└──────┴──────────────┴──────┴─────┘</span><br><span class="line"><span class="comment">// The path.resolve() method resolves a sequence of paths or path </span></span><br><span class="line"><span class="comment">// segments into an absolute path.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Returns: '/foo/bar/baz'</span></span><br><span class="line">path.resolve(<span class="string">'/foo/bar'</span>, <span class="string">'./baz'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Returns: '/tmp/file'</span></span><br><span class="line">path.resolve(<span class="string">'/foo/bar'</span>, <span class="string">'/tmp/file/'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// if the current working directory is /home/myself/node,</span></span><br><span class="line"><span class="comment">// this returns '/home/myself/node/wwwroot/static_files/gif/image.gif'</span></span><br><span class="line">path.resolve(<span class="string">'wwwroot'</span>, <span class="string">'static_files/png/'</span>, <span class="string">'../gif/image.gif'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="file-system"><a href="#file-system" class="headerlink" title="file-system"></a>file-system</h4><ul>
+<li><p><strong>File system flags</strong></p>
+<p>| Flag | detail                                                 |<br>| —- | —————————————————— |<br>| a    | 打开文件进行追加。如果文件不存在，则创建该文件         |<br>| a+   | 打开文件读取并追加。如果文件不存在，则创建该文件       |<br>| r    | 打开文件并读取。如果文件不存在，则发生异常             |<br>| r+   | 打开文件读取并写入。如果不存在，则发生异常             |<br>| w    | 打开文件并写入。如果文件不存在则创建，存在则覆盖       |<br>| w+   | 打开文件并读取和写入。如果文件不存在则创建，存在则覆盖 |</p>
+</li>
+<li><p><strong>fs.readDir</strong></p>
+<blockquote>
+<p>打开文件夹</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把一个文件夹下的文件拷贝到另一文件夹</span></span><br><span class="line">fs.readDir(path, (err, files) =&gt; &#123;</span><br><span class="line">    files.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        fs.writeFileSync(__dirname + <span class="string">'/copy'</span>, fs.readFileSync(__dirname + <span class="string">'/origin'</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>fs.mkdir</strong></p>
+<blockquote>
+<p>新建目录</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 若没有重名目录 则新建目录</span></span><br><span class="line">fs.existsSync(logFold) || fs.mkdirSync(logFold)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>fs.open</strong></p>
+<blockquote>
+<p>Open file</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line">fs.open(<span class="string">'test.txt'</span>, <span class="string">'r+'</span>, (err, fd) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">    <span class="built_in">console</span>.log(fd)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>fs.writeFile</strong></p>
+<blockquote>
+<p>Write file</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fs.writeFile(path, data, options, cb)</span></span><br><span class="line">fs.writeFile(<span class="string">'text.txt'</span>, <span class="string">'hello world'</span>, &#123;<span class="attr">encoding</span>: <span class="string">'utf8'</span>, <span class="attr">flag</span>: <span class="string">'w'</span>&#125;, err =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="built_in">console</span>.error(err)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// fs.write(fd, string, [position], [encoding], cb)</span></span><br><span class="line">fs.open(<span class="string">'test.txt'</span>, <span class="string">'a+'</span>, (err, fd) =&gt; &#123;</span><br><span class="line">    fs.write(fd, <span class="string">'hello world'</span>, err =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">    fs.close(fd, err =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="built_in">console</span>.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>fs.readFile</strong></p>
+<blockquote>
+<p>Read file</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fs.readFile(path, options, cb)</span></span><br><span class="line">fs.readFile(<span class="string">'test.txt'</span>, &#123;<span class="attr">encoding</span>: <span class="literal">null</span>, <span class="attr">flag</span>: <span class="string">'r'</span>&#125;, (err, data) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="built_in">console</span>.error(err)</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// fs.read(fd, buffer, offset, length, position, cb)</span></span><br><span class="line">fs.open(<span class="string">'test.txt'</span>, <span class="string">'r'</span>, (err, fd) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.error(err)</span><br><span class="line">    <span class="keyword">let</span> buffer = <span class="keyword">new</span> Buffer(<span class="number">1024</span>)</span><br><span class="line">    fs.read(fd, buffer, <span class="number">0</span>, buffer.length, <span class="number">0</span>, (err, bytes) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.error(err)</span><br><span class="line">        <span class="keyword">if</span> (bytes &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(buffer.slice(<span class="number">0</span>, bytes).toString())</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>fs.close</strong></p>
+<blockquote>
+<p>close file</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fs.close(fd, cb)</span></span><br><span class="line">fs.open(<span class="string">'test.txt'</span>, <span class="string">'r+'</span>, (err, fd) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">    fs.close(fd, err =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'close file successfully'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>fs.watch</strong></p>
+<blockquote>
+<p>监听文件/目录变化</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听filePath文件变化， 一旦改变，则运行回调函数</span></span><br><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line">	recursive: <span class="literal">true</span>, <span class="comment">// 如果是目录, 是否递归监听子目录, 默认false</span></span><br><span class="line">    encoding: <span class="string">'utf8'</span> <span class="comment">// 监听文件名的字符编码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fs.watch(<span class="string">'filePath'</span>, options,  (eventType, filename) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`current file state is <span class="subst">$&#123;curr.sate&#125;</span>`</span>)</span><br><span class="line">    cp.exec(<span class="string">'mv index.js index-dep.js'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>fs.createWriteStream</strong></p>
+<blockquote>
+<p>创建可写流</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> writableStream = fs.createWriteStream(path.join(__dirname, <span class="string">'../readme.md'</span>))</span><br><span class="line"><span class="keyword">let</span> chunk = <span class="string">'good good study day day up'</span></span><br><span class="line"><span class="comment">// 向可写流中写入数据</span></span><br><span class="line">writableStream.write(chunk)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="http"><a href="#http" class="headerlink" title="http"></a>http</h4><ul>
+<li><p><strong>server.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="comment">//最基本服务器</span></span><br><span class="line">http.createServer(<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(req.url == <span class="string">'/hello'</span>) &#123;</span><br><span class="line">    res.end(<span class="string">'hello'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(req.url == <span class="string">'/world'</span>) &#123;</span><br><span class="line">    res.end(<span class="string">'world'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).listen(<span class="number">6666</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>http method&amp;properties</strong></p>
+<ul>
+<li><p><strong>http.get(options, callback)</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">http.get(<span class="string">'http://nodejs.org/dist/index.json'</span>, (res) =&gt; &#123;</span><br><span class="line"><span class="keyword">const</span> &#123; statusCode &#125; = res;</span><br><span class="line"><span class="keyword">const</span> contentType = res.headers[<span class="string">'content-type'</span>];</span><br><span class="line"> </span><br><span class="line">res.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line"><span class="keyword">let</span> rawData = <span class="string">''</span>;</span><br><span class="line">res.on(<span class="string">'data'</span>, (chunk) =&gt; &#123; rawData += chunk; &#125;);</span><br><span class="line">res.on(<span class="string">'end'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> parsedData = <span class="built_in">JSON</span>.parse(rawData);</span><br><span class="line">    <span class="built_in">console</span>.log(parsedData);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(e.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> &#125;).on(<span class="string">'error'</span>, (e) =&gt; &#123;</span><br><span class="line"><span class="built_in">console</span>.error(<span class="string">`错误: <span class="subst">$&#123;e.message&#125;</span>`</span>);</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>http.request(options,[callback])</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> postData = querystring.stringify(&#123;</span><br><span class="line">     <span class="string">'msg'</span> : <span class="string">'Hello World!'</span></span><br><span class="line">   &#125;);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">const</span> options = &#123;</span><br><span class="line">     hostname: <span class="string">'www.google.com'</span>,</span><br><span class="line">     port: <span class="number">80</span>,</span><br><span class="line">     path: <span class="string">'/upload'</span>,</span><br><span class="line">     method: <span class="string">'POST'</span>,</span><br><span class="line">     headers: &#123;</span><br><span class="line">       <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span>,</span><br><span class="line">       <span class="string">'Content-Length'</span>: Buffer.byteLength(postData)</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">const</span> req = http.request(options, (res) =&gt; &#123;</span><br><span class="line">     res.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">     res.on(<span class="string">'data'</span>, (chunk) =&gt; &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">`响应主体: <span class="subst">$&#123;chunk&#125;</span>`</span>);</span><br><span class="line">     &#125;);</span><br><span class="line">     res.on(<span class="string">'end'</span>, () =&gt; &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'响应中已无数据。'</span>);</span><br><span class="line">     &#125;);</span><br><span class="line">   &#125;);</span><br><span class="line">   </span><br><span class="line">   req.on(<span class="string">'error'</span>, (e) =&gt; &#123;</span><br><span class="line">     <span class="built_in">console</span>.error(<span class="string">`请求遇到问题: <span class="subst">$&#123;e.message&#125;</span>`</span>);</span><br><span class="line">   &#125;);</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 写入数据到请求主体</span></span><br><span class="line">   req.write(postData);</span><br><span class="line">   req.end();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>response  methods&amp;properties</strong>                          </p>
+<ul>
+<li>res.<strong>setEncoding</strong>(‘utf-8’)                                      设置编码格式</li>
+<li>res.<strong>setHeader</strong>(‘Content-type’, ‘text/html’)      设置响应头</li>
+<li>res.<strong>headers</strong>[‘content-type’]                               获取content-type响应头</li>
+<li><p>res.<strong>resume</strong>()                                                        消耗res, 释放内存空间</p>
+</li>
+<li><p>res.<strong>writeHead</strong>(statusCode, [headers])     设置响应头和响应码，会和setHeader合并，setHeader优先级高</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">res.writeHead(<span class="number">200</span>, &#123;</span><br><span class="line">    <span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>, </span><br><span class="line">    <span class="string">'Content-Length'</span>: Buffer.length(body)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>request methods&amp;properties</strong></p>
+<ul>
+<li>req.<strong>headers</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="string">'host'</span>: <span class="string">'localhost:3001'</span>,</span><br><span class="line">  <span class="string">'connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">  <span class="string">'cache-control'</span>: <span class="string">'max-age=0'</span>,</span><br><span class="line">  <span class="string">'upgrade-insecure-requests'</span>: <span class="string">'1'</span>,</span><br><span class="line">  <span class="string">'user-agent'</span>: <span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) ...'</span>,</span><br><span class="line">  <span class="string">'accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,'</span>,</span><br><span class="line">  <span class="string">'accept-encoding'</span>: <span class="string">'gzip, deflate, br'</span>,</span><br><span class="line">  <span class="string">'accept-language'</span>: <span class="string">'zh-CN,zh;q=0.9,en;q=0.8,zh-HK;q=0.7'</span>,</span><br><span class="line">   <span class="string">'cookie'</span>: <span class="string">'name=float'</span>          <span class="comment">// cookie会随请求头一起发送至服务器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="dns"><a href="#dns" class="headerlink" title="dns"></a>dns</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dns = <span class="built_in">require</span>(<span class="string">'dns'</span>)</span><br><span class="line"><span class="comment">// dns.lookup 提供域名，解析出ip地址</span></span><br><span class="line">dns.lookup(<span class="string">'hostname'</span>, (err, ipAddress, ipVersion) =&gt; &#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// dns.resolve4 与 dns.lookup作用相同，实现不同</span></span><br><span class="line"><span class="comment">// dns.reverse 提供ip地址 反向解析出域名</span></span><br><span class="line"></span><br><span class="line">dns.resolve4(<span class="string">'hostname'</span>, (err, ipAddress) =&gt; &#123;</span><br><span class="line">    dns.reverse(ipAddress, (err, hostname) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(hostname)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// dns.Resolver 使用特定的值解析</span></span><br><span class="line"><span class="keyword">const</span> server = <span class="keyword">new</span> dns.Resolver([<span class="number">192.168</span><span class="number">.17</span><span class="number">.108</span>])</span><br><span class="line">server.resolve4(<span class="string">'hello.com'</span>, (err, ipAddress) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ipAddress) <span class="comment">// 192.168.17.108</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消解析</span></span><br><span class="line">server.cancel() </span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置和返回当前dns解析的ip数组</span></span><br><span class="line">server.setServers([<span class="string">'123.23.22.22'</span>])</span><br><span class="line">server.getServers()</span><br></pre></td></tr></table></figure>
+<h2 id="Async-operator-control"><a href="#Async-operator-control" class="headerlink" title="Async operator control"></a>Async operator control</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">var</span> <span class="built_in">Promise</span> = <span class="built_in">require</span>(<span class="string">'bluebird'</span>)  <span class="comment">//第三方promise模块，兼容</span></span><br><span class="line">global.Promise = <span class="built_in">Promise</span>           <span class="comment">//全局promise</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readFile</span>(<span class="params">filename</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">     fs.readFile(filename,(err, file) =&gt; &#123;</span><br><span class="line">       <span class="keyword">if</span>(err) &#123;</span><br><span class="line">          reject(err)</span><br><span class="line">       &#125;      </span><br><span class="line">       <span class="keyword">else</span> resolve(file)</span><br><span class="line">     &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">readFile(<span class="string">'./one.js'</span>).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//自己写的把普通函数转换为promise函数的函数</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.convertPromise = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> fn = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> args = [].slice.call(<span class="built_in">arguments</span>, <span class="number">0</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">          args.push(<span class="function"><span class="keyword">function</span> (<span class="params">err, file</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(err) &#123;</span><br><span class="line">              reject(err)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">              resolve(file)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">    	  fn.apply(<span class="literal">null</span>, args)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> readFile2 = fs.readFile.convertPromise()</span><br><span class="line">readFile2(<span class="string">'./one.js'</span>).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  	<span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Package-json"><a href="#Package-json" class="headerlink" title="Package.json"></a>Package.json</h2><ul>
+<li><p><strong>dependency</strong></p>
+<blockquote>
+<p>主版本号.次版本号.修正号</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>主版本号：当你做了不兼容的API 修改，</li>
+<li>次版本号：当你做了向下兼容的功能性新增，</li>
+<li>修订号：当你做了向下兼容的问题修正</li>
+</ul>
+</blockquote>
+<p>| 表达式                                | 版本范围             | 说明                                                         |<br>| ————————————- | ——————– | ———————————————————— |<br>| 1.2.1                                 | 1.2.1                | 匹配指定版本，这里是匹配1.2.1。                              |<br>| ^1.0.0                                | &gt;=1.0.0 且 &lt;2.0.0    | <code>^</code>表示与指定的版本兼容，左边第一个非0字段不可变，后面的可变 |<br>| ^5.x                                  | &gt;=5.0.0 且 &lt;6.0.0    | 同上                                                         |<br>| ~0.1.1                                | &gt;=0.1.1 且 &lt;0.2.0    | <code>~</code>表示约等于版本，如果存在次版本号，则允许修订号为最高的，否则允许次版本为最高，如 ~1匹配&gt;=1.0.0 且 &lt;2.0.0 |<br>| *                                     | 匹配 &gt;=0.0.0         | 通配符                                                       |<br>| &gt;=3.0.0                               | &gt;=3.0.0              | 其他符号还有&lt;,&lt;=,&gt;,&gt;=,=.字面意思。可使用空格表示AND，双竖线表示OR. |<br>| 1.30.2 - 2.30.2                       | &gt;=1.30.2 且 &lt;=2.30.2 |                                                              |<br>| git://github.com/user/some.git#commit | Git URL形式的依赖    | 还支持URL、GitHub URL、本地 URL                              |<br>| latest                                | 当前发布的版本       |                                                              |</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">        <span class="attr">"compression"</span>: <span class="string">"^1.2.3"</span>,</span><br><span class="line">        <span class="attr">"axios"</span>: <span class="string">"~1.2.3"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>John Doe</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/09/02/nodejs/" target="_blank" title="">http://yoursite.com/2018/09/02/nodejs/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/09/08/debug/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/30/Software-config/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nodejs"><span class="nav-number">1.</span> <span class="nav-text">Nodejs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Catalague"><span class="nav-number">1.1.</span> <span class="nav-text">Catalague</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Module"><span class="nav-number">1.2.</span> <span class="nav-text">Module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-REPL"><span class="nav-number">1.3.</span> <span class="nav-text">Node REPL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Develop-Cli"><span class="nav-number">1.4.</span> <span class="nav-text">Develop Cli</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Built-in-module"><span class="nav-number">1.5.</span> <span class="nav-text">Built-in module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#os"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">os</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cluster"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">cluster</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#stream"><span class="nav-number">1.5.0.3.</span> <span class="nav-text">stream</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#buffer"><span class="nav-number">1.5.0.4.</span> <span class="nav-text">buffer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#process"><span class="nav-number">1.5.0.5.</span> <span class="nav-text">process</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#child-process"><span class="nav-number">1.5.0.6.</span> <span class="nav-text">child_process</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path"><span class="nav-number">1.5.0.7.</span> <span class="nav-text">path</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#file-system"><span class="nav-number">1.5.0.8.</span> <span class="nav-text">file-system</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http"><span class="nav-number">1.5.0.9.</span> <span class="nav-text">http</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dns"><span class="nav-number">1.5.0.10.</span> <span class="nav-text">dns</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Async-operator-control"><span class="nav-number">1.6.</span> <span class="nav-text">Async operator control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Package-json"><span class="nav-number">1.7.</span> <span class="nav-text">Package.json</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 Hexo All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Hexo
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 John Doe All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

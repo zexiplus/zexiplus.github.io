@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="DOM &amp;amp; BOMdom对象和bom对象总结 table of contents[TOC] DOMdocument object model HTMLCollection &amp;amp;&amp;amp; nodeListsimiliarty: 都是类数组，都有length属性  都有getter， list.item(0) 或 list[0]  都是动态的， 其内元素变化会反映到其自身   diff">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/DOM&BOM/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="DOM &amp;amp; BOMdom对象和bom对象总结 table of contents[TOC] DOMdocument object model HTMLCollection &amp;amp;&amp;amp; nodeListsimiliarty: 都是类数组，都有length属性  都有getter， list.item(0) 或 list[0]  都是动态的， 其内元素变化会反映到其自身   diff">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/08/02/DOM&BOM/imgs/DOMOffset.gif">
+<meta property="og:updated_time" content="2018-09-10T09:55:41.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="DOM &amp;amp; BOMdom对象和bom对象总结 table of contents[TOC] DOMdocument object model HTMLCollection &amp;amp;&amp;amp; nodeListsimiliarty: 都是类数组，都有length属性  都有getter， list.item(0) 或 list[0]  都是动态的， 其内元素变化会反映到其自身   diff">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/02/DOM&BOM/imgs/DOMOffset.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-DOM&amp;BOM" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2018/08/02/DOM&BOM/" class="article-date">
+	  <time datetime="2018-08-02T06:28:06.389Z" itemprop="datePublished">2018-08-02</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="DOM-amp-BOM"><a href="#DOM-amp-BOM" class="headerlink" title="DOM &amp; BOM"></a>DOM &amp; BOM</h1><p>dom对象和bom对象总结</p>
+<h2 id="table-of-contents"><a href="#table-of-contents" class="headerlink" title="table of contents"></a>table of contents</h2><p>[TOC]</p>
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><p>document object model</p>
+<h3 id="HTMLCollection-amp-amp-nodeList"><a href="#HTMLCollection-amp-amp-nodeList" class="headerlink" title="HTMLCollection &amp;&amp; nodeList"></a>HTMLCollection &amp;&amp; nodeList</h3><h4 id="similiarty"><a href="#similiarty" class="headerlink" title="similiarty:"></a>similiarty:</h4><ul>
+<li><p>都是类数组，都有length属性</p>
+</li>
+<li><p>都有getter， list.item(0) 或 list[0]</p>
+</li>
+<li><p>都是动态的， 其内元素变化会反映到其自身</p>
+</li>
+</ul>
+<h4 id="difference"><a href="#difference" class="headerlink" title="difference:"></a>difference:</h4><ul>
+<li><p>nodeList 保存的是node( 包含含空节点，文本节点, 注释等)，HTMLCollection 保存的是 element（element继承node，不含其他元素， 只有element元素nodetype 为 1）</p>
+</li>
+<li><p>HTMLCollection有个nameItem() 方法，可以返回集合中name属性和id属性值的元素。</p>
+</li>
+</ul>
+<h3 id="Node-attribute"><a href="#Node-attribute" class="headerlink" title="Node attribute"></a>Node attribute</h3><table>
+<thead>
+<tr>
+<th>attribute</th>
+<th>Intro</th>
+<th>demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>someNode.<strong>nodeType</strong></td>
+<td>节点类型（1 - 12）</td>
+<td>1 为 元素element，3 为文本，11 位文档片段documentFregment</td>
+</tr>
+<tr>
+<td>someNode.nodeName</td>
+<td>节点标签名</td>
+<td>‘p’, ‘div’ , someNode.tagName</td>
+</tr>
+<tr>
+<td>someNode.nodeValue</td>
+<td>节点值</td>
+<td></td>
+</tr>
+<tr>
+<td>someNode.<strong>childNodes</strong></td>
+<td>节点的子节点类数组，保存着一个nodeList</td>
+<td>someNode.childNodes[0]<br>someNode.childNodes.item(1)<br>Array.prototype.slice.call(childNodes, 0)</td>
+</tr>
+<tr>
+<td>someNode.<strong>children</strong></td>
+<td>返回子节点中还是元素的集合(nodetype为1),是HTMLCollection的实例</td>
+<td>someNode.children[0]</td>
+</tr>
+<tr>
+<td>someNode.hasChildNodes()</td>
+<td>子节点是否含有childNodes</td>
+<td>someNode.childNodes.length === 0</td>
+</tr>
+<tr>
+<td>someNode.<strong>parentNode</strong></td>
+<td>节点的父节点，所有子节点拥有同一父节点</td>
+<td></td>
+</tr>
+<tr>
+<td>someNode.previousSibling</td>
+<td>节点的兄弟节点（相邻的上一个节点）</td>
+<td></td>
+</tr>
+<tr>
+<td>someNode.nextSibling</td>
+<td>节点的兄弟节点（相邻的下一个节点）</td>
+<td></td>
+</tr>
+<tr>
+<td>someNode.firstChild</td>
+<td>节点的第一个子节点, 可能是文本，注释， 空节点等</td>
+<td></td>
+</tr>
+<tr>
+<td>someNode.lastChild</td>
+<td>节点的最后一个子节点</td>
+<td></td>
+</tr>
+<tr>
+<td>someNode.firstElementChild</td>
+<td>节点的第一个元素节点</td>
+<td></td>
+</tr>
+<tr>
+<td>someNode.lastElementChild</td>
+<td>节点的最后一个元素节点</td>
+<td></td>
+</tr>
+<tr>
+<td>someNode.previousElementSibling</td>
+<td>节点的兄弟节点（相邻的上一个元素节点）</td>
+<td></td>
+</tr>
+<tr>
+<td>someNode.nextElementSibling</td>
+<td>节点的兄弟节点（相邻的下一个元素节点）</td>
+<td></td>
+</tr>
+<tr>
+<td>someNode.childElementCount</td>
+<td>返回子元素（nodeType = 1）节点个数</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>someNode.dataset</strong></td>
+<td>返回当前元素的<strong>自定义属性集</strong></td>
+<td><code>&lt;div data-myrule=&quot;123&quot;&gt;&lt;/div&gt;</code>    div.dataset.myrule // return ‘123’</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Node-method"><a href="#Node-method" class="headerlink" title="Node method"></a>Node method</h3><table>
+<thead>
+<tr>
+<th>method</th>
+<th>Intro</th>
+<th>Demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>someNode.appendChild(A)</strong></td>
+<td>在someNode的nodeList末尾添加一个A</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>someNode.insertBefore(A, B)</strong></td>
+<td>在参照节点（B）前添加一个A 节点, 若第二个参数是 null , 则执行与 appendChild 相同操作</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>someNode.replaceChild(new,old)</strong></td>
+<td>用new节点替换 old节点，old为someNode的子节点</td>
+<td>someNode.replaceChild(node, someNode.firstChild)</td>
+</tr>
+<tr>
+<td><strong>someNode.removeChild(A)</strong></td>
+<td>移除someNode下的某个子节点A</td>
+<td>A.removeChild(A.firstChild)</td>
+</tr>
+<tr>
+<td><strong>someNode.cloneNode(boolean)</strong></td>
+<td>复制节点 ，boolean 为 true 执行深复制， boolean 为 false 执行浅复制(只复制当前元素，不复制子元素)。执行复制之后的节点没有父节点，成了孤儿，必须通过以上集中操作才能显示。</td>
+<td>const deepNode  = someNode.cloneNode(true)  deepNode.length // 3                        const shallowNode = someNode.cloneNode(false)   shallowNode.length // 0</td>
+</tr>
+<tr>
+<td>someNode.machesSelector(cssSelector)</td>
+<td>接收一个css选择符作为参数，返回</td>
+<td>el.machesSelector(‘body.label’) // =&gt; true or false</td>
+</tr>
+</tbody>
+</table>
+<h3 id="document"><a href="#document" class="headerlink" title="document"></a>document</h3><table>
+<thead>
+<tr>
+<th>Attr &amp; method</th>
+<th>Intro</th>
+<th>Demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>document.documentElement</td>
+<td>取得对<html>元素的引用</html></td>
+<td>document.documentElement === document.childNodes[0] === document.firstChild</td>
+</tr>
+<tr>
+<td>document.title</td>
+<td>获取/设置文档标题</td>
+<td>document.title // 获取titile                                                document.title = ‘epic doc’ // 设置title</td>
+</tr>
+<tr>
+<td>document.URL</td>
+<td>获取页面完整的url（不可设置）</td>
+<td><a href="https://cn.demo.com/search?q=1234" target="_blank" rel="noopener">https://cn.demo.com/search?q=1234</a></td>
+</tr>
+<tr>
+<td>document.domain</td>
+<td>获取/设置页面的域名，只能设置其站点的子域名</td>
+<td>document.domain // <a href="https://cn.demo.com" target="_blank" rel="noopener">https://cn.demo.com</a>    document.domain = ‘demo.com’ // success    document.domain = ‘baidu.com’ // failed</td>
+</tr>
+<tr>
+<td>document.referrer</td>
+<td>获取跳转到当前页面的那个页面的url</td>
+<td></td>
+</tr>
+<tr>
+<td>document.getElementById()</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>document.getElementsByTagName()</td>
+<td>返回一个HTMLCollection,有个方法nameItem()</td>
+<td>const list = document.getElementsByTagName(‘p’);       list.nameItem(‘myName’) // 返回这个htmlCollection 中name为myName的元素</td>
+</tr>
+<tr>
+<td>document.getElementsByName()</td>
+<td>返回一个HTMLCollection</td>
+<td></td>
+</tr>
+<tr>
+<td>document.anchors</td>
+<td>返回一个HTMLCollection，包含所有带name属性的<a>元素</a></td>
+<td></td>
+</tr>
+<tr>
+<td>document.forms</td>
+<td>返回所有<form>元素</form></td>
+<td></td>
+</tr>
+<tr>
+<td>document.images</td>
+<td>返回所有<img>元素</td>
+<td></td>
+</tr>
+<tr>
+<td>document.links</td>
+<td>返回所有带href属性的<a>元素</a></td>
+<td></td>
+</tr>
+<tr>
+<td>document.open()</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>docuement.close()</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>document.createElement(tagName)</strong></td>
+<td>创建元素</td>
+<td>document.createElement(‘div’)</td>
+</tr>
+<tr>
+<td>document.createTextNode(string)</td>
+<td>创建文本节点</td>
+<td>document.createTextNode(‘hello world’)</td>
+</tr>
+<tr>
+<td><strong>doc.createDocumentFragment()</strong></td>
+<td>创建轻量级文档，继承document的所有属性。</td>
+<td>const fregment = document.createDocumentFragment();  for( let i = 0; i &lt; 3; i++) { let li = document.createElement(‘li’); fregment.appendChild(li)}</td>
+</tr>
+<tr>
+<td>document.querySelector()</td>
+<td>返回第一个匹配的节点</td>
+<td></td>
+</tr>
+<tr>
+<td>document.querySelectorAll()</td>
+<td>返回所有匹配的节点， 是一个nodeList快照，不会动态刷新</td>
+<td></td>
+</tr>
+<tr>
+<td>doc.getElementsByClassName(classStr)</td>
+<td>参数传入类名字符串，多个类名用空格隔开</td>
+<td>document.getElementByClassName (‘sidebar content green’)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="element"><a href="#element" class="headerlink" title="element"></a>element</h3><ul>
+<li><strong>Nodetype 为 1</strong> (important)</li>
+<li>nodevalue为 null</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>attr &amp;&amp; method</th>
+<th>Intro</th>
+<th>demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>el.nodeName</td>
+<td>返回元素标签名(大写)</td>
+<td>el.nodeName === el.tagName === ‘DIV’</td>
+</tr>
+<tr>
+<td>el.tagName</td>
+<td>返回元素标签名(大写)</td>
+<td></td>
+</tr>
+<tr>
+<td>el.id</td>
+<td>返回元素的id</td>
+<td></td>
+</tr>
+<tr>
+<td>el.className</td>
+<td>返回元素的类名字符串，多个类名用空格隔开</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>el.classList</strong></td>
+<td>返回一个具有length属性的DOMTokenList的实例,具有item(), add(), contains(), remove(), toggle() 方法</td>
+<td><strong>el.classList.add(val)</strong> //添加 <strong>el.classList.contains(val)</strong>  // 判断<br><strong>el.classList.remove(val)</strong>        // 删除<br><strong>el.classList.toggle(val)</strong> // 切换</td>
+</tr>
+<tr>
+<td>el.title</td>
+<td>返回元素的标题</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>el.style</strong></td>
+<td>返回 一个 以object 表示的css描述, 属性转换为驼峰命名法,例如: background-color =&gt; style.backgroundColor = ‘red’</td>
+<td>el.style // =&gt; {color: ‘#fff’}                 el.getAttribute(‘style’) // =&gt; ‘color: …’</td>
+</tr>
+<tr>
+<td><strong>el.getAttribute(attrName)</strong></td>
+<td>返回属性字符串表示</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>el.setAttribute(attrName, attrValue)</strong></td>
+<td>设置属性</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>el.removeAttribute(attrname)</strong></td>
+<td>移除属性</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>el.contains(A)</strong></td>
+<td>判断节点A是否是el的子节点,返回true,false</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>el.scrollIntoView(true/false)</strong></td>
+<td>使元素出现在视窗内</td>
+<td></td>
+</tr>
+<tr>
+<td>el.scrollByLines(lineCount)</td>
+<td>使元素滚动指定的行数,lineCount 可以是正负值     <strong>non-standard</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>el.scrollByPages(pageCount)</td>
+<td>使元素滚动指定的页数,pageCount 可以是正负值    <strong>non-standard</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dynamic-script-amp-amp-style"><a href="#dynamic-script-amp-amp-style" class="headerlink" title="dynamic script &amp;&amp; style"></a>dynamic script &amp;&amp; style</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dynamic script</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dynamicScript</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">    script.type = <span class="string">'text/javascript'</span></span><br><span class="line">    script.src = url</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dynamicScriptWithText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">    script.type = <span class="string">'text/javascript'</span></span><br><span class="line">    <span class="keyword">let</span> textNode = <span class="built_in">document</span>.createTextNode(text)</span><br><span class="line">    script.appendChild(textNode)</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// dynamic style </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dynamicStyle</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> link = <span class="built_in">document</span>.createElement(<span class="string">'link'</span>)</span><br><span class="line">    link.type = <span class="string">'text/css'</span></span><br><span class="line">    link.rel = <span class="string">'stylesheet'</span></span><br><span class="line">    link.href = url</span><br><span class="line">    <span class="built_in">document</span>.head.appendChild(link)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="html-translation"><a href="#html-translation" class="headerlink" title="html translation"></a>html translation</h3><table>
+<thead>
+<tr>
+<th>显示</th>
+<th>说明</th>
+<th>实体名称</th>
+<th>实体编号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>半方大的空白</td>
+<td>&amp; ensp;</td>
+<td>&#8194;</td>
+</tr>
+<tr>
+<td></td>
+<td>全方大的空白</td>
+<td>&amp; emsp;</td>
+<td>&#8195;</td>
+</tr>
+<tr>
+<td></td>
+<td>不断行的空白格</td>
+<td>&amp; nbsp;</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+<td>&amp; lt ;</td>
+<td>&#60;</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+<td>&amp; gt ;</td>
+<td>&#62;</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>&amp;符号</td>
+<td>&amp; amp ;</td>
+<td>&#38;</td>
+</tr>
+<tr>
+<td>“</td>
+<td>双引号</td>
+<td>&amp; quot;</td>
+<td>&#34;</td>
+</tr>
+<tr>
+<td>©</td>
+<td>版权</td>
+<td>&amp; copy;</td>
+<td>&#169;</td>
+</tr>
+<tr>
+<td>®</td>
+<td>已注册商标</td>
+<td>&amp; reg;</td>
+<td>&#174;</td>
+</tr>
+<tr>
+<td>™</td>
+<td>商标（美国）</td>
+<td>™</td>
+<td>&#8482;</td>
+</tr>
+<tr>
+<td>×</td>
+<td>乘号</td>
+<td>&amp; times;</td>
+<td>&#215;</td>
+</tr>
+<tr>
+<td>÷</td>
+<td>除号</td>
+<td>&amp; divide;</td>
+<td>&#247;</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"user[name]"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">// 转义特殊css字符用双反斜杠 '\\'</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="built_in">document</span>.querySelector(<span class="string">'user[name]'</span>)  <span class="comment">// null</span></span></span><br><span class="line"><span class="javascript">  	<span class="built_in">document</span>.querySelector(<span class="string">'user\\[name\\]'</span>) <span class="comment">// &lt;input id="user[name]" /&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="dom-size"><a href="#dom-size" class="headerlink" title="dom size"></a>dom size</h3><ul>
+<li><p><strong>window.innerHeight</strong>  </p>
+<blockquote>
+<p>浏览器视窗内高度（当前页面 ，不包括外层iframe）</p>
+</blockquote>
+</li>
+<li><p><strong>window.innerWidth</strong>  </p>
+<blockquote>
+<p>浏览器内宽度</p>
+</blockquote>
+</li>
+<li><p><strong>div.offsetHeight</strong> </p>
+<blockquote>
+<p>元素在垂直方向占用的空间大小（单位-像素）</p>
+</blockquote>
+</li>
+<li><p><strong>div.offsetWidth</strong>    </p>
+<blockquote>
+<p>元素在水平方向占用空间大小（单位-像素）</p>
+</blockquote>
+</li>
+<li><p><strong>div.offsetLeft</strong>  </p>
+<blockquote>
+<p>元素的左外边框至包含元素的左内边框之间的像素距离</p>
+</blockquote>
+</li>
+<li><p><strong>div.scrollLeft</strong>     </p>
+<blockquote>
+<p>既可以确定元素当前滚动状态，又可以设置元素的<strong>滚动位置</strong></p>
+</blockquote>
+</li>
+</ul>
+<p><img src="./imgs/DOMOffset.gif" alt="domOffset"></p>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p>bowser object model</p>
+<h3 id="location"><a href="#location" class="headerlink" title="location"></a>location</h3><p>浏览器导航对象</p>
+<p>####location attribute</p>
+<ul>
+<li><p><strong>Location.href</strong></p>
+<blockquote>
+<p>读取/设置当前window的url</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location === <span class="built_in">window</span>.document.location</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>location.search</strong></p>
+<blockquote>
+<p>读取/设置当前url的搜索字符串</p>
+</blockquote>
+</li>
+<li><p><strong>Location.hash</strong></p>
+<blockquote>
+<p>读取/设置当前url的hash</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="location-method"><a href="#location-method" class="headerlink" title="location method"></a>location method</h4><ul>
+<li><p><strong>location.reload()</strong></p>
+<blockquote>
+<p>刷新当前页面</p>
+</blockquote>
+</li>
+<li><p><strong>Location.assign(href)</strong></p>
+<blockquote>
+<p>设置当前页面url, 浏览器可产生历史记录, 后退按钮可点击回到上一页</p>
+</blockquote>
+</li>
+<li><p><strong>Location.replace(href)</strong> </p>
+<blockquote>
+<p>设置当前页面url, 浏览器不产生历史记录</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>John Doe</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/08/02/DOM&BOM/" target="_blank" title="">http://yoursite.com/2018/08/02/DOM&BOM/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/09/Requirejs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/02/Database/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-amp-BOM"><span class="nav-number">1.</span> <span class="nav-text">DOM &amp; BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#table-of-contents"><span class="nav-number">1.1.</span> <span class="nav-text">table of contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM"><span class="nav-number">1.2.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTMLCollection-amp-amp-nodeList"><span class="nav-number">1.2.1.</span> <span class="nav-text">HTMLCollection &amp;&amp; nodeList</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#similiarty"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">similiarty:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#difference"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">difference:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-attribute"><span class="nav-number">1.2.2.</span> <span class="nav-text">Node attribute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-method"><span class="nav-number">1.2.3.</span> <span class="nav-text">Node method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document"><span class="nav-number">1.2.4.</span> <span class="nav-text">document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#element"><span class="nav-number">1.2.5.</span> <span class="nav-text">element</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-script-amp-amp-style"><span class="nav-number">1.2.6.</span> <span class="nav-text">dynamic script &amp;&amp; style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html-translation"><span class="nav-number">1.2.7.</span> <span class="nav-text">html translation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dom-size"><span class="nav-number">1.2.8.</span> <span class="nav-text">dom size</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM"><span class="nav-number">1.3.</span> <span class="nav-text">BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#location"><span class="nav-number">1.3.1.</span> <span class="nav-text">location</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#location-method"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">location method</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 Hexo All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Hexo
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 John Doe All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
