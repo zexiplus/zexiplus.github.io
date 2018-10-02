@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://zexiplus.github.io/page/3/index.html">
 <meta property="og:site_name" content="Float&#39;s blog">
 <meta property="og:description" content="float&apos;s blog | 浮躁哥的技术博客">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="English">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Float&#39;s blog">
 <meta name="twitter:description" content="float&apos;s blog | 浮躁哥的技术博客">
@@ -244,10 +244,6 @@
         
           <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
         
-          <a id="beautifont" class="main-nav-link" href="/categories">Categories</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
-        
           <a id="beautifont" class="main-nav-link" href="/about">About</a>
         
       </p>
@@ -333,7 +329,7 @@ paths
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/08/02/DOM&BOM/">DOM &amp; BOM</a>
+      <a class="article-title" href="/2018/08/02/DOM&BOM/">DOM &amp; BOM 总结</a>
     </h1>
   
 
@@ -393,7 +389,7 @@ nodeList 保存的是node( 包含含空节点，文本节点, 注释等)，HT...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/08/02/Database/">Database</a>
+      <a class="article-title" href="/2018/08/02/Database/">Database nodejs常用数据库总结</a>
     </h1>
   
 
@@ -414,7 +410,7 @@ nodeList 保存的是node( 包含含空节点，文本节点, 注释等)，HT...
           Database
 常用数据库操作
 
-catalogue[TOC]
+Table of Contents[TOC]
 NO-SQLmongoDB
 doc
 
@@ -429,7 +425,7 @@ restart mongodb
 1sudo service mongod restart
 
 use mongodb
-1234567891011121314# 指定目录启动mongo服务器mongod...
+1234567891011121314# 指定目录启动mongo服...
         </p>
         <p class="article-more-link">
           <a href="/2018/08/02/Database/#more">Read More</a>
@@ -459,7 +455,7 @@ use mongodb
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/08/01/Event/">Event</a>
+      <a class="article-title" href="/2018/08/01/Event/">Event 事件对象总结</a>
     </h1>
   
 
@@ -636,10 +632,12 @@ web design principle
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          bowser render block optmize
+          Web performanceQuestion
+常见问题
+
 什么是阻塞？在页面中我们通常会引用外部文件，而浏览器在解析HTML页面是从上到下依次解析、渲染，如果中引用了一个a.js文件，而这个文件很大或者有问题，需要2秒加载，那么浏览器会停止渲染页面（此时是白屏显示），2秒后加载完成才会继续渲染，这个就是阻塞。
 为什么会阻塞？因为浏览器不知道a.js中执行了哪些脚本，会对页面造成什么影响，所以浏览器会等js文件下载并执行完成后才继续渲染，如果这个时间过长，会白屏。
- CSS文件也一样，因为CS...
+ CSS文件也一样，因为...
         </p>
         <p class="article-more-link">
           <a href="/2018/07/30/Performance/#more">Read More</a>
@@ -669,7 +667,7 @@ web design principle
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/07/30/Koa/">Koa</a>
+      <a class="article-title" href="/2018/07/30/Koa/">Koa 新一代web服务开发框架</a>
     </h1>
   
 
@@ -691,77 +689,14 @@ web design principle
 官方doc  link
 笔记 link
 
-catalogue[TOC]
+Table of contents[TOC]
 1. koa app
 Index.js
 
-123456789101112131415161718192021const Koa = require('koa')const app = new Koa()// compute response timeapp.use(async (ctx, next) =&gt; &#123;	const startTime = new Date()	await next()	c...
+123456789101112131415161718192021const Koa = require('koa')const app = new Koa()// compute response timeapp.use(async (ctx, next) =&gt; &#123;	const startTime = new Date()	await ...
         </p>
         <p class="article-more-link">
           <a href="/2018/07/30/Koa/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Graphic"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/07/30/Graphic/">Graphic</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/07/30/Graphic/" class="article-date">
-	  <time datetime="2018-07-30T07:13:44.511Z" itemprop="datePublished">2018-07-30</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Graphicweb前端常用图形处理
-目录[TOC]
-SVG
-简介：基于xml的矢量图形描述文件
-
-展现方式
-浏览器直接打开
-
-html中标签引用
-
-html中svg标签引入
-
-css的background引入
-
-
-123456789101112131415161718&lt;!-- simple.svg --&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"&gt;  &lt;circle cx=...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/07/30/Graphic/#more">Read More</a>
         </p>
       
     </div>
@@ -843,6 +778,69 @@ figure
 
 
   
+    <article id="post-Graphic"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/07/30/Graphic/">web图形方案总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/30/Graphic/" class="article-date">
+	  <time datetime="2018-07-30T07:13:44.511Z" itemprop="datePublished">2018-07-30</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Graphicweb前端常用图形处理
+目录[TOC]
+SVG
+简介：基于xml的矢量图形描述文件
+
+展现方式
+浏览器直接打开
+
+html中标签引用
+
+html中svg标签引入
+
+css的background引入
+
+
+123456789101112131415161718&lt;!-- simple.svg --&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"&gt;  &lt;circle cx=...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/07/30/Graphic/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
 
 
   <nav id="page-nav">
@@ -897,10 +895,6 @@ figure
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/categories" class="mobile-nav-link">Categories</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="/about" class="mobile-nav-link">About</a>
   

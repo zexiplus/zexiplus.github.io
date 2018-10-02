@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="bowser render block optmize 什么是阻塞？在页面中我们通常会引用外部文件，而浏览器在解析HTML页面是从上到下依次解析、渲染，如果中引用了一个a.js文件，而这个文件很大或者有问题，需要2秒加载，那么浏览器会停止渲染页面（此时是白屏显示），2秒后加载完成才会继续渲染，这个就是阻塞。 为什么会阻塞？因为浏览器不知道a.js中执行了哪些脚本，会对页面造成什么影响，所以浏览器会">
+  <meta name="description" content="Web performanceQuestion 常见问题  什么是阻塞？在页面中我们通常会引用外部文件，而浏览器在解析HTML页面是从上到下依次解析、渲染，如果中引用了一个a.js文件，而这个文件很大或者有问题，需要2秒加载，那么浏览器会停止渲染页面（此时是白屏显示），2秒后加载完成才会继续渲染，这个就是阻塞。 为什么会阻塞？因为浏览器不知道a.js中执行了哪些脚本，会对页面造成什么影响，所以浏览">
 <meta name="keywords" content="webFront javascript css html vue react nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web 性能分析">
 <meta property="og:url" content="http://zexiplus.github.io/2018/07/30/Performance/index.html">
 <meta property="og:site_name" content="Float&#39;s blog">
-<meta property="og:description" content="bowser render block optmize 什么是阻塞？在页面中我们通常会引用外部文件，而浏览器在解析HTML页面是从上到下依次解析、渲染，如果中引用了一个a.js文件，而这个文件很大或者有问题，需要2秒加载，那么浏览器会停止渲染页面（此时是白屏显示），2秒后加载完成才会继续渲染，这个就是阻塞。 为什么会阻塞？因为浏览器不知道a.js中执行了哪些脚本，会对页面造成什么影响，所以浏览器会">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-29T16:17:20.967Z">
+<meta property="og:description" content="Web performanceQuestion 常见问题  什么是阻塞？在页面中我们通常会引用外部文件，而浏览器在解析HTML页面是从上到下依次解析、渲染，如果中引用了一个a.js文件，而这个文件很大或者有问题，需要2秒加载，那么浏览器会停止渲染页面（此时是白屏显示），2秒后加载完成才会继续渲染，这个就是阻塞。 为什么会阻塞？因为浏览器不知道a.js中执行了哪些脚本，会对页面造成什么影响，所以浏览">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-10-02T02:51:03.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web 性能分析">
-<meta name="twitter:description" content="bowser render block optmize 什么是阻塞？在页面中我们通常会引用外部文件，而浏览器在解析HTML页面是从上到下依次解析、渲染，如果中引用了一个a.js文件，而这个文件很大或者有问题，需要2秒加载，那么浏览器会停止渲染页面（此时是白屏显示），2秒后加载完成才会继续渲染，这个就是阻塞。 为什么会阻塞？因为浏览器不知道a.js中执行了哪些脚本，会对页面造成什么影响，所以浏览器会">
+<meta name="twitter:description" content="Web performanceQuestion 常见问题  什么是阻塞？在页面中我们通常会引用外部文件，而浏览器在解析HTML页面是从上到下依次解析、渲染，如果中引用了一个a.js文件，而这个文件很大或者有问题，需要2秒加载，那么浏览器会停止渲染页面（此时是白屏显示），2秒后加载完成才会继续渲染，这个就是阻塞。 为什么会阻塞？因为浏览器不知道a.js中执行了哪些脚本，会对页面造成什么影响，所以浏览">
   
     <link rel="alternate" href="/atom.xml" title="Float&#39;s blog" type="application/atom+xml">
   
@@ -104,10 +104,6 @@
                   <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
                   <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
                   <li> <a class="main-nav-link" href="/about">About</a> </li>
                 
@@ -193,7 +189,9 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="bowser-render-block-optmize"><a href="#bowser-render-block-optmize" class="headerlink" title="bowser render block optmize"></a>bowser render block optmize</h3><hr>
+        <h1 id="Web-performance"><a href="#Web-performance" class="headerlink" title="Web performance"></a>Web performance</h1><h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><blockquote>
+<p>常见问题</p>
+</blockquote>
 <h4 id="什么是阻塞？"><a href="#什么是阻塞？" class="headerlink" title="什么是阻塞？"></a>什么是阻塞？</h4><p>在页面中我们通常会引用外部文件，而浏览器在解析HTML页面是<strong>从上到下依次解析</strong>、渲染，如果<head>中引用了一个a.js文件，而这个文件很大或者有问题，需要2秒加载，那么浏览器会停止渲染页面（此时是白屏显示），2秒后加载完成才会继续渲染，这个就是阻塞。</head></p>
 <h4 id="为什么会阻塞？"><a href="#为什么会阻塞？" class="headerlink" title="为什么会阻塞？"></a>为什么会阻塞？</h4><p>因为浏览器不知道a.js中执行了哪些脚本，会对页面造成什么影响，所以浏览器会等<strong>js文件下载并执行完成后</strong>才继续渲染，如果这个时间过长，会白屏。</p>
 <p> CSS文件也一样，因为CSS文件会对DOM的样式，布局，色彩，效果产生影响，所以浏览器会等<strong>CSS文件下载并执行完成后</strong>继续。</p>
@@ -207,18 +205,14 @@
 <h4 id="解决阻塞"><a href="#解决阻塞" class="headerlink" title="解决阻塞"></a>解决阻塞</h4><ol>
 <li><p><strong>延迟加载 defer</strong></p>
 <p>把script标签放到 body 的最后一行,  或者在script标签加入 defer属性</p>
-<p><strong>这两种的不同点</strong>:  </p>
-<p>defer 会 <strong>立即下载</strong>,但到 浏览器解析至html标签时才<strong>顺序执行</strong>.而放在body后的script代码会在遇到这个标签时才下载,下载完成后执行.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>	<span class="attr">src</span>=<span class="string">"js/defer.js"</span> <span class="attr">defer</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>	<span class="attr">src</span>=<span class="string">"js/defer2.js"</span> <span class="attr">defer</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- other --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/defer.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>	<span class="attr">src</span>=<span class="string">"js/defer.js"</span> <span class="attr">defer</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>	<span class="attr">src</span>=<span class="string">"js/defer2.js"</span> <span class="attr">defer</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- other --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>   </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/defer.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
 <li><p><strong>异步加载 async</strong></p>
 <p>告知浏览器可以边下载边渲染而不用等到js下载再执行后才渲染, 使用了 async 属性的脚本不能保证执行的先后顺序, 异步脚本一定会在页面<strong>load事件前执行</strong>(所有资源都下载完), 但可能会在<strong>DOMContentLoaded 事件前或后</strong>执行</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/async.js"</span> <span class="attr">async</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/async2.js"</span> <span class="attr">async</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>这两种的不同点</strong>:  </p>
+<p>defer 会 <strong>立即下载</strong>,但到 浏览器解析至html标签时才<strong>顺序执行</strong>.而放在body后的script代码会在遇到这个标签时才下载,下载完成后执行.</p>
 </li>
-</ol>
-<ol start="3">
 <li><p><strong>动态加载 createElement(‘script’)</strong></p>
 <p>当有需要时,再加载脚本</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createScript</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">    script.type = <span class="string">'text/javascript'</span></span><br><span class="line">    script.src = src</span><br><span class="line">    <span class="built_in">document</span>.head.appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'button'</span>).onclick = createScript</span><br></pre></td></tr></table></figure>
@@ -232,42 +226,77 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    createScript(<span class="string">'js/onDOM.js'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="page-optmize-proposal"><a href="#page-optmize-proposal" class="headerlink" title="page optmize proposal"></a>page optmize proposal</h3><hr>
+<h3 id="page-optmize-proposal"><a href="#page-optmize-proposal" class="headerlink" title="page optmize proposal"></a>page optmize proposal</h3><p>网页性能优化的34条建议</p>
 <ol>
-<li><strong>Minimize HTTP Requests</strong></li>
-<li><strong>Use a Content Delivery Network</strong></li>
-<li><strong>Add an Expires or a Cache-Control Header</strong></li>
-<li><strong>Gzip Components</strong></li>
-<li><strong>Put Stylesheets at the Top</strong></li>
-<li><strong>Put Scripts at the Bottom</strong></li>
-<li><strong>Avoid CSS Expressions</strong></li>
-<li><strong>Make JavaScript and CSS External</strong></li>
-<li><strong>Reduce DNS Lookups</strong></li>
-<li><strong>Minify JavaScript and CSS</strong></li>
-<li><strong>Avoid Redirects</strong></li>
-<li><strong>Remove Duplicate Scripts</strong></li>
-<li><strong>Configure ETags</strong></li>
-<li><strong>Make Ajax Cacheable</strong></li>
-<li><strong>Flush the Buffer Early</strong></li>
-<li><strong>Use GET for AJAX Requests</strong></li>
-<li><strong>Post-load Components</strong></li>
-<li><strong>Preload Components</strong></li>
-<li><strong>Reduce the Number of DOM Elements</strong></li>
-<li><strong>Split Components Across Domains</strong></li>
-<li><strong>Minimize the Number of iframes</strong></li>
-<li><strong>No 404s</strong></li>
-<li><strong>Reduce Cookie Size</strong></li>
-<li><strong>Use Cookie-free Domains for Components</strong></li>
-<li><strong>Minimize DOM Access</strong></li>
-<li><strong>Develop Smart Event Handlers</strong></li>
-<li><strong>Choose <link> over @import</strong></li>
-<li><strong>Optimize Images</strong></li>
-<li><strong>Optimize CSS Sprites</strong></li>
-<li><strong>Don’t Scale Images in HTML</strong></li>
-<li><strong>Make favicon.ico Small and Cacheable</strong></li>
-<li><strong>Keep Components under 25K</strong></li>
-<li><strong>Pack Components into a Multipart Document</strong></li>
-<li><strong>Avoid Empty Image src</strong></li>
+<li><p><strong>Minimize HTTP Requests </strong> 最小化http请求数</p>
+</li>
+<li><p><strong>Use a Content Delivery Network</strong> 使用内容分发网络</p>
+</li>
+<li><p><strong>Add an Expires or a Cache-Control Header</strong> 给相应头增加过期字段</p>
+</li>
+<li><p><strong>Gzip Components</strong> 压缩组件</p>
+</li>
+<li><p><strong>Put Stylesheets at the Top</strong> 在head内使用样式表</p>
+</li>
+<li><p><strong>Put Scripts at the Bottom</strong> 在body的最后一行引入脚本(或增加defer属性)</p>
+</li>
+<li><p><strong>Avoid CSS Expressions</strong> </p>
+<p>避免css表达式(只有ie支持css表达式例如top:expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - 60)));)</p>
+</li>
+<li><p><strong>Make JavaScript and CSS External</strong> 确保脚本和样式表是外联文件</p>
+</li>
+<li><p><strong>Reduce DNS Lookups</strong> 减少dns查询次数</p>
+</li>
+<li><p><strong>Minify JavaScript and CSS</strong> 最小化js和css</p>
+</li>
+<li><p><strong>Avoid Redirects</strong> 避免重定向</p>
+</li>
+<li><p><strong>Remove Duplicate Scripts</strong> 删除重复的脚本</p>
+</li>
+<li><p><strong>Configure ETags</strong> 相应头配置ETags字段, 从而判断版本信息</p>
+</li>
+<li><p><strong>Make Ajax Cacheable</strong> 使ajax请求响应可缓存</p>
+</li>
+<li><p><strong>Flush the Buffer Early</strong> 如果请求事件过长, 先发送部分数据</p>
+</li>
+<li><p><strong>Use GET for AJAX Requests</strong> 尽可能在ajax请求使用get方法</p>
+</li>
+<li><p><strong>Post-load Components</strong>  使用延迟加载(对于非必须的优化脚本例如动画,拖动等可以使用延迟加载技术确保主要功能是快速响应的)</p>
+</li>
+<li><p><strong>Preload Components</strong> 使用预加载(下一页的图片等资源)</p>
+</li>
+<li><p><strong>Reduce the Number of DOM Elements</strong> 减少dom元素数, 减少嵌套标签,减少空标签</p>
+</li>
+<li><p><strong>Split Components Across Domains</strong> 拆分组件至不同域来使用同时下载</p>
+</li>
+<li><p><strong>Minimize the Number of iframes</strong> 使用最少数的iframes</p>
+</li>
+<li><p><strong>No 404s</strong> http相应是昂贵的, 消除不必要的404响应</p>
+</li>
+<li><p><strong>Reduce Cookie Size </strong> 减少cookie大小</p>
+</li>
+<li><p><strong>Use Cookie-free Domains for Components</strong> 对于静态资源的请求不使用cookie携带</p>
+</li>
+<li><p><strong>Minimize DOM Access </strong> 减少dom树的直接操作(缓存已放翁过的元素, 减少页面重构次数)</p>
+</li>
+<li><p><strong>Develop Smart Event Handlers</strong> 使用高性能的事件处理函数(事件代理, DOMContentLoaded)</p>
+</li>
+<li><p><strong>Choose <link> over @import</strong> (IE浏览器使用@import引入的css会在页面最下方引入css一样效果)</p>
+</li>
+<li><p><strong>Optimize Images</strong> 优化图片格式,大小</p>
+</li>
+<li><p><strong>Optimize CSS Sprites</strong> 优化精灵图</p>
+</li>
+<li><p><strong>Don’t Scale Images in HTML</strong> 图片的尺寸与显示尺寸对应</p>
+</li>
+<li><p><strong>Make favicon.ico Small and Cacheable</strong> 使网页标题图表小且可缓存</p>
+</li>
+<li><p><strong>Keep Components under 25K</strong> 使文件小于25k(iphone不会缓存25k以上文件大小)</p>
+</li>
+<li><p><strong>Pack Components into a Multipart Document</strong> 将文件打包到多个文档</p>
+</li>
+<li><p><strong>Avoid Empty Image src</strong> 避免图片带有空src属性(减少不必要的请求)</p>
+</li>
 </ol>
 
       
@@ -353,7 +382,7 @@ var a = new Donate({
   
     <a href="/2018/07/30/Koa/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Koa</div>
+      <div class="article-nav-title">Koa 新一代web服务开发框架</div>
     </a>
   
 </nav>
@@ -367,7 +396,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#bowser-render-block-optmize"><span class="nav-number">1.</span> <span class="nav-text">bowser render block optmize</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是阻塞？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是阻塞？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么会阻塞？"><span class="nav-number">1.2.</span> <span class="nav-text">为什么会阻塞？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css-阻塞"><span class="nav-number">1.3.</span> <span class="nav-text">css 阻塞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载事件"><span class="nav-number">1.4.</span> <span class="nav-text">加载事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决阻塞"><span class="nav-number">1.5.</span> <span class="nav-text">解决阻塞</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#page-optmize-proposal"><span class="nav-number">2.</span> <span class="nav-text">page optmize proposal</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Web-performance"><span class="nav-number">1.</span> <span class="nav-text">Web performance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question"><span class="nav-number">1.0.1.</span> <span class="nav-text">Question</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是阻塞？"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">什么是阻塞？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么会阻塞？"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">为什么会阻塞？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css-阻塞"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">css 阻塞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载事件"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">加载事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决阻塞"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">解决阻塞</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#page-optmize-proposal"><span class="nav-number">1.0.2.</span> <span class="nav-text">page optmize proposal</span></a></li></ol></li></ol></li></ol>
     
     </div>
   </aside>
@@ -417,10 +446,6 @@ var a = new Donate({
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/categories" class="mobile-nav-link">Categories</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="/about" class="mobile-nav-link">About</a>
   
