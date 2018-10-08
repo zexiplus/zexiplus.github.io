@@ -21,7 +21,7 @@
 <meta property="og:locale" content="English">
 <meta property="og:image" content="http://zexiplus.github.io/2018/09/08/css/imgs/font-style.png">
 <meta property="og:image" content="http://zexiplus.github.io/2018/09/08/css/imgs/3d.jpg">
-<meta property="og:updated_time" content="2018-10-02T17:23:20.384Z">
+<meta property="og:updated_time" content="2018-10-08T10:27:39.569Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS">
 <meta name="twitter:description" content="cssLearn css and make pages pretty Table of contents[TOC] Design principle 移动优先原则，及默认的css样式为移动样式，然后通过媒体查询 用 桌面样式覆盖 整体字体在 14px 到 20px 之间  保持适当行距（1.5倍）  段落采用缩进或隔行，不能两者同时用，首段不用隔行或缩进   Font-face  定义字体 123">
@@ -230,7 +230,7 @@
 <li><p><strong>毗邻~</strong>(选取h1后相邻的<strong>所有</strong>p元素)</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> ~ <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>属性选择器**</p>
+<li><p><strong>属性选择器</strong></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*选择类名已foundicon 开头的元素*/</span></span><br><span class="line"><span class="selector-attr">[class*="foundicon-"]</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>起始/结束类型选择器</strong></p>
@@ -398,10 +398,6 @@
 </li>
 <li><p><strong>控制文字内容用户可选择</strong></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.line</span> &#123;</span><br><span class="line">    <span class="attribute">user-select</span>: none | text | all | element;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>行距</strong></p>
-<p>倍数行距 当前字体乘以1.3</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">line-height</span>: 1<span class="selector-class">.3</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
