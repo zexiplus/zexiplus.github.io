@@ -29,7 +29,7 @@
 .box {
     padding: 10px;
     width: 100%;
-    margin: 10px 0;
+    margin: 10px 10px;
     height: 200px;
     display: flex;
     align-items: flex-start;
@@ -78,6 +78,7 @@
 }
 
 .work-title {
+    margin-left: 16px;
     align-self: flex-start;
     margin-top: 40px;
 }
