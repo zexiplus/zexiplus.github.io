@@ -121,5 +121,6 @@
         text-overflow: ellipsis;
         height: 24px;
         overflow: hidden;
+        margin: 5px;
     }
 }
