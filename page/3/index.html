@@ -259,6 +259,68 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Electron"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/08/13/Electron/">Electron 使用javascript开发通用桌面程序框架</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/08/13/Electron/" class="article-date">
+	  <time datetime="2018-08-13T09:06:58.216Z" itemprop="datePublished">2018-08-13</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Electron使用javascript, html, css 构建跨平台桌面应用
+
+https://electronjs.org/
+
+1npm i electron@latest
+目录[TOC]
+封装/打包 &amp; 脚手架模版
+electron-vue
+
+https://github.com/SimulatedGREG/electron-vue
+
+
+vue 在 electron环境下的脚手架
+
+12345678910# 初始化项目结构vue init simulatedgreg/el...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/08/13/Electron/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-Requirejs"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -474,7 +536,19 @@ use mongodb
       
         <p class="article-excerpt-content">
           Event浏览器事件总结
+Table of contents模拟事件创建事件对象, 触发事件执行
 
+createEventObject
+创建事件对象
+1var eventObj = document.createEventObject()
+
+createEvent
+创建事件对象
+1var eventObj = document.createEvent('Events')
+
+eventObj.initEvent
+初始化事件对象类型
+123if (eventObj.initEvent) &#1...
         </p>
         <p class="article-more-link">
           <a href="/2018/08/01/Event/#more">Read More</a>
@@ -522,9 +596,15 @@ use mongodb
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          testunit teste2e test###nightWatch
-配置文件 nightwatch.conf.js（nightwatch.json）示例配置详情
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950require('babel-register')var config = require('../../config')// http://nig...
+          test此文档总结了常用测试案例, 例如单元测试,集成测试,端到端测试, 涵盖了常用的测试库
+Table of contents[TOC]
+unit testJestDelightful JavaScript Testing https://github.com/facebook/jest
+quick start
+download
+1npm i -S jest
+
+config
+12345&#123;    "scripts": &#123;        "test": "jest"   ...
         </p>
         <p class="article-more-link">
           <a href="/2018/07/30/Test/#more">Read More</a>
@@ -760,69 +840,6 @@ css的background引入
         </p>
         <p class="article-more-link">
           <a href="/2018/07/30/Graphic/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-html"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/07/30/html/">Html</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/07/30/html/" class="article-date">
-	  <time datetime="2018-07-30T07:13:44.511Z" itemprop="datePublished">2018-07-30</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          html
-html总结
-
-目录[TOC]
-html 组件
-html imports
-
-状态, 草案
-垫片方案   引用google 的 webcomponents.js
-
-1&lt;link rel="imports" href="myFile.html" /&gt;
-
-
-html标签
-figure
-12345&lt;figure&gt;    &lt;figcaption&gt;These words are the caption of the picture. This is cal...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/07/30/html/#more">Read More</a>
         </p>
       
     </div>

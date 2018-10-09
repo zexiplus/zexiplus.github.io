@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="Event浏览器事件总结">
+  <meta name="description" content="Event浏览器事件总结 Table of contents模拟事件创建事件对象, 触发事件执行  createEventObject 创建事件对象 1var eventObj = document.createEventObject()  createEvent 创建事件对象 1var eventObj = document.createEvent(&apos;Events&apos;)  eventObj.ini">
 <meta name="keywords" content="webFront javascript css html vue react nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Event 事件对象总结">
 <meta property="og:url" content="http://zexiplus.github.io/2018/08/01/Event/index.html">
 <meta property="og:site_name" content="Float&#39;s blog">
-<meta property="og:description" content="Event浏览器事件总结">
+<meta property="og:description" content="Event浏览器事件总结 Table of contents模拟事件创建事件对象, 触发事件执行  createEventObject 创建事件对象 1var eventObj = document.createEventObject()  createEvent 创建事件对象 1var eventObj = document.createEvent(&apos;Events&apos;)  eventObj.ini">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-10-01T14:57:47.377Z">
+<meta property="og:updated_time" content="2018-10-09T03:25:49.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Event 事件对象总结">
-<meta name="twitter:description" content="Event浏览器事件总结">
+<meta name="twitter:description" content="Event浏览器事件总结 Table of contents模拟事件创建事件对象, 触发事件执行  createEventObject 创建事件对象 1var eventObj = document.createEventObject()  createEvent 创建事件对象 1var eventObj = document.createEvent(&apos;Events&apos;)  eventObj.ini">
   
     <link rel="alternate" href="/atom.xml" title="Float&#39;s blog" type="application/atom+xml">
   
@@ -190,6 +190,29 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h1><p>浏览器事件总结</p>
+<h3 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h3><h3 id="模拟事件"><a href="#模拟事件" class="headerlink" title="模拟事件"></a>模拟事件</h3><p>创建事件对象, 触发事件执行</p>
+<ul>
+<li><p><strong>createEventObject</strong></p>
+<p>创建事件对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> eventObj = <span class="built_in">document</span>.createEventObject()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>createEvent</strong></p>
+<p>创建事件对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> eventObj = <span class="built_in">document</span>.createEvent(<span class="string">'Events'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>eventObj.initEvent</strong></p>
+<p>初始化事件对象类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (eventObj.initEvent) &#123;</span><br><span class="line">    eventObj.initEvent(<span class="string">'keyup'</span>, <span class="literal">true</span>, <span class="literal">true</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>el.dispatchEvent</strong></p>
+<p>分发事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'div'</span>).dispatchEvent(eventObj)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>el.fireEvent</strong></p>
+<p>分发事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.fireEvent(<span class="string">'onkeyup'</span>, eventObj)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -288,7 +311,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Event"><span class="nav-number">1.</span> <span class="nav-text">Event</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Event"><span class="nav-number">1.</span> <span class="nav-text">Event</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Table-of-contents"><span class="nav-number">1.0.1.</span> <span class="nav-text">Table of contents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟事件"><span class="nav-number">1.0.2.</span> <span class="nav-text">模拟事件</span></a></li></ol></li></ol></li></ol>
     
     </div>
   </aside>
