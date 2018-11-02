@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="webpack 学习总结目录">
+  <meta name="description" content="webpack 学习总结目录[TOC] 开始 Download 1npm i -g webpack@3.6.0  读取参数使用webpack 1webpack ./entry.js ./output.js  读取配置文件使用 webpack package.json 1234&amp;#123;    &quot;dev&quot;: &quot;webpack --config ./webpack.dev.config.js&quot;,">
 <meta name="keywords" content="webFront javascript css html vue react nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web前端工程化工具 webpack 重点突破">
 <meta property="og:url" content="http://zexiplus.github.io/2018/08/27/Webpack/index.html">
 <meta property="og:site_name" content="Float&#39;s blog">
-<meta property="og:description" content="webpack 学习总结目录">
+<meta property="og:description" content="webpack 学习总结目录[TOC] 开始 Download 1npm i -g webpack@3.6.0  读取参数使用webpack 1webpack ./entry.js ./output.js  读取配置文件使用 webpack package.json 1234&amp;#123;    &quot;dev&quot;: &quot;webpack --config ./webpack.dev.config.js&quot;,">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-09-29T16:40:39.822Z">
+<meta property="og:updated_time" content="2018-10-27T17:08:57.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web前端工程化工具 webpack 重点突破">
-<meta name="twitter:description" content="webpack 学习总结目录">
+<meta name="twitter:description" content="webpack 学习总结目录[TOC] 开始 Download 1npm i -g webpack@3.6.0  读取参数使用webpack 1webpack ./entry.js ./output.js  读取配置文件使用 webpack package.json 1234&amp;#123;    &quot;dev&quot;: &quot;webpack --config ./webpack.dev.config.js&quot;,">
   
     <link rel="alternate" href="/atom.xml" title="Float&#39;s blog" type="application/atom+xml">
   
@@ -189,7 +189,75 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="webpack-学习总结"><a href="#webpack-学习总结" class="headerlink" title="webpack 学习总结"></a>webpack 学习总结</h1><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3>
+        <h1 id="webpack-学习总结"><a href="#webpack-学习总结" class="headerlink" title="webpack 学习总结"></a>webpack 学习总结</h1><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>[TOC]</p>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><ul>
+<li><p><strong>Download</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g webpack@3.6.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>读取参数使用webpack</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack ./entry.js ./output.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>读取配置文件使用 webpack</strong></p>
+<p>package.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"webpack --config ./webpack.dev.config.js"</span>,</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"webpack --config ./webpack.prod.config.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="配置文件结构"><a href="#配置文件结构" class="headerlink" title="配置文件结构"></a>配置文件结构</h3><p>  webpack.config.js</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> WebpackHtmlPlugin = <span class="built_in">require</span>(<span class="string">'webpack-html-plugin'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 入口文件 可多个, main 名可自定义</span></span><br><span class="line">    entry: &#123;</span><br><span class="line">        <span class="string">'main'</span>: <span class="string">'./main.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 产出文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        <span class="comment">// 指定产出文件目录</span></span><br><span class="line">        path: path.resolve(<span class="string">'./dist'</span>)</span><br><span class="line">        filename: <span class="string">'./build.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 监视文件 入口文件变化时自动构建</span></span><br><span class="line">    watch: <span class="literal">true</span>,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style-loader!css-loader'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">            template: <span class="string">'./src/index.html'</span> <span class="comment">// 参照物, 把生成的js文件插入此文件</span></span><br><span class="line">        &#125;),</span><br><span class="line">    ]</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>entry</strong> </p>
+<p>@Object 入口文件 </p>
+</li>
+<li><p><strong>output</strong> </p>
+<p>@Object 出口文件 </p>
+</li>
+<li><p><strong>watch</strong> </p>
+<p>@布尔 是否自动化构建 </p>
+</li>
+<li><p><strong>module</strong> </p>
+<p>@对象 模块 </p>
+</li>
+<li><p><strong>plugins</strong></p>
+<p>@数组 插件, 插件的执行顺序与索引有关</p>
+</li>
+</ul>
+<h3 id="loader-加载器"><a href="#loader-加载器" class="headerlink" title="loader 加载器"></a>loader 加载器</h3><p>在js文件中加载css, img等文件<strong>!感叹号用于分割 loader, ? 问号用于传参</strong></p>
+<ul>
+<li><p><strong>样式表加载器 style-loader, css-loader, less-loader</strong></p>
+<p>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./main.css'</span></span><br></pre></td></tr></table></figure>
+<p>webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">modeule.exports = &#123;</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">'style-loader!css-loader'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>图片加载器 url-loader</strong></p>
+<p><strong>limit 限制图片大小, 单位b</strong></p>
+<p>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> img <span class="keyword">from</span> <span class="string">'./pic.jpg'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">modeule.exports = &#123;</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123;	<span class="comment">// 图片超过1kb会被生成 一个 1kb的图片, 如果小于1kb, 会被生成base64编码的文件</span></span><br><span class="line">                test: <span class="regexp">/\.(jpg|png|gif|svg)$/</span>, <span class="attr">loader</span>: <span class="string">'url-loader?limit=1000'</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>ES67转译加载器 babel-loader</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">modeule.exports = &#123;</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123;	<span class="comment">// 图片超过1kb会被生成 一个 1kb的图片, 如果小于1kb, 会被生成base64编码的文件</span></span><br><span class="line">                test: <span class="regexp">/\.js$/</span>, <span class="attr">loader</span>: <span class="string">'babel-loader'</span>, <span class="attr">options</span>: &#123;</span><br><span class="line">                    exclude: <span class="regexp">/node_modules/</span>, <span class="comment">// 排除node_modules文件夹</span></span><br><span class="line">                    presets: [<span class="string">'env'</span>], <span class="comment">// 处理es6关键字</span></span><br><span class="line">                    plugins: [<span class="string">'transform-runtime'</span>] <span class="comment">// 处理函数</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>vue-loader</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/\.vue$/</span>, <span class="attr">loader</span>: <span class="string">'vue-loader'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="plugins-插件"><a href="#plugins-插件" class="headerlink" title="plugins 插件"></a>plugins 插件</h3><ul>
+<li><p>webpack-dev-server </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack-dev-server --open --hot --config ./webpack.dev.config.js</span><br></pre></td></tr></table></figure>
+<ul>
+<li>–open 自动打开浏览器</li>
+<li>–hot 热替换, 不刷新的情况下替换</li>
+<li>–inline 自动刷行</li>
+<li>–port 9999 定制端口</li>
+<li>– process 显示编译进度</li>
+</ul>
+</li>
+<li><p>html-webpack-plugin 自动注入插件</p>
+</li>
+<li></li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
@@ -287,7 +355,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-学习总结"><span class="nav-number">1.</span> <span class="nav-text">webpack 学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.0.1.</span> <span class="nav-text">目录</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-学习总结"><span class="nav-number">1.</span> <span class="nav-text">webpack 学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.0.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始"><span class="nav-number">1.0.2.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件结构"><span class="nav-number">1.0.3.</span> <span class="nav-text">配置文件结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loader-加载器"><span class="nav-number">1.0.4.</span> <span class="nav-text">loader 加载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plugins-插件"><span class="nav-number">1.0.5.</span> <span class="nav-text">plugins 插件</span></a></li></ol></li></ol></li></ol>
     
     </div>
   </aside>

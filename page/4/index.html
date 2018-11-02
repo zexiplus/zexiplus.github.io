@@ -259,6 +259,115 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Performance"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/07/30/Performance/">Web 性能分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/30/Performance/" class="article-date">
+	  <time datetime="2018-07-30T07:13:44.513Z" itemprop="datePublished">2018-07-30</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Web performanceQuestion
+常见问题
+
+什么是阻塞？在页面中我们通常会引用外部文件，而浏览器在解析HTML页面是从上到下依次解析、渲染，如果中引用了一个a.js文件，而这个文件很大或者有问题，需要2秒加载，那么浏览器会停止渲染页面（此时是白屏显示），2秒后加载完成才会继续渲染，这个就是阻塞。
+为什么会阻塞？因为浏览器不知道a.js中执行了哪些脚本，会对页面造成什么影响，所以浏览器会等js文件下载并执行完成后才继续渲染，如果这个时间过长，会白屏。
+ CSS文件也一样，因为...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/07/30/Performance/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Koa"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/07/30/Koa/">Koa 新一代web服务开发框架</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/30/Koa/" class="article-date">
+	  <time datetime="2018-07-30T07:13:44.512Z" itemprop="datePublished">2018-07-30</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          koa
+官方doc  link
+笔记 link
+
+Table of contents[TOC]
+1. koa app
+Index.js
+
+123456789101112131415161718192021const Koa = require('koa')const app = new Koa()// compute response timeapp.use(async (ctx, next) =&gt; &#123;	const startTime = new Date()	await ...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/07/30/Koa/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-html"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -310,6 +419,69 @@ Maxium-scale=1...
         </p>
         <p class="article-more-link">
           <a href="/2018/07/30/html/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Graphic"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/07/30/Graphic/">web图形方案总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/30/Graphic/" class="article-date">
+	  <time datetime="2018-07-30T07:13:44.511Z" itemprop="datePublished">2018-07-30</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Graphicweb前端常用图形处理
+目录[TOC]
+SVG
+简介：基于xml的矢量图形描述文件
+
+展现方式
+浏览器直接打开
+
+html中标签引用
+
+html中svg标签引入
+
+css的background引入
+
+
+123456789101112131415161718&lt;!-- simple.svg --&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"&gt;  &lt;circle cx=...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/07/30/Graphic/#more">Read More</a>
         </p>
       
     </div>
@@ -624,159 +796,6 @@ Mjpg-streamer  使用
         </p>
         <p class="article-more-link">
           <a href="/2018/06/14/Raspberry/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Python"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/06/14/Python/">Python 学习总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/06/14/Python/" class="article-date">
-	  <time datetime="2018-06-14T01:12:28.960Z" itemprop="datePublished">2018-06-14</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          usage12# 手动下载库函数pip install pandas
-Tip
-是索引-1返回列表最后一个元素，-2 返回倒数第二个…   [1,2,3][-1]       # return 3
-
-** 表示乘方 ,      3 ** 2       # return 9
-
-命令行键入 quit() + 回车 退出命令行
-
-列表末尾增加元素 list.append()。
-
-插入 list.insert(index, el)。
-
-删除元素del list[0]。删除并弹出最后一个list....
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/06/14/Python/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Puzzle"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/06/14/Puzzle/">开发常见问题疑难解答</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/06/14/Puzzle/" class="article-date">
-	  <time datetime="2018-06-14T01:12:28.960Z" itemprop="datePublished">2018-06-14</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          why
-/\d{6}/.test(‘440303008000’)    //true
-
- 要只匹配6个数字  /^\d{6}$/.test(‘1234566565’) //false 
-
-Unexpected side effect in “sortArr” computed property
-
-1234//vue 计算属性 ， this    es-lint报错sortArr() &#123;  return this.rankData.sort((prev, next) =&gt; n...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/06/14/Puzzle/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Mini-programe"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-    <div class="article-meta">
-      
-	<a href="/2018/06/14/Mini-programe/" class="article-date">
-	  <time datetime="2018-06-14T01:12:28.959Z" itemprop="datePublished">2018-06-14</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/06/14/Mini-programe/#more">Read More</a>
         </p>
       
     </div>

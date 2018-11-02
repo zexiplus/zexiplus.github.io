@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>常用面试问题记录与分析 | Float&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="webFront javascript css html vue react nodejs " />
+  
+  
+  
+  
+  <meta name="description" content="interview 收录了经典前端面试题和解答  目录[TOC] 简历 基本信息, 姓名-年龄-收集-邮箱-籍贯-博客-github 学历 工作经历, 时间-公司-岗位-职责-技术栈-业绩 开源项目, github和说明 兴趣, 和技术相近的兴趣  自我介绍 把握面试的沟通方向 豁达自信适度发挥  面试技巧面试要素 知识  能力  项目把控能力, 业务分析能力, 抽象设计能力   经验  面试流程">
+<meta name="keywords" content="webFront javascript css html vue react nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用面试问题记录与分析">
+<meta property="og:url" content="http://zexiplus.github.io/2018/11/02/Interview/index.html">
+<meta property="og:site_name" content="Float&#39;s blog">
+<meta property="og:description" content="interview 收录了经典前端面试题和解答  目录[TOC] 简历 基本信息, 姓名-年龄-收集-邮箱-籍贯-博客-github 学历 工作经历, 时间-公司-岗位-职责-技术栈-业绩 开源项目, github和说明 兴趣, 和技术相近的兴趣  自我介绍 把握面试的沟通方向 豁达自信适度发挥  面试技巧面试要素 知识  能力  项目把控能力, 业务分析能力, 抽象设计能力   经验  面试流程">
+<meta property="og:locale" content="English">
+<meta property="og:image" content="http://zexiplus.github.io/2018/11/02/Interview//imgs/libuv.png">
+<meta property="og:image" content="http://zexiplus.github.io/2018/11/02/Interview/imgs/eventLoop.png">
+<meta property="og:image" content="http://zexiplus.github.io/Users/float/Desktop/GitHub/blog/source/_posts/imgs/csrf.jpg">
+<meta property="og:image" content="http://zexiplus.github.io/2018/11/02/Interview/imgs/tcp.jpg">
+<meta property="og:image" content="http://zexiplus.github.io/2018/11/02/Interview/imgs/http_request.jpg">
+<meta property="og:image" content="http://zexiplus.github.io/2018/11/02/Interview/imgs/closeLink.jpg">
+<meta property="og:updated_time" content="2018-11-02T03:47:20.506Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用面试问题记录与分析">
+<meta name="twitter:description" content="interview 收录了经典前端面试题和解答  目录[TOC] 简历 基本信息, 姓名-年龄-收集-邮箱-籍贯-博客-github 学历 工作经历, 时间-公司-岗位-职责-技术栈-业绩 开源项目, github和说明 兴趣, 和技术相近的兴趣  自我介绍 把握面试的沟通方向 豁达自信适度发挥  面试技巧面试要素 知识  能力  项目把控能力, 业务分析能力, 抽象设计能力   经验  面试流程">
+<meta name="twitter:image" content="http://zexiplus.github.io/2018/11/02/Interview//imgs/libuv.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Float&#39;s blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Interview" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      常用面试问题记录与分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/11/02/Interview/" class="article-date">
+	  <time datetime="2018-11-02T03:47:20.505Z" itemprop="datePublished">2018-11-02</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="interview"><a href="#interview" class="headerlink" title="interview"></a>interview</h1><blockquote>
+<p>收录了经典前端面试题和解答</p>
+</blockquote>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>[TOC]</p>
+<h3 id="简历"><a href="#简历" class="headerlink" title="简历"></a>简历</h3><ul>
+<li>基本信息, 姓名-年龄-收集-邮箱-籍贯-博客-github</li>
+<li>学历</li>
+<li>工作经历, 时间-公司-岗位-职责-技术栈-业绩</li>
+<li>开源项目, github和说明</li>
+<li>兴趣, 和技术相近的兴趣</li>
+</ul>
+<h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><ul>
+<li>把握面试的沟通方向</li>
+<li>豁达自信适度发挥</li>
+</ul>
+<h3 id="面试技巧"><a href="#面试技巧" class="headerlink" title="面试技巧"></a>面试技巧</h3><h4 id="面试要素"><a href="#面试要素" class="headerlink" title="面试要素"></a>面试要素</h4><ul>
+<li>知识 </li>
+<li>能力 <ul>
+<li>项目把控能力, 业务分析能力, 抽象设计能力</li>
+</ul>
+</li>
+<li>经验</li>
+</ul>
+<h4 id="面试流程"><a href="#面试流程" class="headerlink" title="面试流程"></a>面试流程</h4><ul>
+<li>一面 基础知识, html, js, css</li>
+<li>二面 基础知识延伸, 实现原理, 简历问的比较多</li>
+<li>三面 一般不问技术, 职业生涯特色业务, 你推动了什么, 你改变了什么</li>
+<li>终面 潜力, 沟通, 性格</li>
+</ul>
+<h4 id="面试准备"><a href="#面试准备" class="headerlink" title="面试准备"></a>面试准备</h4><ul>
+<li>职位分析</li>
+<li>业务分析, 实战模拟</li>
+<li>技术栈准备</li>
+<li>自我介绍</li>
+</ul>
+<h3 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h3><h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><h5 id="页面布局"><a href="#页面布局" class="headerlink" title="页面布局"></a>页面布局</h5><ul>
+<li><p><strong>实现一个左右宽度300,高度已知, 中间自适应的布局, 各有什么优点, 缺点, 兼容性</strong></p>
+</li>
+<li><p><strong>变形题: 实现一个上下高度固定, 中间高度自适应的页面</strong></p>
+<ul>
+<li><p>浮动, 缺点: 脱离文档流 ,带来混乱. 优点: 兼容性好</p>
+</li>
+<li><p>绝对定位, 缺点: 脱离文档流 ,带来之后元素混乱. 优点: 兼容性好</p>
+</li>
+<li><p>flex布局 , 优点: 其中某个单元格高度增加, 其他单元格高度也增加. 缺点: 新特性兼容性不好</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123; <span class="attribute">display</span>: flex; &#125; </span><br><span class="line"><span class="selector-class">.center</span> &#123;<span class="attribute">flex</span>: <span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>table 布局, 优点: 兼容性极好, 其中某个单元格高度增加, 其他单元格高度也增加</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;<span class="attribute">display</span>: table;&#125; </span><br><span class="line"><span class="selector-class">.left</span>, <span class="selector-class">.right</span>, <span class="selector-class">.center</span> &#123;<span class="attribute">display</span>: table-cell&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网格布局, 优点: 先进的</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">300px</span> auto <span class="number">300px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>css计算属性</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span>, <span class="selector-class">.right</span> &#123;<span class="attribute">width</span>: <span class="number">300px</span>;&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;<span class="attribute">width</span>: <span class="built_in">calc</span>(100vw - 600px)&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="css盒模型"><a href="#css盒模型" class="headerlink" title="css盒模型"></a>css盒模型</h5><ul>
+<li><p>标准盒模型, ie盒模型. 包括margin, border, padding, content</p>
+</li>
+<li><p>两者差别:计算宽度不同, css如何设置box-sizing: border-box/content-box;</p>
+</li>
+<li><p>js如何获取和设置不同盒模型的宽高</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只能获取内联样式的宽高</span></span><br><span class="line">el.style.width/height</span><br><span class="line"><span class="comment">// ie获取元素宽高</span></span><br><span class="line">el.currentStyle.width/height</span><br><span class="line"><span class="comment">// 通用获取元素的宽和高</span></span><br><span class="line"><span class="built_in">window</span>.getComputedStyle(el).width/height</span><br><span class="line"></span><br><span class="line">el.getBoundingClientReact().width/height/left/right</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="BFC-块级格式化上下文"><a href="#BFC-块级格式化上下文" class="headerlink" title="BFC 块级格式化上下文"></a>BFC 块级格式化上下文</h5><ul>
+<li><strong>bfc渲染规则</strong>: <ul>
+<li>垂直方向不发生重叠 </li>
+<li>bfc区域不会与浮动元素重叠 </li>
+<li>bfc在页面上是一个容器, 之外的元素不会影响内部元素, 内部也不影响外部元素.</li>
+</ul>
+</li>
+<li><strong>bfc创建:</strong> <ul>
+<li>float值不为none,</li>
+<li>position值不为static或relative </li>
+<li>display: table, table-cell </li>
+<li>overflow值不为visible</li>
+</ul>
+</li>
+<li><strong>bfc使用场景</strong><ul>
+<li>消除边距重叠</li>
+<li>解决浮动子元素无法撑开父元素高度</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>dom事件</strong></p>
+<ul>
+<li><p><strong>dom事件的级别</strong></p>
+<ul>
+<li><p>dom0 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">el.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dom2 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">el.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;, <span class="literal">false</span>) <span class="comment">// 不使用事件捕获</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dom3 , 增加了多种事件类型, 鼠标, 键盘等</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">el.addEventListener(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;, <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>dom事件模型</strong></p>
+<ul>
+<li>捕获, 冒泡</li>
+</ul>
+</li>
+<li><p><strong>dom事件流</strong></p>
+<ul>
+<li>捕获阶段, 处于目标阶段, 冒泡阶段</li>
+</ul>
+</li>
+<li><p><strong>dom事件捕获的具体流程</strong></p>
+<ul>
+<li>window , document, html(document.documentElement), body, target</li>
+</ul>
+</li>
+<li><p><strong>event对象常见应用</strong></p>
+<ul>
+<li>阻止默认行为 event.preventDefault() </li>
+<li>阻止冒泡 event.stopPropagation()</li>
+<li>组织同一元素多个事件绑定其他事件的发生 event.stopImmediatePropagation()</li>
+<li>event.currentTarget  事件绑定的dom对象</li>
+<li>event.target 事件触发时的具体元素</li>
+</ul>
+</li>
+<li><p><strong>自定义事件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ev = <span class="keyword">new</span> Event(<span class="string">'custom'</span>) <span class="comment">// var ev = new CustomEvent('custom', &#123;name: 'a'&#125;)</span></span><br><span class="line">el.addEventListener(<span class="string">'custom'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;)</span><br><span class="line">el.dispatchEvent(ev)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h5><ul>
+<li><p><strong>http协议的主要特点</strong></p>
+<p>简单快速, 灵活, 无连接, 无状态</p>
+</li>
+<li><p><strong>http报文的组成成分</strong></p>
+<ul>
+<li>请求报文: <ul>
+<li>请求行: http方法, 请求地址,http协议和版本 </li>
+<li>请求头 一些key, value值</li>
+<li>空行</li>
+<li>请求体</li>
+</ul>
+<ul>
+<li>响应报文: <ul>
+<li>状态行</li>
+<li>相应头</li>
+<li>空行</li>
+<li>响应体</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>http方法</strong></p>
+<ul>
+<li>get 获取资源</li>
+<li>post 传输资源</li>
+<li>put 更新资源</li>
+<li>delete 删除资源</li>
+<li>head 获得报文首部</li>
+</ul>
+</li>
+<li><p><strong>post和get区别</strong></p>
+<ul>
+<li>get产生的url地址可被收藏, 而post不可以</li>
+<li>get请求会被浏览器主动缓存, post不会</li>
+<li>get只能url编码, 而post支持多种编码</li>
+<li>get请求的url长度有限(过长截断), 而post没有</li>
+<li>get比post更不安全, 参数通过url传递, post放在requestbody中</li>
+</ul>
+</li>
+<li><p><strong>http状态码</strong></p>
+<ul>
+<li><p>1xx: 表示请求已接收, 继续处理</p>
+</li>
+<li><p>2xx: 成功-请求已成功被接收</p>
+<ul>
+<li>200 请求成功</li>
+<li>206 部分请求成功(视频, 音频类的流文件)</li>
+</ul>
+</li>
+<li><p>3xx: 重定向, 要完成请求需进一步操作</p>
+<ul>
+<li>301请求的页面已经永久转移到新的url</li>
+<li>302 临时转移</li>
+<li>304 资源未改动, 请求缓存</li>
+</ul>
+</li>
+<li><p>4xx: 客户端错误</p>
+<ul>
+<li>400 请求的语法错误</li>
+<li>401 请求未授权</li>
+<li>403: 禁止访问</li>
+<li>404 资源不存在</li>
+</ul>
+</li>
+<li><p>5xx: 服务器错误</p>
+<ul>
+<li>500 服务器内部错误</li>
+<li>503 服务器宕机或过载</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>什么是持久连接</strong></p>
+<ul>
+<li>1.1版本支持持久连接,非 keep-alive 模式时, 没请求一次都要断开重新连接, 当使用connection: keep-alive时, 可持续连接,必须基于 http1.1 的持久连接, 只有get和head才可以进行管线化</li>
+</ul>
+</li>
+<li><p><strong>什么是管线化</strong></p>
+<ul>
+<li>管线化：请求1 -&gt; 请求2 -&gt; 请求3 -&gt; 响应1 -&gt; 响应 2….</li>
+<li>非管线化： 请求1 -&gt; 响应1 -&gt; 请求2 -&gt; 响应2 -</li>
+</ul>
+</li>
+</ul>
+<h5 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h5><ul>
+<li><strong>类的声明, 生成实例</strong></li>
+</ul>
+<ul>
+<li><p>构造函数方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">name</span>) </span>&#123;<span class="keyword">this</span>.name = name&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>class关键字</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> (name) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实例化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Animal()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><strong>如何实现继承, 继承的几种方式</strong></li>
+</ul>
+<ul>
+<li><p><strong>借助构造函数实现继承</strong></p>
+<p>缺点: 不能继承原型对象上的属性和方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'parent'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不会继承原型链上的属性</span></span><br><span class="line">Parent1.prototype.say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 关键: 借助构造函数</span></span><br><span class="line">    Parent1.call(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">'child'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">new</span> Child1().say() <span class="comment">// 没有此方法,报错 error</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>借助原型链实现的继承</strong></p>
+<p>缺点: 共享原型对象属性, 导致不同实例上对原型对象上属性的修改,对互相产生影响</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'parent'</span></span><br><span class="line">    <span class="keyword">this</span>.arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">'child'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 关键: 借助原型链</span></span><br><span class="line">Child2.prototype = <span class="keyword">new</span> Parent2</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="keyword">var</span> child2 = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="built_in">console</span>.log(child.constructor) <span class="comment">// Parent2</span></span><br><span class="line"></span><br><span class="line">child.arr.push(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">console</span>.log(child2.arr) <span class="comment">// 共享原型属性 [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>组合式继承</strong></p>
+<p>缺点: 父类调用两次</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'parent'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    Parent3.call(<span class="keyword">this</span>)</span><br><span class="line">    <span class="keyword">this</span>.type = <span class="string">'child'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child3.prototype = <span class="keyword">new</span> Parent3()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 优化1: 组合继承(父类只调用一次), 缺点: constructor无法正确指向</span></span><br><span class="line">Child3.prototype = Parent3.prototype</span><br><span class="line"></span><br><span class="line"><span class="comment">// 优化2: 组合继承(父类只调用一次), constructor也能正确指向</span></span><br><span class="line">Child3.prototype = <span class="built_in">Object</span>.create(Parent3.prototype)</span><br><span class="line">Child3.prototype.constructor = Child3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>寄生式继承</strong></p>
+<p>缺点: 子类原型对象无法继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent4</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'parent4'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> Parent4</span><br><span class="line">    obj.type = <span class="string">'child'</span></span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h5><ul>
+<li><p><strong>创建对象的几种方法</strong></p>
+<ul>
+<li><p><strong>对象字面亮</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>构造函数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Car()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Object.create</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> proto = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">var</span> instance = <span class="built_in">Object</span>.create(proto)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>原型, 构造函数, 实例, 原型链</strong></p>
+</li>
+<li><p><strong>instanceof原理, constructor</strong></p>
+</li>
+<li><p><strong>new 运算符</strong></p>
+<ul>
+<li>会创建一个object 然后把此object的原型链链接到构造函数的prototype对象上</li>
+<li>执行构造函数, 把this绑定到此对象上</li>
+<li>如果此函数没有反回对象, 那么new运算符的结果就是此对象</li>
+</ul>
+</li>
+</ul>
+<h5 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h5><ul>
+<li><p><strong>什么是同源策略即限制</strong></p>
+<p>源: 协议, 域名, 端口</p>
+<p>同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互.这是一个隔离潜在恶意文件的安全机制.</p>
+<p>具体限制: cookie, localStorage 和 indexDB 无法读取, dom无法获得, ajax无法发送</p>
+</li>
+<li><p><strong>前后端如何通讯</strong></p>
+<ul>
+<li><p>ajax (fetch)</p>
+</li>
+<li><p>websocket 支持跨域</p>
+</li>
+<li><p>cors </p>
+</li>
+</ul>
+</li>
+<li><p><strong>如何创建ajax(兼容性)</strong></p>
+<p>XMLHttpRequest, ActiveXObject</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">xhr.open(<span class="string">'post'</span>, url, ture) <span class="comment">// 参数3: 是否为异步请求</span></span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="number">200</span>, <span class="number">304</span>, <span class="number">206</span>].includes(xhr.status)) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// or onreadystatechange(0未打开,1未发送,2已获取相应头,3正在下载响应体,4请求完成)</span></span><br><span class="line">xhr.send(data)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>跨域通讯的几种方式</strong>,</p>
+<p>浏览器回自动拦截跨域ajax, 并添加origin发送跨域通信</p>
+<ul>
+<li><p><strong>jsonp</strong></p>
+<p>利用script标签的跨域加载</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://abc.com/js/?data=123&amp;callback=jsonp"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    jsonp(&#123;</span></span><br><span class="line"><span class="undefined">        data: &#123;&#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>js发送jsonp</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> script = docuement.createElement(<span class="string">'script'</span>)</span><br><span class="line">script.insertBefore(<span class="built_in">document</span>.body)</span><br><span class="line">script.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	callback()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>hash</strong></p>
+<p>利用window.onhashchange</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>)</span><br><span class="line">iframe.src = <span class="string">'http://123.com#6778'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 123.com</span></span><br><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = <span class="built_in">window</span>.location.hash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>postMessage</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> win = <span class="built_in">window</span>.open(<span class="string">'a.com'</span>)</span><br><span class="line">win.postMessage(<span class="string">'data'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// a.com</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(event.origin, event.source, event.data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>webSocket</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">'wss://echo.websocket.org'</span>)</span><br><span class="line">ws.onopen = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">ws.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;<span class="built_in">console</span>.log(event.data)&#125;</span><br><span class="line">ws.onclose = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>cors(跨域的ajax)</strong></p>
+<p>利用fetch api</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 进行一些跨域配置</span></span><br><span class="line">fetch(<span class="string">'/some/url'</span>, &#123;</span><br><span class="line">    method: <span class="string">'get'</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h5><ul>
+<li><p><strong>csrf (跨站请求伪造)</strong></p>
+<ul>
+<li>在用户注册过的网站A登录过, 并下发cookie</li>
+<li>在恶意网站诱导用户点击网站A的链接(接口存在漏洞)</li>
+</ul>
+<p>防御: </p>
+<ul>
+<li>token验证</li>
+<li>referer验证, 请求是否从可信站点发起</li>
+<li>session验证</li>
+</ul>
+</li>
+<li><p><strong>xss(跨域脚本攻击)</strong></p>
+<ul>
+<li>向页面注入脚本</li>
+</ul>
+<p>防御:</p>
+<ul>
+<li>过滤用户输入</li>
+</ul>
+</li>
+</ul>
+<h5 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h5><ul>
+<li>排序<ul>
+<li>快速排序</li>
+<li>选择排序</li>
+<li>希尔排序</li>
+<li>冒泡排序</li>
+</ul>
+</li>
+<li>堆栈, 队列, 链表</li>
+<li>递归</li>
+<li>波兰式和逆波兰式</li>
+</ul>
+<h3 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h3><h4 id="渲染机制"><a href="#渲染机制" class="headerlink" title="渲染机制"></a>渲染机制</h4><ul>
+<li><p><strong>doctype及作用</strong></p>
+<ul>
+<li>DTD文档类型定义, 浏览器使用它来判断文档类型, 决定使用何种协议来解析和切换浏览器模式</li>
+<li>doctype是用来声明文档类型和dtd规范的</li>
+</ul>
+<p>文档类型</p>
+<ul>
+<li>html5, </li>
+<li>html4.01strict模式, 包含所有html元素属性,<strong>不包含</strong>展示性和弃用的元素(比如front)</li>
+<li>html4.01传统模式（怪异模式） 包含所有html元素属性, 也<strong>包含</strong>弃用元素</li>
+</ul>
+</li>
+<li><p><strong>浏览器的渲染过程</strong></p>
+<ul>
+<li>html - html parse 解析- <strong>dom tree</strong></li>
+<li>style - css parse 规则解析 - <strong>style-rules</strong></li>
+<li>style rules 和 <strong>dom tree</strong> 整合, 变为 <strong>render tree</strong>(渲染树), 浏览器<strong>layout</strong>决定元素的位置和大小, 绘制页面(<strong>painting</strong>)</li>
+</ul>
+</li>
+<li><p><strong>重排reflow</strong></p>
+<p>dom 中每个元素都有自己的盒子, 这些都需要浏览器计算放到他们应有的<strong>位置</strong>, 此过程重排<strong>reflow</strong></p>
+<p><strong>触发reflow</strong></p>
+<ul>
+<li><p>增加, 删除, 修改dom节点时</p>
+</li>
+<li><p>移动dom的位置</p>
+</li>
+<li><p>修改css样式的时候(宽高,display)</p>
+</li>
+<li><p>resize窗口的时候</p>
+</li>
+<li><p>修改网页默认字体</p>
+</li>
+</ul>
+</li>
+<li><p><strong>重绘repaint</strong></p>
+<p>dom位置, 大小确定后, 展现在屏幕上的过程称为repaint</p>
+<p><strong>触发repaint</strong></p>
+<ul>
+<li><p>dom改动</p>
+</li>
+<li><p>css改动</p>
+</li>
+</ul>
+<p><strong>减少repaint次数方法</strong></p>
+<p>使用 <strong>createDocumentFregment</strong>创建节点, 一次性加入页面</p>
+</li>
+</ul>
+<h4 id="js运行机制"><a href="#js运行机制" class="headerlink" title="js运行机制"></a>js运行机制</h4><ul>
+<li><p><strong>什么是单线程?</strong></p>
+<p>javascript同一时间只能做一件事情</p>
+</li>
+<li><p><strong>什么是任务队列?</strong></p>
+<p>js分为同步任务和异步任务, 同步任务在主线程(执行栈)执行, 当主线程没有任务可以执行时, 异步任务从异步队列中取出执行</p>
+<ul>
+<li>同步任务<ul>
+<li>console, if, while, </li>
+</ul>
+</li>
+<li>异步任务<ul>
+<li>setTimeout, setInterval,dom事件, promise</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>什么是event loop?</strong></p>
+<p>Event Loop 是一个很重要的概念，指的是计算机系统的一种运行机制, <strong>Event Loop是一个程序结构，用于等待和发送消息和事件</strong></p>
+<p>每当遇到I/O的时候，主线程就让Event Loop线程去通知相应的I/O程序，然后接着往后运行，所以不存在红色的等待时间。等到I/O程序完成操作，Event Loop线程再把结果返回主线程。主线程就调用事先设定的回调函数，完成整个任务</p>
+</li>
+</ul>
+<h4 id="页面性能"><a href="#页面性能" class="headerlink" title="页面性能"></a>页面性能</h4><ul>
+<li><p><strong>提升页面性能的方法?</strong></p>
+<ul>
+<li><p><strong>资源压缩合并, 减少http请求</strong></p>
+</li>
+<li><p><strong>非核心代码异步加载 – 异步加载的方式 – 异步加载的区别</strong></p>
+<p>异步加载的方式</p>
+<ul>
+<li>动态创建脚本  createElement(‘script’) </li>
+<li>defer 是在<strong>html解析完之后(domContentLoaded事件)</strong>才会执行, 如果多个, 按照顺序依次执行</li>
+<li>async 是在<strong>加载完之后立即执行</strong>, 如果是多个, 和声明顺序<strong>无关</strong></li>
+</ul>
+</li>
+<li><p>利用浏览器<strong>缓存</strong> – 缓存的分类 – 缓存的原理</p>
+<p>分类</p>
+<ul>
+<li>强缓存: 不问直接用两者都有以cache-control为准<ul>
+<li>Expires   <code>Expires: Thu 21 Jan 2018 ..</code>(以服务器的绝对时间为准)</li>
+<li>Cache-Control    <code>Catch-Control: max-age=3600</code>(以客户端拿到文件3600秒为止)</li>
+</ul>
+</li>
+<li>协商缓存: 不确定是否使用, 先和服务器沟通再决定是否使用<ul>
+<li>Last-Modified </li>
+<li>Etag</li>
+<li>if-None-matchd</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>使用cdn</strong></p>
+</li>
+<li><p><strong>dns预解析</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"x-dns-prefetch-control"</span> <span class="attr">content</span>=<span class="string">"on"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//host_name_to_prefetch.com"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="错误监控"><a href="#错误监控" class="headerlink" title="错误监控"></a>错误监控</h4><ul>
+<li><p><strong>前端错误分类</strong></p>
+<ul>
+<li><p><strong>及时运行错误(代码错误)</strong></p>
+<ul>
+<li>try … catch</li>
+<li>window.onerror(只能捕获及时运行错误, 不能捕获资源错误)</li>
+</ul>
+</li>
+<li><p><strong>资源加载错误(不会冒泡, 但会捕获)</strong></p>
+<ul>
+<li><p>object.onerror</p>
+</li>
+<li><p><strong>performance.getEntries(),</strong> 返回一个数组, 内含有成功加载的资源. </p>
+</li>
+<li><p>Error事件捕获</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">&#125;, <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>错误的捕获方式(如何保证产品质量)</strong></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>跨域js文件错误处理</strong></p>
+<ul>
+<li><p>客户端script增加<strong>crossorigin属性</strong></p>
+</li>
+<li><p>服务端资源响应增加<strong>Access-Control-Allow-Origin: *</strong></p>
+<p>如果没有上述两个设置， 跨域js不会报错</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>上报错误的基本原理</strong></p>
+<ul>
+<li><p>采用Ajax通信的方式上报</p>
+</li>
+<li><p>利用Image对象上报</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Image().src = <span class="string">'http://error.com/test?error=123'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="html"><a href="#html" class="headerlink" title="html"></a>html</h5><ul>
+<li><p>语意化标签: section章节, article容器, nav导航, aside附加栏, header页头, main主题内容, footer页脚</p>
+</li>
+<li><p>替换元素： input, select, img, 这类根据标签属性的元素</p>
+</li>
+<li><p>非替换元素： div, span 这类根据内容显示的元素</p>
+</li>
+<li><p>meta标签 </p>
+<ul>
+<li><p>指定渲染引擎</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span> <span class="attr">content</span>=<span class="string">"webkit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>link标签 dns 预解析</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//static.123.com"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="阻塞"><a href="#阻塞" class="headerlink" title="阻塞"></a>阻塞</h5><p>js的下载和执行会阻塞之后所有资源的下载</p>
+<p>当css外部样式表后面跟着js资源之前时会阻塞</p>
+<h5 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h5><ul>
+<li><p>vue是什么？ 有哪些特性？</p>
+<p>vuejs是一套基于mvvm思想的， 构建用户界面的框架。vue在设计上着重关心视图层， 特点有双向数据绑定， vue后缀的单文件组件， 低耦合， 可复用性强， 独立开发， 可测试性， 2.0支持virtualdom</p>
+</li>
+<li><p>实际开发过程中遇到过哪些问题?</p>
+<ul>
+<li><p>v-show 的上传文件后页面缓存问题， 使用v-if 解决</p>
+</li>
+<li><p>因为对父子组件生命周期顺序不了解产生的数据拿不到，和页面视图不更新的问题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">父beforeCreate-&gt;父created-&gt;父beforeMount-&gt;子beforeCreate-&gt;子created-&gt;子beforeMount-&gt;子mounted-&gt;父mounted</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用vue-router的路由守卫beforeEach和meta字段实现权限控制和伪登录检测， 不再每个页面中单独实现</p>
+</li>
+<li><p>浏览器无法记录用户历史浏览的位置， 本来是用store记录位置， 后来使用scrollBehavior来做</p>
+</li>
+<li><p>数据更新而页面却没更新， 响应式没有理解到位， 使用Vue.set()更新数据</p>
+</li>
+<li><p>style标签不添加scope属性影响其他页面内容， 增加scope属性</p>
+</li>
+<li><p>页面白屏问题， 在已定义了<teamplate>标签后又在里面写了空的template</teamplate></p>
+</li>
+<li><p>首屏加载速度太慢， 采用异步加载机制</p>
+</li>
+<li><p>watch 属性的监控改变使页面卡死， watch不能修改自身</p>
+</li>
+<li><p>v-for没有增加key属性导致页面的效率变低</p>
+</li>
+</ul>
+</li>
+<li><p><strong>vuex 包含哪些？</strong></p>
+<ul>
+<li><p>state， 包含应用的所有状态, 分别有getters， setters用于获取，设置状态</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="keyword">this</span>.$store.state.a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mutations 更改state的唯一方式， 同步的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$store.commit(<span class="string">'mutationName'</span>, params)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>action 提交mutations , 可包含异步操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$store.dispatch(<span class="string">'actionName'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>vue和react的区别</strong></p>
+<p>react是基于virtualDOM的， 一种在内存中描述dom的数据结构。react的数据通常被看作不可变的， 而dom更新则是通过virtual dom的diff算法来计算的。</p>
+<p>vue的数据默认是可变的， 通过Object.defineProperty()监控数据， 数据变更会触发dom更新， vue作用于实际dom， 并对真实节点的引用实现双向数据绑定。</p>
+</li>
+</ul>
+<h5 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h5><p>实现动画的方式: 1.js控制dom动画, 2.svg动画(path), 3. canvas + css3 动画</p>
+<p>使用硬件加速优化页面性能， 默认transform， transition 不使用3d加速， 但transform3d使用3d加速</p>
+<h3 id="面试实战"><a href="#面试实战" class="headerlink" title="面试实战"></a>面试实战</h3><h4 id="2018-10-13"><a href="#2018-10-13" class="headerlink" title="2018.10.13"></a>2018.10.13</h4><ul>
+<li><p><strong>浏览器小于12px像素字体显示</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(0.8)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>html doctype的意义 (标准模式和兼容模式)</strong></p>
+<p>标准模式的排版和js以浏览器支持的最高标准运行,  兼容模式浏览器以向后兼容的方式模拟老旧浏览器的行为防止站点无法工作</p>
+</li>
+<li><p><strong>实现ie6, 7 , 8不同字体颜色</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ccc</span>\<span class="number">9</span>; <span class="comment">/*ie 6,7,8 */</span></span><br><span class="line">    +color: #000; /* ie 6,7 only  */</span><br><span class="line">    _<span class="selector-tag">color</span>: <span class="selector-id">#777</span>; <span class="comment">/* ie6 only */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Webpack是什么</strong></p>
+<p>webpack是一个前端模块化方案，更侧重模块打包，我们可以把开发中的所有资源（图片、js文件、css文件等）都看成模块，通过loader（加载器）和plugins（插件）对资源进行处理，打包成符合生产环境部署的前端资源</p>
+</li>
+<li><p><strong>Webpack热刷新原理</strong> </p>
+<p>使用webpack-hot-middleware插件, 使用SSE(server sent events)服务器事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// client</span></span><br><span class="line"><span class="keyword">var</span> listener = <span class="keyword">new</span> EventSource(<span class="string">'/message'</span>)</span><br><span class="line">listener.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// server</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (req.url == <span class="string">'/message'</span>) &#123;</span><br><span class="line">        res.writeHead(<span class="number">200</span>, &#123;</span><br><span class="line">            <span class="string">'Content-Type'</span>: <span class="string">'text/event-stream'</span>,</span><br><span class="line">            <span class="string">'Cache-Control'</span>: <span class="string">'no-cache'</span>,</span><br><span class="line">            <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">        setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            i ++</span><br><span class="line">            res.write(<span class="string">'update'</span>)</span><br><span class="line">        &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).listen(<span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>css 实现等边三角形</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:after</span>, <span class="selector-tag">box</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(30deg);</span><br><span class="line">    <span class="attribute">transform-origin</span>: left bottom;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(60deg);</span><br><span class="line">    <span class="attribute">transform-origin</span>: right bottom;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>react组件的生命周期</strong></p>
+<ul>
+<li><strong>实例化(渲染期)</strong><ul>
+<li>getDefaultProps</li>
+<li>getInitialState (<strong>此时可以访问this.props</strong>)</li>
+<li>componentWillMount</li>
+<li>render</li>
+<li>componentDidMount</li>
+</ul>
+</li>
+<li><strong>存在期</strong><ul>
+<li>componentWillReceiveProps</li>
+<li>shouldComponentUpdate (首次渲染不会调用) </li>
+<li>componentWillUpdate</li>
+<li>componentDidUpdate</li>
+</ul>
+</li>
+<li><strong>销毁&amp;清理期</strong><ul>
+<li>componentWillUnmount</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>寄生组合式继承</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sup</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> prototype = <span class="built_in">Object</span>(superType.prototype)</span><br><span class="line">    prototype.constructor = subType</span><br><span class="line">    subType.prototype = prototype</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2018-10-17"><a href="#2018-10-17" class="headerlink" title="2018.10.17"></a>2018.10.17</h4><ul>
+<li><p><strong>防止JS对象被修改</strong></p>
+<ul>
+<li><p>不可扩展对象Object.preventExtensions(obj) [不能添加新成员]</p>
+</li>
+<li><p>密封对象 Object.seal(obj) [不能删除, 但属性可修改]</p>
+</li>
+<li><p>冻结对象 Object.freeze(obj) [不能删不能增不能改]</p>
+</li>
+<li><p>设置属性 Object.defineProperty, Object.defineProperties</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'name'</span>, &#123;</span><br><span class="line">    configurable: boolean, <span class="comment">// 是否可删除</span></span><br><span class="line">    enumerable: boolean, <span class="comment">// 是否可枚举</span></span><br><span class="line">    writable: boolean, <span class="comment">// 是否可修改</span></span><br><span class="line">    value: val <span class="comment">// 属性值</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>CSS选择符有哪些？哪些属性可以继承？</strong></p>
+<p>可继承 <strong>字体, 颜色, 字大小, 缩进</strong></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>前端存储方式有哪些？</strong></p>
+<p><strong>Cookie, localStorage, sessionStorage, indexDB</strong></p>
+</li>
+<li><p><strong>什么是面向对象？面向对象有哪些基本特征？</strong></p>
+</li>
+</ul>
+<ul>
+<li><p>面向对象是一种思想. 面向对象是指, 把复杂过程封装在对象中,细节交给对象实现, 只暴露出简单的接口,让对象去实现具体的细节.  这种思想将数据作为第一位, 方法其次, 这是对数据的优化, 简化了过程.  通过继承机制, 实现对象之间的属性,方法共用.</p>
+</li>
+<li><p><strong>封装性</strong>: 隐藏具体细节, 隔离变化, 仅提供外部访问的接口</p>
+</li>
+<li><p><strong>继承性:</strong> 子类继承父类的一些方法, 可以提高代码复用性</p>
+</li>
+<li><p><strong>多态性: </strong>同一方法可以在子类和父类有不同实现</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>千位符</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!num) <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">var</span> numString = num.toString()</span><br><span class="line">    <span class="keyword">var</span> trailIndex = numString.indexOf(<span class="string">'.'</span>)</span><br><span class="line">    <span class="keyword">var</span> headString</span><br><span class="line">    <span class="keyword">if</span> (trailIndex &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> trail = numString.slice(trailIndex)</span><br><span class="line">        headString = numString.slice(<span class="number">0</span>, trailIndex)</span><br><span class="line">        <span class="keyword">return</span> numString.replace(<span class="regexp">/(\d&#123;3&#125;\B)/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$<span class="number">1</span></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> $<span class="number">1</span> + <span class="string">','</span></span><br><span class="line">        &#125;).concat(trail)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		headString = numString</span><br><span class="line">        <span class="keyword">return</span> numString.replace(<span class="regexp">/(\d&#123;3&#125;\B)/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$<span class="number">1</span></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> $<span class="number">1</span> + <span class="string">','</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(format(<span class="number">1231423423.22</span>)) <span class="comment">//1,231,423,423.22</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>快排算法</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> quicksort = <span class="function"><span class="keyword">function</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 递归函数, 终止情况为数组的长度为1</span></span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> pivotIndex = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>); <span class="comment">// 选取一半位置为基准点</span></span><br><span class="line">    <span class="keyword">var</span> pivot = arr.splice(pivotIndex, <span class="number">1</span>)[<span class="number">0</span>]; <span class="comment">// 挑选出基准值</span></span><br><span class="line">    <span class="keyword">var</span> left = [];</span><br><span class="line">    <span class="keyword">var</span> right = [];</span><br><span class="line">    <span class="comment">// 建立左右两个数组, 左边存放小于基准的数值, 右边存放大于基准的数值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; pivot) &#123;</span><br><span class="line">            left.push(arr[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 调用自身并进行连接 返回排序后的数组</span></span><br><span class="line">    <span class="keyword">return</span> quicksort(left).concat([pivot], quicksort(right));</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> array = [<span class="number">8</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>];</span><br><span class="line">quicksort(array); <span class="comment">// [0,1,2,3,5,5,7,7,8]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>链表与数组的区别</strong></p>
+<ul>
+<li><p>数组是在内存中连续存放的</p>
+</li>
+<li><p>插入存储效率低</p>
+</li>
+<li><p>查找效率高</p>
+</li>
+<li><p>不利于扩展, 数组定义的空间不够要重新定义数组</p>
+</li>
+<li><p>链表在内存中存放不是连续的</p>
+</li>
+<li><p>每一个数据都保存着下一个数据的地址</p>
+</li>
+<li><p>插入增加数据效率高</p>
+</li>
+<li><p>查找数据效率低</p>
+</li>
+<li><p>不指定大小, 扩容方便</p>
+</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li><p>合并文件 , 使用 css精灵图以 减少http请求</p>
+</li>
+<li><p>使用合适的缓存策略 响应头增加 expire, max-age字段 增加E-tag</p>
+</li>
+<li><p>选择适当的图片格式, 压缩图片质量</p>
+</li>
+<li><p>使用cdn</p>
+</li>
+<li><p>选择合理的 web component更新方式和周期</p>
+</li>
+<li><p>压缩组件, js,css</p>
+</li>
+<li><p>减少重定向</p>
+</li>
+<li><p>不要使用css表达式</p>
+</li>
+<li><p>减少dns查询次数</p>
+</li>
+<li><p>合理使用预加载和懒加载</p>
+</li>
+</ul>
+</li>
+<li><p><strong>进程间通信(ipc)方式有哪些</strong></p>
+<ul>
+<li>匿名管道(<strong>pipe</strong>) 半双工, 数据单向流动, 只能在亲缘(父子)进程间使用</li>
+<li>具名管道(<strong>named pipe</strong>) 允许非亲缘管道间使用</li>
+<li>高级管道(<strong>popen</strong>)  将另一个进程在当前程序中启动</li>
+<li>消息队列(<strong>message queue</strong>) 消息队列是存放消息的链表, 克服了管道只能传递无格式字节流, 和缓冲区大小受限的情况</li>
+<li>信号(<strong>sinal</strong>)</li>
+<li>共享内存通信(<strong>shared memory</strong>) 由一个进程创建, 多个进程共享的内存, 是最快的进程间通讯方式</li>
+<li>套接字(<strong>socket</strong>)  可用于不同主机之间通讯 步骤 命名, 绑定, 监听, 连接, 发送信息, 解绑</li>
+</ul>
+</li>
+</ul>
+<h4 id="10-18"><a href="#10-18" class="headerlink" title="10.18"></a>10.18</h4><ul>
+<li><p><strong>简单与复杂请求</strong></p>
+<ul>
+<li><p><strong>简单请求</strong>: 两者必须都满足</p>
+<ul>
+<li>仅包含GET, HEAD or POST(如果是post, content-type必须是 application/x-www-form-urlencoded, multipart/form-data, or text/plain 其中一种)</li>
+<li>没设置自定义头信息的请求 </li>
+</ul>
+</li>
+<li><p><strong>复杂请求</strong></p>
+<p>不满足简单请求的请求类型</p>
+<ol>
+<li>获取服务器支持的HTTP请求方法；也是黑客经常使用的方法。</li>
+<li>用来检查服务器的性能。例如：AJAX进行跨域请求时的预检，需要向另外一个域名的资源发送一个HTTP OPTIONS请求头，用以判断实际发送的请求是否安全。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>http2</strong></p>
+<ul>
+<li><p><strong>首部压缩</strong></p>
+<ul>
+<li>如果首部发生变化了，那么只需要发送变化了数据在Headers帧里面，新增或修改的首部帧会被追加到“首部表”</li>
+</ul>
+</li>
+<li><p><strong>共享同一个tcp连接</strong></p>
+<ul>
+<li>“资源合并减少请求”的优化手段对于HTTP2.0来说是没有效果的，只会增大无用的工作量而已</li>
+<li>http1一个域名限制打开6个tcp连接， 所以使用cdn1， cdn2 ， cdn3 …分发不同资源， http2不需要</li>
+</ul>
+</li>
+<li><p><strong>并行双向字节流的请求和回应</strong></p>
+<ul>
+<li>同一链接上有多个不同方向的数据流在传输。客户端可以一边乱序发送stream，也可以一边接收者服务器的响应，而服务器那端同理</li>
+</ul>
+</li>
+<li><strong>请求分有优先级</strong><ul>
+<li>每个HTTP2.0流里面有个优先值，这个优先值确定着客户端和服务器处理不同的流采取不同的优先级策略，高优先级的流都应该优先发送，但又不会绝对的</li>
+</ul>
+</li>
+<li><strong>服务端推送</strong><ul>
+<li>除了对最初请求的响应外，服务器还可以额外向客户端推送资源，而无需客户端明确地请求</li>
+<li>下次请求时直接从缓存中读取</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>diff算法</strong></p>
+</li>
+<li><p><strong>xss, csrf防范</strong></p>
+</li>
+<li><p><strong>cookie设置</strong></p>
+</li>
+</ul>
+<h4 id="10-19"><a href="#10-19" class="headerlink" title="10.19"></a>10.19</h4><ul>
+<li><p><strong>讲讲对mvvm模式的理解</strong></p>
+<p><strong>model（模型层）， view（视图层）， viewmodel（展示模型)</strong></p>
+<p>展示模型将模型层中的<strong>数据与复杂的业务逻辑封装成属性与简单的数据</strong>暴露给视图，让视图和展示模型中的属性进行同步, 同时用户改变视图, 视图通过视图模型, 修改数据同步至模型上.</p>
+</li>
+<li><p><strong>讲讲 vue store</strong></p>
+</li>
+<li><p><strong>讲讲至今遇到的最大困难</strong></p>
+<p>what，how，why,  done，right，better</p>
+</li>
+<li><p><strong>说一下Event loop</strong></p>
+<p><strong>Event Loop是一个程序结构，用于等待和发送消息和事件.</strong></p>
+<p>简单说，就是在程序中设置两个线程：一个负责程序本身的运行，称为”主线程”；另一个负责主线程与其他进程（主要是各种I/O操作）的通信，被称为”Event Loop线程”（可以译为”消息线程”）</p>
+<p>Node采用的是单线程的处理机制(所有的I/O请求都采用非阻塞的工作方式)，至少从Node.js开发者的角度是这样的。而在底层，Node.js借助libuv来作为抽象封装层，从而屏蔽不同操作系统的差异，Node可以借助livuv来实现线程。</p>
+<p>Libuv库负责将不同的任务分配给不同的线程，形成一个事件循环，以异步的方式将任务的执行结果返回给V8引擎。</p>
+<p>每一个I/O都需要一个回调函数——一旦执行完便堆到事件循环上用于执行</p>
+<p><img src=".\/imgs/libuv.png" alt="libuv"></p>
+<p><img src="./imgs/eventLoop.png" alt="eventloop"></p>
+</li>
+<li><p><strong>vue-router 的 跳转实现原理</strong></p>
+<p>我们都知道，单页面应用(SPA)的核心之一是: <strong>更新视图而不重新请求页面</strong>;vue-rouetr在实现单页面前端路由时，提供了两种方式：<strong>Hash模式和History模式；根据mode参数来决定采用哪一种方式</strong>。</p>
+<p>那为什么这两种方式能够实现试图更新不跳转，其原因在于：</p>
+<ul>
+<li><p><strong>Hash模式</strong>：<br>​ hash（#）是URL 的锚点，代表的是网页中的一个位置，单单改变#后的部分，浏览器只会滚动到相应位置，不会重新加载网页，使用”后退”按钮，就可以回到上一个位置；</p>
+<p>1 $router.push() //显式调用方法</p>
+<p>2 HashHistory.push() //（window.location.hash= XXX）</p>
+<p>3 History.transitionTo() //开始更新</p>
+<p>4 History.updateRoute()  //更新路由</p>
+<p>5 {app._route= route} </p>
+<p>6 vm.render() //更新视图</p>
+<p>7监听hash变化(<strong>window.onhashchange</strong>)</p>
+</li>
+<li><p><strong>History模式：</strong><br>​    HTML5 History API提供了一种功能，能让开发人员在不刷新整个页面的情况下修改站点的URL，就是利用 <strong>history.pushState</strong> API 来完成 URL 跳转而无须重新加载页面；</p>
+<ul>
+<li><p><strong>history.replaceState</strong></p>
+<p>  仅仅替换浏览器的地址栏, 并不发出请求, 退后按钮无作用</p>
+<p>  <code>history.replaceState(null, null, &#39;hello&#39;);</code></p>
+</li>
+<li><p><strong>history.pushState</strong></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history.pushState([data], [title], [url]);</span><br></pre></td></tr></table></figure>
+<p>  点击浏览器的后退按钮，你会发现它和你预想的效果一样。因为pushState方法将我们传给它的URL添加到浏览器的history中，从而改变了浏览器的history,在HTML5History的构造函数中监听popState（<strong>window.onpopstate</strong>）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="10-20"><a href="#10-20" class="headerlink" title="10.20"></a>10.20</h4><ul>
+<li><strong>最近在研究哪些技术,仓库?</strong><ul>
+<li>rx.js</li>
+<li>tars.js</li>
+<li>nuxt.js</li>
+<li>serviceWorker</li>
+</ul>
+</li>
+</ul>
+<h4 id="10-30"><a href="#10-30" class="headerlink" title="10.30"></a>10.30</h4><ul>
+<li><p><strong>自我介绍</strong></p>
+<p><a href="https://www.zhihu.com/question/21387153/answer/264462043" target="_blank" rel="noopener">https://www.zhihu.com/question/21387153/answer/264462043</a></p>
+</li>
+</ul>
+<p>  1、我最突出的技能是什么</p>
+<p>  2、我在哪方面的知识掌握是最全面的</p>
+<p>  3、我性格上最大的优势是什么</p>
+<p>  4、我最擅长的事情是什么</p>
+<ol start="5">
+<li>我有哪些成就和贡献</li>
+</ol>
+<p>​    我是施泽西, 一名web前端开发工程师, 毕业于中南林业科技大学2017届. 毕业后在深圳市茁壮网络股份有限公司就职, 担任web前端开发工程师一职, 至今有一年半的工作经验.</p>
+<p>​    我负责的工作主要是pc端页面的构建, 维护和开发. 当然也曾开发过一些手机端和电视端的页面. 在我就职期间我参与开发过pc端运营数据大数据可视化系统, 党员建设管理系统, 智慧教育后台管系统, 路由器设置系统. 还有公司内部homed后台管理系统的维护.</p>
+<p>​    2.因为所在公司技术选型的原因, 我最擅长的技术栈是 vue + elementUi + webpack, 除此之外也钻研和使用react作为主要使用和学习的技术框架. 我专注于研究javascript的运行机制, css 的复杂表现, html的语意化.</p>
+<p>​    3.再说说我的性格, 我认为自己是一个积极进取的人, 对自身自律. 喜欢在一定的时间内钻研一件事情. 对互联网技术有着浓厚的兴趣. 我还有一个特质就是不服输, 不怕失败. 我喜欢在失败中分析失败的原因, 避免下次失败. 我在工作生活中也是这样, 如果一件事情让我犹豫不决, 我会去尝试, 哪怕失败. 再来一遍很多情况下就会有好的结果.</p>
+<p>​    4.我最擅长做有挑战性的事情, 无论是时间上还是技术上的挑战. 我善于在闲暇之余分析项目, 找出此项目存在的问题, 还有哪些需要改善, 哪些比较浪费时间和精力去管理, 然后去做优化. 我乐于用自己所学的知识运用在实际的项目上, </p>
+<p>​    5.最后说说我的贡献, 我能高效准时的完成开发任务, 在极端情况下无法按时完成任务, 也会去和leader沟通, 实时汇报工作进度.也乐于帮助同事去分析一些bug.这些是我在工作中的主要贡献. </p>
+<h3 id="nodejs面试题"><a href="#nodejs面试题" class="headerlink" title="nodejs面试题"></a>nodejs面试题</h3><h3 id="vue面试题"><a href="#vue面试题" class="headerlink" title="vue面试题"></a>vue面试题</h3><ul>
+<li><p><strong>使用什么处理ajax？ 什么是fetch？</strong></p>
+<p><strong>axios 或 fetch</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fetch(url).then(<span class="function"><span class="params">res</span> =&gt;</span> res.data).then(...)</span><br><span class="line"><span class="keyword">let</span> data = <span class="keyword">await</span> fetch(url)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>什么是骨架屏？</strong></p>
+<p>骨架屏可以理解为是当数据还未加载进来前，页面的一个空白版本，一个简单的关键渲染路径</p>
+<p>生成骨架屏的方法：</p>
+<ul>
+<li>手写html， css， 维护成本高， 页面改动骨架屏也需要改动</li>
+<li>使用base64图片作为骨架屏</li>
+<li>借助插件自动生成并插入骨架屏 vue-skeleton-webpack-plugin， page-skeleton-webpack-plugin</li>
+</ul>
+</li>
+<li><p><strong>什么是ssr， prerendering？</strong></p>
+<ul>
+<li><p><strong>ssr serverside render 服务端渲染</strong></p>
+<p><strong>Nuxt.js</strong> 框架可以实现服务端渲染</p>
+<p>优势： 利于seo， 更快的内容到达时间（无需等待js下载完成）</p>
+<p>缺点： 需要借助nodejs server， 服务器资源开销大，  受开发条件限定， 某些异步数据无法ssr。</p>
+</li>
+<li><p><strong>prerendering 预渲染</strong></p>
+<p>webpack插件 <strong>prerender-spa-plugin</strong> 可以达到预渲染</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> PrerenderSPAPlugin = <span class="built_in">require</span>(<span class="string">'prerender-spa-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> PrerenderSPAPlugin(&#123;</span><br><span class="line">      staticDir: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">      <span class="comment">// Required - Routes to render.</span></span><br><span class="line">      routes: [ <span class="string">'/'</span>, <span class="string">'/about'</span>, <span class="string">'/some/deep/nested/route'</span> ],</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在构建时(build time)简单地生成针对特定路由的静态 HTML 文件。优点是设置预渲染更简单，并可以将你的前端作为一个完全静态的站点</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>在使用vue过程中遇到过哪些坑, 是怎么解决的?</strong></li>
+<li><p><strong>什么是PWA?</strong> </p>
+<p>Progress Web App, 提升web app的一种新方法, 能给用户原生应用的体验.</p>
+<p>pwa的特点: </p>
+<ul>
+<li><p>可靠- 即使在不稳定的网络环境下, 也能瞬间加载并展现</p>
+</li>
+<li><p>体验- 快速响应, 有平滑的动画响应用户操作</p>
+</li>
+<li><p>粘性- 有沉浸式的用户体验</p>
+</li>
+</ul>
+</li>
+<li><p><strong>什么是serviceWorker?</strong></p>
+<p><strong>先决条件:</strong> 浏览器支持, https</p>
+<p><strong>服务工作线程</strong>, 服务工作线程是浏览器在后台独立于网页运行的脚本, 包含<strong>推送通知</strong>, 和 <strong>后台同步</strong>等, <strong>拦截和处理网络请求</strong>, 通过程序来<strong>管理缓存中的响应</strong>.</p>
+<ul>
+<li>它是一种javascript工作线程, 无法访问dom, 服务工作线程通过响应, postMessage 接口来通信.</li>
+<li>服务工作线程是一种可编程网络代理，让您能够控制页面所发送网络请求的处理方式</li>
+<li>它在不用时会被中止，并在下次有需要时重启, 可以访问indexDB API</li>
+<li>服务工作线程广泛的使用promise</li>
+</ul>
+<p><strong>服务工作线程的生命周期</strong></p>
+<ul>
+<li>完全独立于网页</li>
+<li>步骤: 注册, 安装, 激活, 实施控制, 终止</li>
+</ul>
+<p><strong>使用</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> navigator) &#123;</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        navigator.serviceWorker.register(<span class="string">'/one.js'</span>).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>什么是mainifest?</strong></p>
+<p>web应用程序清单在一个json文件中提供程序的信息, 目的是为了使web应用安装到设备屏幕上.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Manifest.json</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"HackerWeb"</span>,</span><br><span class="line">  <span class="attr">"short_name"</span>: <span class="string">"HackerWeb"</span>,</span><br><span class="line">  <span class="attr">"start_url"</span>: <span class="string">"."</span>,</span><br><span class="line">  <span class="attr">"display"</span>: <span class="string">"standalone"</span>,</span><br><span class="line">  <span class="attr">"background_color"</span>: <span class="string">"#fff"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"A simply readable Hacker News app."</span>,</span><br><span class="line">  <span class="attr">"icons"</span>: [&#123;</span><br><span class="line">    <span class="attr">"src"</span>: <span class="string">"images/touch/homescreen48.png"</span>,</span><br><span class="line">    <span class="attr">"sizes"</span>: <span class="string">"48x48"</span>,</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="attr">"related_applications"</span>: [&#123;</span><br><span class="line">    <span class="attr">"platform"</span>: <span class="string">"web"</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="attr">"platform"</span>: <span class="string">"play"</span>,</span><br><span class="line">    <span class="attr">"url"</span>: <span class="string">"https://play.google.com/store/apps/details?id=cheeaun.hackerweb"</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>什么是 workbox?</strong></p>
+<p>google提出的web app 静态资源本地存储方案, 该解决方案, 包含一些js库和构建工具.</p>
+</li>
+</ul>
+<h3 id="优质网站"><a href="#优质网站" class="headerlink" title="优质网站"></a>优质网站</h3><ul>
+<li><a href="https://blog.csdn.net/kongjiea/article/details/46341575" target="_blank" rel="noopener">https://blog.csdn.net/kongjiea/article/details/46341575</a></li>
+<li><a href="https://segmentfault.com/a/1190000000465431" target="_blank" rel="noopener">https://segmentfault.com/a/1190000000465431</a></li>
+<li><a href="http://www.cnblogs.com/syfwhu/p/4434132.html" target="_blank" rel="noopener">http://www.cnblogs.com/syfwhu/p/4434132.html</a></li>
+</ul>
+<h3 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h3><h4 id="xss-和-csrf区别"><a href="#xss-和-csrf区别" class="headerlink" title="xss 和 csrf区别"></a>xss 和 csrf区别</h4><ul>
+<li><p><strong>csrf (Cross-site request forgery)</strong> </p>
+<p>跨站请求伪造， 攻击者盗用了你的身份，以你的名义发送恶意请求 。</p>
+<p>条件</p>
+<p>1.登录受信任网站A，并在本地生成Cookie。</p>
+<p>2.在不登出A的情况下，访问危险网站B。</p>
+<p><img src="/Users/float/Desktop/GitHub/blog/source/_posts/imgs/csrf.jpg" alt="csfr"></p>
+</li>
+<li><p><strong>xss （Cross-site scripting）</strong></p>
+<ul>
+<li><p>分类</p>
+<p>1.持久型（永久上传某段代码，之后的所有用户都会被攻击）</p>
+<p>2.非持久型（让某个用户点击恶意代码片段连接，只对这个用户攻击）恶意代码注入，将恶意代码片段通过任何途径上传到服务器端，当下次用户进行访问时就会执行恶意代码</p>
+</li>
+<li><p>防御</p>
+<p>1.过滤用户输入，谨慎存取<br>2.对用户输入进行转码</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="http-和-https-的区别"><a href="#http-和-https-的区别" class="headerlink" title="http 和 https 的区别"></a>http 和 https 的区别</h4><ul>
+<li>http默认端口80，https默认端口443</li>
+<li>https采用ssl加密，http无加密</li>
+<li>https的web服务器启用ssl需要获得一个服务器证书，并将该证书与要使用ssl的服务器绑定</li>
+</ul>
+<h4 id="懒加载（load-on-demand"><a href="#懒加载（load-on-demand" class="headerlink" title="懒加载（load on demand)"></a>懒加载（load on demand)</h4><p>懒加载或者按需加载，是一种很好的优化网页或应用的方式。这种方式实际上是先把你的代码在一些逻辑断点处分离开，然后在一些代码块中完成某些操作后，立即引用或即将引用另外一些新的代码块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.webpack 使用promise和async函数实现 懒加载</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.vue 使用 import 函数</span></span><br><span class="line">Vue.component(<span class="string">'AsyncCmp'</span>, () =&gt; <span class="keyword">import</span>(<span class="string">'./AsyncCmp'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.react 与 vue 类似</span></span><br><span class="line"><span class="keyword">const</span> LoadableComponent = Loadable(&#123;</span><br><span class="line">  loader: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./Dashboard'</span>),</span><br><span class="line">  loading: Loading,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">LoadableDashboard</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">LoadableComponent</span> /&gt;</span>;</span></span><br><span class="line"><span class="xml">  &#125;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line">// 图片懒加载 &lt;img&gt; 标签不要设置src属性，放在自定义属性中，根据window.scrollTop判断图片是否出现在用户视野中，如果出现 将自定义属性中的 url 放入src属性中</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="浏览器在输入url敲回车后发生了什么"><a href="#浏览器在输入url敲回车后发生了什么" class="headerlink" title="浏览器在输入url敲回车后发生了什么"></a>浏览器在输入url敲回车后发生了什么</h4><ul>
+<li><p><strong>步骤</strong></p>
+<p>1.DNS域名解析；<br>2.建立TCP连接；<br>3.发送HTTP请求；<br>4.服务器处理请求；<br>5.返回响应结果；<br>6.关闭TCP连接；<br>7.浏览器解析HTML；<br>8.浏览器布局渲染；</p>
+</li>
+<li><p><strong>步骤详解</strong></p>
+<ul>
+<li><strong>建立tcp连接</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="./imgs/tcp.jpg" alt="tcp三次握手"></p>
+<p>​    </p>
+<ul>
+<li><strong>发送http请求</strong>​    </li>
+</ul>
+<p><img src="./imgs/http_request.jpg" alt="http-request"></p>
+<ul>
+<li><strong>关闭tcp连接</strong></li>
+</ul>
+<p><img src="./imgs/closeLink.jpg" alt="closeLink"></p>
+<ul>
+<li><p><strong>浏览器解析html</strong></p>
+<p>浏览器需要加载解析的不仅仅是HTML，还包括CSS、JS。以及还要加载图片、视频等其他媒体资源。</p>
+<p>浏览器通过解析HTML，生成DOM树，解析CSS，生成CSS规则树，然后通过DOM树和CSS规则树生成渲染树。渲染树与DOM树不同，渲染树中并没有head、display为none等不必显示的节点。</p>
+<p>要注意的是，浏览器的解析过程并非是串连进行的，比如在解析CSS的同时，可以继续加载解析HTML，但在解析执行JS脚本时，会停止解析后续HTML，这就会出现阻塞问题。</p>
+</li>
+<li><p><strong>浏览器布局渲染</strong></p>
+</li>
+</ul>
+<p>根据渲染树布局，计算CSS样式，即每个节点在页面中的大小和位置等几何信息。HTML默认是流式布局的，CSS和js会打破这种布局，改变DOM的外观样式以及大小和位置。这时就要提到两个重要概念：replaint和reflow。</p>
+<blockquote>
+<p>replaint：屏幕的一部分重画，不影响整体布局，比如某个CSS的背景色变了，但元素的几何尺寸和位置不变。<br>reflow： 意味着元件的几何尺寸变了，我们需要重新验证并计算渲染树。是渲染树的一部分或全部发生了变化。这就是Reflow，或是Layout。</p>
+</blockquote>
+<p>所以我们应该尽量减少reflow和replaint，我想这也是为什么现在很少有用table布局的原因之一。</p>
+<p>最后浏览器绘制各个节点，将页面展示给用户。</p>
+<h3 id="高级问题"><a href="#高级问题" class="headerlink" title="高级问题"></a>高级问题</h3><h4 id="分析双向数据绑定的原理，并用简单的代码实现"><a href="#分析双向数据绑定的原理，并用简单的代码实现" class="headerlink" title="分析双向数据绑定的原理，并用简单的代码实现"></a>分析双向数据绑定的原理，并用简单的代码实现</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vue</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$init(options);</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.$init = <span class="function"><span class="keyword">function</span>(<span class="params">options = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> data = <span class="keyword">this</span>._data = options.data || &#123;&#125;</span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">let</span> dep = <span class="keyword">new</span> Dep()</span><br><span class="line">  <span class="comment">// 属性代理 vm.a === vm.data.a</span></span><br><span class="line">  <span class="built_in">Object</span>.keys(data).forEach(<span class="function">(<span class="params">key, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(self, key, &#123;</span><br><span class="line">      configurable: <span class="literal">true</span>,</span><br><span class="line">      enumerable: <span class="literal">true</span>,</span><br><span class="line">      get()&#123;</span><br><span class="line">        <span class="keyword">return</span> data[key]</span><br><span class="line">        dep.depend()</span><br><span class="line">      &#125;,</span><br><span class="line">      set(val) &#123;</span><br><span class="line">        data[key] = val</span><br><span class="line">        dep.notice() </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dep</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// </span></span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype.notice = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 触发页面更新</span></span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype.depend = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 关联当前所有数据和watcher的关系</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;<span class="attr">data</span>: &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(vm.a === vm._data.a) <span class="comment">// 实例访问数据</span></span><br><span class="line">vm.a = <span class="number">3</span></span><br><span class="line"><span class="built_in">console</span>.log(vm._data.a)</span><br></pre></td></tr></table></figure>
+<h4 id="手动封装一个promise库，能实现基本的promise-api。"><a href="#手动封装一个promise库，能实现基本的promise-api。" class="headerlink" title="手动封装一个promise库，能实现基本的promise api。"></a>手动封装一个promise库，能实现基本的promise api。</h4><h4 id="实现深度拷贝"><a href="#实现深度拷贝" class="headerlink" title="实现深度拷贝"></a>实现深度拷贝</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> ret = []</span><br><span class="line">        obj.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">            ret[index] = clone(item)</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj intanceof <span class="built_in">Object</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> ret = &#123;&#125;</span><br><span class="line">        <span class="built_in">Object</span>.keys(ret).forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">            ret[item] = clone(obj[item])</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> obj</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/wechatpay.JPG',
+  alipayImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/alipay.JPG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>float</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/11/02/Interview/" target="_blank" title="常用面试问题记录与分析">http://zexiplus.github.io/2018/11/02/Interview/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/02/Theory/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/30/React/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React 学习总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#interview"><span class="nav-number">1.</span> <span class="nav-text">interview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.0.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简历"><span class="nav-number">1.0.2.</span> <span class="nav-text">简历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自我介绍"><span class="nav-number">1.0.3.</span> <span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试技巧"><span class="nav-number">1.0.4.</span> <span class="nav-text">面试技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面试要素"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">面试要素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面试流程"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">面试流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面试准备"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">面试准备</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一面"><span class="nav-number">1.0.5.</span> <span class="nav-text">一面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础知识"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#页面布局"><span class="nav-number">1.0.5.1.1.</span> <span class="nav-text">页面布局</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css盒模型"><span class="nav-number">1.0.5.1.2.</span> <span class="nav-text">css盒模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BFC-块级格式化上下文"><span class="nav-number">1.0.5.1.3.</span> <span class="nav-text">BFC 块级格式化上下文</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#http协议"><span class="nav-number">1.0.5.1.4.</span> <span class="nav-text">http协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象"><span class="nav-number">1.0.5.1.5.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型链"><span class="nav-number">1.0.5.1.6.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通信"><span class="nav-number">1.0.5.1.7.</span> <span class="nav-text">通信</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安全"><span class="nav-number">1.0.5.1.8.</span> <span class="nav-text">安全</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#算法"><span class="nav-number">1.0.5.1.9.</span> <span class="nav-text">算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二面"><span class="nav-number">1.0.6.</span> <span class="nav-text">二面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染机制"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">渲染机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js运行机制"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">js运行机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#页面性能"><span class="nav-number">1.0.6.3.</span> <span class="nav-text">页面性能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误监控"><span class="nav-number">1.0.6.4.</span> <span class="nav-text">错误监控</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#html"><span class="nav-number">1.0.6.4.1.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#阻塞"><span class="nav-number">1.0.6.4.2.</span> <span class="nav-text">阻塞</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vue"><span class="nav-number">1.0.6.4.3.</span> <span class="nav-text">vue</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#动画"><span class="nav-number">1.0.6.4.4.</span> <span class="nav-text">动画</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试实战"><span class="nav-number">1.0.7.</span> <span class="nav-text">面试实战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2018-10-13"><span class="nav-number">1.0.7.1.</span> <span class="nav-text">2018.10.13</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2018-10-17"><span class="nav-number">1.0.7.2.</span> <span class="nav-text">2018.10.17</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-18"><span class="nav-number">1.0.7.3.</span> <span class="nav-text">10.18</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-19"><span class="nav-number">1.0.7.4.</span> <span class="nav-text">10.19</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-20"><span class="nav-number">1.0.7.5.</span> <span class="nav-text">10.20</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-30"><span class="nav-number">1.0.7.6.</span> <span class="nav-text">10.30</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nodejs面试题"><span class="nav-number">1.0.8.</span> <span class="nav-text">nodejs面试题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue面试题"><span class="nav-number">1.0.9.</span> <span class="nav-text">vue面试题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优质网站"><span class="nav-number">1.0.10.</span> <span class="nav-text">优质网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#术语"><span class="nav-number">1.0.11.</span> <span class="nav-text">术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#xss-和-csrf区别"><span class="nav-number">1.0.11.1.</span> <span class="nav-text">xss 和 csrf区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-和-https-的区别"><span class="nav-number">1.0.11.2.</span> <span class="nav-text">http 和 https 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒加载（load-on-demand"><span class="nav-number">1.0.11.3.</span> <span class="nav-text">懒加载（load on demand)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器在输入url敲回车后发生了什么"><span class="nav-number">1.0.11.4.</span> <span class="nav-text">浏览器在输入url敲回车后发生了什么</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级问题"><span class="nav-number">1.0.12.</span> <span class="nav-text">高级问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分析双向数据绑定的原理，并用简单的代码实现"><span class="nav-number">1.0.12.1.</span> <span class="nav-text">分析双向数据绑定的原理，并用简单的代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动封装一个promise库，能实现基本的promise-api。"><span class="nav-number">1.0.12.2.</span> <span class="nav-text">手动封装一个promise库，能实现基本的promise api。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现深度拷贝"><span class="nav-number">1.0.12.3.</span> <span class="nav-text">实现深度拷贝</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2018 Float&#39;s blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Float&#39;s blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 float All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

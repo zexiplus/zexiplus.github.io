@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="Event浏览器事件总结 Table of contents模拟事件创建事件对象, 触发事件执行  createEventObject 创建事件对象 1var eventObj = document.createEventObject()  createEvent 创建事件对象 1var eventObj = document.createEvent(&apos;Events&apos;)  eventObj.ini">
+  <meta name="description" content="Event浏览器事件总结 Table of contentsEvent 事件对象常用属性 type  事件类型 例如 keydown   键码相关  key, code, which, keyCode  1234567// 例如按键向上箭头事件&amp;#123;	key: &apos;ArrowUp&apos;,    code: &apos;ArrowUp&apos;,	keyCode: 38,    which: 38,&amp;#125;">
 <meta name="keywords" content="webFront javascript css html vue react nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Event 事件对象总结">
 <meta property="og:url" content="http://zexiplus.github.io/2018/08/01/Event/index.html">
 <meta property="og:site_name" content="Float&#39;s blog">
-<meta property="og:description" content="Event浏览器事件总结 Table of contents模拟事件创建事件对象, 触发事件执行  createEventObject 创建事件对象 1var eventObj = document.createEventObject()  createEvent 创建事件对象 1var eventObj = document.createEvent(&apos;Events&apos;)  eventObj.ini">
+<meta property="og:description" content="Event浏览器事件总结 Table of contentsEvent 事件对象常用属性 type  事件类型 例如 keydown   键码相关  key, code, which, keyCode  1234567// 例如按键向上箭头事件&amp;#123;	key: &apos;ArrowUp&apos;,    code: &apos;ArrowUp&apos;,	keyCode: 38,    which: 38,&amp;#125;">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-10-09T03:25:49.321Z">
+<meta property="og:updated_time" content="2018-10-14T06:20:57.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Event 事件对象总结">
-<meta name="twitter:description" content="Event浏览器事件总结 Table of contents模拟事件创建事件对象, 触发事件执行  createEventObject 创建事件对象 1var eventObj = document.createEventObject()  createEvent 创建事件对象 1var eventObj = document.createEvent(&apos;Events&apos;)  eventObj.ini">
+<meta name="twitter:description" content="Event浏览器事件总结 Table of contentsEvent 事件对象常用属性 type  事件类型 例如 keydown   键码相关  key, code, which, keyCode  1234567// 例如按键向上箭头事件&amp;#123;	key: &apos;ArrowUp&apos;,    code: &apos;ArrowUp&apos;,	keyCode: 38,    which: 38,&amp;#125;">
   
     <link rel="alternate" href="/atom.xml" title="Float&#39;s blog" type="application/atom+xml">
   
@@ -190,29 +190,61 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h1><p>浏览器事件总结</p>
-<h3 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h3><h3 id="模拟事件"><a href="#模拟事件" class="headerlink" title="模拟事件"></a>模拟事件</h3><p>创建事件对象, 触发事件执行</p>
+<h3 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h3><h3 id="Event-事件对象"><a href="#Event-事件对象" class="headerlink" title="Event 事件对象"></a>Event 事件对象</h3><h4 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h4><ul>
+<li><p><strong>type</strong></p>
+<blockquote>
+<p>事件类型 例如 <strong>keydown</strong></p>
+</blockquote>
+</li>
+<li><p><strong>键码相关</strong></p>
+<blockquote>
+<p>key, code, which, keyCode</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例如按键向上箭头事件</span></span><br><span class="line">&#123;</span><br><span class="line">	key: <span class="string">'ArrowUp'</span>,</span><br><span class="line">    code: <span class="string">'ArrowUp'</span>,</span><br><span class="line">	keyCode: <span class="number">38</span>,</span><br><span class="line">    which: <span class="number">38</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li></li>
+</ul>
+<h3 id="模拟事件"><a href="#模拟事件" class="headerlink" title="模拟事件"></a>模拟事件</h3><p>创建事件对象, 触发事件执行</p>
 <ul>
-<li><p><strong>createEventObject</strong></p>
-<p>创建事件对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> eventObj = <span class="built_in">document</span>.createEventObject()</span><br></pre></td></tr></table></figure>
+<li><p><strong>创建事件对象</strong></p>
+<p>new Event() || createEventObject || createEvent</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> eventObj = <span class="keyword">new</span> Event(<span class="string">'click'</span>, &#123;<span class="attr">bubbles</span>: <span class="literal">false</span>, <span class="attr">cancelable</span>: <span class="literal">false</span>, <span class="attr">composed</span>: <span class="literal">false</span>&#125;)</span><br><span class="line"><span class="keyword">var</span> eventObj1 = <span class="built_in">document</span>.createEventObject()</span><br><span class="line"><span class="keyword">var</span> eventObj2 = <span class="built_in">document</span>.createEvent(<span class="string">'Events'</span>)</span><br><span class="line"><span class="keyword">var</span> eventobj3 = <span class="built_in">document</span>.createEvent(<span class="string">'KeyboardEvents'</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>createEvent</strong></p>
-<p>创建事件对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> eventObj = <span class="built_in">document</span>.createEvent(<span class="string">'Events'</span>)</span><br></pre></td></tr></table></figure>
+<li><p><strong>初始化事件对象类型</strong></p>
+<p>eventObj.initEvent</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (eventObj2.initEvent) &#123;</span><br><span class="line">    eventObj2.initEvent(<span class="string">'keyup'</span>, <span class="literal">true</span>, <span class="literal">true</span>)</span><br><span class="line">    eventObj3.initEvent(<span class="string">'keydown'</span>, <span class="literal">true</span>, <span class="literal">true</span>, <span class="built_in">window</span>, <span class="string">"U+0009"</span>) <span class="comment">// 模拟tab按键</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>eventObj.initEvent</strong></p>
-<p>初始化事件对象类型</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (eventObj.initEvent) &#123;</span><br><span class="line">    eventObj.initEvent(<span class="string">'keyup'</span>, <span class="literal">true</span>, <span class="literal">true</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>el.dispatchEvent</strong></p>
-<p>分发事件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'div'</span>).dispatchEvent(eventObj)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>el.fireEvent</strong></p>
-<p>分发事件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.fireEvent(<span class="string">'onkeyup'</span>, eventObj)</span><br></pre></td></tr></table></figure>
+<li><p><strong>分发事件</strong></p>
+<p>el.dispatchEvent || el.fireEvent</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'div'</span>).dispatchEvent(eventObj)</span><br><span class="line"><span class="built_in">document</span>.fireEvent(<span class="string">'onkeyup'</span>, eventObj)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h3 id="焦点事件"><a href="#焦点事件" class="headerlink" title="焦点事件"></a>焦点事件</h3><ul>
+<li><p><strong>获得页面当前焦点元素</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.activeElement</span><br><span class="line"><span class="comment">// 点击焦点按钮</span></span><br><span class="line"><span class="built_in">document</span>.activeElement.click()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>获得焦点</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.focus()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>取消焦点</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.blur()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>避免获得焦点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">tabindex</span>=<span class="string">"-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><ul>
+<li><p><strong>event: message</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (event.origin.indexOf(<span class="string">'http://yoursite.com'</span>)) &#123;</span><br><span class="line">        <span class="comment">// do some thing</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>postMessage</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> frame = <span class="built_in">document</span>.getElementById(<span class="string">'frame'</span>)</span><br><span class="line">frame.contentWindow.postMessage(<span class="string">'any thing'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>非跨域访问</strong></p>
+<p>cross-origin 判定规则 <code>&lt;protocol&gt;://&lt;hostname&gt;:&lt;port&gt;/path/to/page.html</code> 中protocol, hostname, port 任一不同, 即判定为跨域</p>
+</li>
+</ul>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sub page</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'hello'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// parent page</span></span><br><span class="line">frame.window.say()</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -311,7 +343,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Event"><span class="nav-number">1.</span> <span class="nav-text">Event</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Table-of-contents"><span class="nav-number">1.0.1.</span> <span class="nav-text">Table of contents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟事件"><span class="nav-number">1.0.2.</span> <span class="nav-text">模拟事件</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Event"><span class="nav-number">1.</span> <span class="nav-text">Event</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Table-of-contents"><span class="nav-number">1.0.1.</span> <span class="nav-text">Table of contents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-事件对象"><span class="nav-number">1.0.2.</span> <span class="nav-text">Event 事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用属性"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">常用属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟事件"><span class="nav-number">1.0.3.</span> <span class="nav-text">模拟事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#焦点事件"><span class="nav-number">1.0.4.</span> <span class="nav-text">焦点事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域"><span class="nav-number">1.0.5.</span> <span class="nav-text">跨域</span></a></li></ol></li></ol></li></ol>
     
     </div>
   </aside>

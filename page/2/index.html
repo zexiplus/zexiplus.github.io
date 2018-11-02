@@ -259,6 +259,245 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-debug"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/09/08/debug/">web前端开发调试技巧大全</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/09/08/debug/" class="article-date">
+	  <time datetime="2018-09-08T06:57:48.422Z" itemprop="datePublished">2018-09-08</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Debug
+总结了常用web前端调试方法和nodejs调试方法
+
+Table of contents[TOC]
+webfont debugconsole
+console.log
+12// 占位符 %o(对象), %d(数字),%s(字符串), %f(浮点数)console.log(‘需要打印的是%o’,obj)
+
+console.group
+
+打印组
+
+1234console.group()   console.log(1)   console.log(2)console.groupEnd...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/09/08/debug/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-nodejs"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/09/02/nodejs/">Nodejs 总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/09/02/nodejs/" class="article-date">
+	  <time datetime="2018-09-02T12:51:47.045Z" itemprop="datePublished">2018-09-02</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Nodejsnodejs 参考指南
+Table of contents[TOC]
+Module
+require过的文件会加载到缓存，所以多次 require 同一个文件（模块）不会重复加载
+( a-&gt;b,b-&gt;a )循环引用并不会报错，导致的结果是 require 的结果是空对象 {}，原因是 b require 了 a，a 又去 require 了 b，此时 b 还没初始化好，所以只能拿到初始值 {}
+module.exports 初始值为一个空对象 {}
+exports 是...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/09/02/nodejs/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Software-config"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/08/30/Software-config/">常用软件配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/08/30/Software-config/" class="article-date">
+	  <time datetime="2018-08-30T06:06:18.704Z" itemprop="datePublished">2018-08-30</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          software config记录并保存了常用软件的配置规则
+
+wamp server(Apache)
+
+配置有效的缓存策略
+
+
+配置文件 httpd.conf
+
+123456789101112131415161718# 第一种方法LoadModule expires_module modules/mod_expires.soExpiresActive On# html文档的过期时间为 从上次访问（A）开始 1000 秒钟ExpiresByType text/html A1000Expir...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/08/30/Software-config/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Network-protocol"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/08/30/Network-protocol/">网络状态协议解析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/08/30/Network-protocol/" class="article-date">
+	  <time datetime="2018-08-30T06:06:18.703Z" itemprop="datePublished">2018-08-30</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          网络协议原理收录了一些网络协议, 网络状态的总结
+目录[TOC]
+浏览器输入url后发生了什么？1.DNS域名解析；2.建立TCP连接；3.发送HTTP请求；4.服务器处理请求；5.返回响应结果；
+6.关闭TCP连接；
+7.浏览器解析HTML；8.浏览器布局渲染；
+步骤详解
+建立tcp连接
+
+
+​    客户端：“你好，在家不，有你快递。”
+​    服务端：“在的，送来就行。”
+​    客户端：“好嘞。”
+
+发送http请求
+
+
+
+关闭tcp连接
+
+
+客户端：“兄弟，我这边没数据要传了...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/08/30/Network-protocol/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-Linux"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -477,7 +716,17 @@ crypto.jshttps://github.com/syte...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          webpack 学习总结目录
+          webpack 学习总结目录[TOC]
+开始
+Download
+1npm i -g webpack@3.6.0
+
+读取参数使用webpack
+1webpack ./entry.js ./output.js
+
+读取配置文件使用 webpack
+package.json
+1234&#123;    "dev": "webpack --config ./webpack.dev.config.js",    "build": "webpack --config ./webpack.prod.con...
         </p>
         <p class="article-more-link">
           <a href="/2018/08/27/Webpack/#more">Read More</a>
@@ -610,273 +859,6 @@ Skill
         </p>
         <p class="article-more-link">
           <a href="/2018/08/13/javascript/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Word"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/08/13/Word/">web前端程序员必备单词,短语,简称收录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/08/13/Word/" class="article-date">
-	  <time datetime="2018-08-13T09:06:58.223Z" itemprop="datePublished">2018-08-13</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          term
-
-
-abbr
-full
-explain
-
-
-
-
-SSO
-Single Sign O
-单点登录
-
-
-CAS
-Central Authentication Service
-中心授权服务
-
-
-DAO
-data access object
-数据访问对象
-
-
-ISP
-Internet Service Provider
-互联网服务提供商
-
-
-FCC
-Federal Communications Commission
-美国联邦通信委员会
-
-
-PR
-pull request
-提交请求
-
-
-LPW...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/08/13/Word/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-React"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/08/13/React/">React 学习总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/08/13/React/" class="article-date">
-	  <time datetime="2018-08-13T09:06:58.219Z" itemprop="datePublished">2018-08-13</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          react 参考Table of content[TOC]
-react
-react 使用 api 
-
-脚手架
-Create-react-app(官方)
-
-https://github.com/facebook/create-react-app
-
-
-使用
-12345# using npmnpm init react-app my-app# using yarnyarn create react-app my-app
-
-
-
-
-Assets
-Import img
-1234import logo ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/08/13/React/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-React-Native"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/08/13/React-Native/">React Native 学习总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/08/13/React-Native/" class="article-date">
-	  <time datetime="2018-08-13T09:06:58.219Z" itemprop="datePublished">2018-08-13</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/08/13/React-Native/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Markdown"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/08/13/Markdown/">Markdown 语法总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/08/13/Markdown/" class="article-date">
-	  <time datetime="2018-08-13T09:06:58.217Z" itemprop="datePublished">2018-08-13</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          markdown
-总结一些markdown的常用语法
-
-语法
-废弃线 – 双波浪线包裹 – 这里是废弃的内容~~
-toc 生成markdown 的目录 – [toc] + 回车
-文件引用 index.js
-
-README.md 文件写法Repository name 仓库名  一级标题
-
-Overview 概览 二级标题
-Table of contents 目录 三级标题
-
-
-Quick start 快速开始 二级标题
-install 下载 四级标题
-start 开始 四级标题
-debug...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/08/13/Markdown/#more">Read More</a>
         </p>
       
     </div>

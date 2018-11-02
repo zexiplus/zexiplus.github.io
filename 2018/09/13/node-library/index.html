@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Float&#39;s blog">
 <meta property="og:description" content="node package librarynodejs 实用仓库收录, 下载/使用方法总结 https://github.com/zexiplus/awesome-nodejs Table of contents[TOC] package.json scripts12345678910&amp;#123;    &quot;scripts&quot;: &amp;#123;         &quot;prebuild&quot;:….,   // np">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-09-29T16:16:36.242Z">
+<meta property="og:updated_time" content="2018-10-11T02:38:43.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nodejs 实用库收录">
 <meta name="twitter:description" content="node package librarynodejs 实用仓库收录, 下载/使用方法总结 https://github.com/zexiplus/awesome-nodejs Table of contents[TOC] package.json scripts12345678910&amp;#123;    &quot;scripts&quot;: &amp;#123;         &quot;prebuild&quot;:….,   // np">
@@ -232,7 +232,7 @@
 <li><p><strong>发布包</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>全剧链接</strong></p>
+<li><p><strong>全局链接</strong></p>
 <blockquote>
 <p>可以让包在机器上全局使用 bin 命令</p>
 </blockquote>
@@ -372,7 +372,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">programe -p</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="literal">true</span></span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>command 命令</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br><span class="line">	.command(<span class="string">'list &lt;num&gt;'</span>)</span><br><span class="line">    .action(<span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">    	conosle.log(num)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br><span class="line">	.command(<span class="string">'list &lt;num&gt;'</span>)</span><br><span class="line">    .action(<span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">    	conosle.log(num)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 一定要加这一句传递参数 **/</span></span><br><span class="line">programe.parse(process.argv)</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">programe list 10</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">log</span> 10</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>命令必选参数 \<param></strong></p>
@@ -397,6 +397,11 @@
 </li>
 <li><p><strong>参数列表</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>生成命令</strong></p>
+<p><code>package.json</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"bin": &#123;</span><br><span class="line">    "runname": "./bin/script.js"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm link</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -544,7 +549,7 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2018/10/09/TodayLearn/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/10/12/plugins/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
