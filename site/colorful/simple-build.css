@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+}
+*[apple],
+*[a] {
+  background-color: #2C3E50;
+}
+*[banana],
+*[b] {
+  background-color: #E74C3C;
+}
+*[cake],
+*[c] {
+  background-color: #ECF0F1;
+}
+*[dog],
+*[d] {
+  background-color: #3498DB;
+}
+*[egg],
+*[e] {
+  background-color: #2980B9;
+}
+/* mobile and tablet style */
+/* ----button start----*/
+button {
+  width: 100%;
+  min-width: 120px;
+  min-height: 40px;
+  font-size: 20px;
+  border-radius: 3px;
+}
+/* ----button end---- */
+/* ----input start---- */
+input[type='text'] {
+  padding: 0 5px;
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  border: 1px solid #D6D9DC;
+}
+input[type='radio'] {
+  transform: scale(1.5);
+}
+input[type='checkbox'] {
+  transform: scale(1.5);
+}
+input[type='text'][apple],
+input[type='text'][a],
+input[type='radio'][apple] {
+  background-color: #2C3E50;
+}
+input[type='text'][banana],
+input[type='text'][b] {
+  background-color: #E74C3C;
+}
+input[type='text'][cake],
+input[type='text'][c] {
+  background-color: #ECF0F1;
+}
+input[type='text'][dog],
+input[type='text'][d] {
+  background-color: #3498DB;
+}
+input[type='text'][egg],
+input[type='text'][e] {
+  background-color: #2980B9;
+}
+/* ----input end---- */
+/* desktop style */
+@media only screen and (min-width: 401px) {
+  button {
+    width: auto;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 3px;
+  }
+  input[type='text'] {
+    width: 240px;
+    font-size: 14px;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+  }
+}
