@@ -259,7 +259,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Python"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Regexp"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -267,7 +267,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/06/14/Python/">Python 学习总结</a>
+      <a class="article-title" href="/2018/06/14/Regexp/">Regexp 正则表达式实用总结</a>
     </h1>
   
 
@@ -275,8 +275,8 @@
     
     <div class="article-meta">
       
-	<a href="/2018/06/14/Python/" class="article-date">
-	  <time datetime="2018-06-14T01:12:28.960Z" itemprop="datePublished">2018-06-14</time>
+	<a href="/2018/06/14/Regexp/" class="article-date">
+	  <time datetime="2018-06-14T01:12:28.961Z" itemprop="datePublished">2018-06-14</time>
 	</a>
 
       
@@ -285,22 +285,65 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          usage12# 手动下载库函数pip install pandas
-Tip
-是索引-1返回列表最后一个元素，-2 返回倒数第二个…   [1,2,3][-1]       # return 3
-
-** 表示乘方 ,      3 ** 2       # return 9
-
-命令行键入 quit() + 回车 退出命令行
-
-列表末尾增加元素 list.append()。
-
-插入 list.insert(index, el)。
-
-删除元素del list[0]。删除并弹出最后一个list....
+          正则表达式学习笔记1234567891011121314151617181920212223242526272829303132333435363738394041- 作为元字符只能用在[]     例如[a-z]   除此之外不需要转义 /-\d/ ，匹配-5  # 也是普通字符，不需转义^ 取非匹配   [^a-z]  用在[]表示除a-z以外的所有字符\[ 要匹配特殊字符[ 必须转义，例如匹配myArr[8]  --- 模式为 myArr\[[0-9]\]单个匹配空白符  \r 回车...
         </p>
         <p class="article-more-link">
-          <a href="/2018/06/14/Python/#more">Read More</a>
+          <a href="/2018/06/14/Regexp/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Raspberry"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/06/14/Raspberry/">树莓派 调试开发配置指南</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/14/Raspberry/" class="article-date">
+	  <time datetime="2018-06-14T01:12:28.961Z" itemprop="datePublished">2018-06-14</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          系统设置App软件源
+文件位置    /etc/apt/sources.list
+Ip地址
+//ip   192.168.17.149
+wlan  192.168.41.89
+Mjpg-streamer  使用
+1./mjpg_streamer -i "./input_uvc.so -d /dev/video0 -n -y -f 25 -r 640x480" -o "./output_http.so -n -w /usr/local/www"
+访问：http://localhost:808...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/06/14/Raspberry/#more">Read More</a>
         </p>
       
     </div>
@@ -356,6 +399,66 @@ Unexpected side effect in “sortArr” computed property
         </p>
         <p class="article-more-link">
           <a href="/2018/06/14/Puzzle/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Python"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/06/14/Python/">Python 学习总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/14/Python/" class="article-date">
+	  <time datetime="2018-06-14T01:12:28.960Z" itemprop="datePublished">2018-06-14</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          usage12# 手动下载库函数pip install pandas
+Tip
+是索引-1返回列表最后一个元素，-2 返回倒数第二个…   [1,2,3][-1]       # return 3
+
+** 表示乘方 ,      3 ** 2       # return 9
+
+命令行键入 quit() + 回车 退出命令行
+
+列表末尾增加元素 list.append()。
+
+插入 list.insert(index, el)。
+
+删除元素del list[0]。删除并弹出最后一个list....
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/06/14/Python/#more">Read More</a>
         </p>
       
     </div>
