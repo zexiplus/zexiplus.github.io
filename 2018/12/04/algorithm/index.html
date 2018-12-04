@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>算法学习与协议原理 | Float&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="webFront javascript css html vue react nodejs " />
+  
+  
+  
+  
+  <meta name="description" content="algorithm &amp;amp; protocol此篇讲解了一些算法的js描述， 网络协议的应用原理， 主流框架的实现思路 目录[TOC] 术语算法术语解读 运算类Coprime（互质）互质是公约数只有1的两个整数，叫做互质整数。公约数只有1的两个自然数，叫做互质自然数，后者是前者的特殊情形， 简言之， A与B互质， 则A与B的最大公约数是1.  延伸  c与m互质，写作（c，m）= 1 1不是质数">
+<meta name="keywords" content="webFront javascript css html vue react nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法学习与协议原理">
+<meta property="og:url" content="http://zexiplus.github.io/2018/12/04/algorithm/index.html">
+<meta property="og:site_name" content="Float&#39;s blog">
+<meta property="og:description" content="algorithm &amp;amp; protocol此篇讲解了一些算法的js描述， 网络协议的应用原理， 主流框架的实现思路 目录[TOC] 术语算法术语解读 运算类Coprime（互质）互质是公约数只有1的两个整数，叫做互质整数。公约数只有1的两个自然数，叫做互质自然数，后者是前者的特殊情形， 简言之， A与B互质， 则A与B的最大公约数是1.  延伸  c与m互质，写作（c，m）= 1 1不是质数">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-12-04T03:46:17.629Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法学习与协议原理">
+<meta name="twitter:description" content="algorithm &amp;amp; protocol此篇讲解了一些算法的js描述， 网络协议的应用原理， 主流框架的实现思路 目录[TOC] 术语算法术语解读 运算类Coprime（互质）互质是公约数只有1的两个整数，叫做互质整数。公约数只有1的两个自然数，叫做互质自然数，后者是前者的特殊情形， 简言之， A与B互质， 则A与B的最大公约数是1.  延伸  c与m互质，写作（c，m）= 1 1不是质数">
+  
+    <link rel="alternate" href="/atom.xml" title="Float&#39;s blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-algorithm" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      算法学习与协议原理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/12/04/algorithm/" class="article-date">
+	  <time datetime="2018-12-04T03:46:17.628Z" itemprop="datePublished">2018-12-04</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="algorithm-amp-protocol"><a href="#algorithm-amp-protocol" class="headerlink" title="algorithm &amp; protocol"></a>algorithm &amp; protocol</h1><p>此篇讲解了一些算法的js描述， 网络协议的应用原理， 主流框架的实现思路</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>[TOC]</p>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p>算法术语解读</p>
+<h3 id="运算类"><a href="#运算类" class="headerlink" title="运算类"></a>运算类</h3><h4 id="Coprime（互质）"><a href="#Coprime（互质）" class="headerlink" title="Coprime（互质）"></a>Coprime（互质）</h4><p>互质是公约数只有1的两个整数，叫做互质整数。公约数只有1的两个自然数，叫做互质自然数，后者是前者的特殊情形， 简言之， A与B互质， 则A与B的最大公约数是1. </p>
+<p><strong>延伸</strong></p>
+<ul>
+<li>c与m互质，写作（c，m）= 1</li>
+<li>1不是质数也不是合数</li>
+<li>相邻的两个奇数是互质数</li>
+<li>两个数较大的数为质数的两个数互质</li>
+</ul>
+<h4 id="MOD-取余-模运算"><a href="#MOD-取余-模运算" class="headerlink" title="MOD(取余/模运算)"></a>MOD(取余/模运算)</h4><p>取余运算, 7 mod 3 = 1</p>
+<ul>
+<li><p><strong>同余</strong></p>
+<p>n = a (mod 10)  ——–&gt; n mod 10 = a mod 10 ——–&gt; n除以10的余数与a除以10的余数等同</p>
+</li>
+</ul>
+<h4 id="POW（次方）"><a href="#POW（次方）" class="headerlink" title="POW（次方）"></a>POW（次方）</h4><p>Math.pow(2, 3) === 8</p>
+<h3 id="协议类"><a href="#协议类" class="headerlink" title="协议类"></a>协议类</h3><h4 id="https"><a href="#https" class="headerlink" title="https"></a>https</h4><p>HTTPS 就是在 HTTP 下加入了 SSL 层，从而保护了交换数据隐私和完整性，提供对网站服务器身份认证的功能，简单来说它就是安全版的 HTTP</p>
+<ul>
+<li><p>过程</p>
+<p>①服务器把自己的公钥登录至数字证书认证机构。<br>②数字证书机构把自己的私有密钥向服务器的公开密码部署数字签名并颁发公钥证书。<br>③客户端拿到服务器的公钥证书后，使用数字证书认证机构的公开密钥，向数字证书认证机构验证公钥证书上的数字签名。以确认服务器公钥的真实性。<br>④使用服务器的公开密钥对报文加密后发送。<br>⑤服务器用私有密钥对报文解密。</p>
+</li>
+<li><p>加密</p>
+<p><strong>对称加密</strong></p>
+<p>对称加密是指加密与解密的使用同一个密钥的加密算法。</p>
+<p>目前常见的加密算法有：DES、AES、IDEA 等</p>
+<p><strong>非对称加密</strong></p>
+<p>非对称加密使用的是两个密钥，公钥与私钥，我们会使用公钥对网站账号密码等数据进行加密，再用私钥对数据进行解密。这个公钥会发给查看网站的所有人，而私钥是只有网站服务器自己拥有的。</p>
+<p>目前常见非对称加密算法：<strong>RSA</strong>，DSA，DH等</p>
+</li>
+</ul>
+<h3 id="算法类"><a href="#算法类" class="headerlink" title="算法类"></a>算法类</h3><h4 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h4><p>假设A想要通过一个不可靠的媒体接收B的一条私人讯息。她可以用以下的方式来产生一个<strong>公钥</strong>和一个<strong>私钥</strong>：</p>
+<ul>
+<li><p>随意选择两个大的质数<em>p</em>和<em>q</em>，<em>p</em>不等于<em>q</em>，计算<strong><em>N</em>=<em>pq</em></strong>。</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">N</span> = <span class="number">3</span> * <span class="number">5</span> = <span class="number">15</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据欧拉函数，求得 <strong>r = (<em>p</em>-1)(<em>q</em>-1)</strong></p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = <span class="number">2</span> * <span class="number">4</span> = <span class="number">8</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择一个小于 r 的整数 <em>e</em>，求得 e 关于模 r 的模反元素，命名为d。（模反元素存在，当且仅当e与r互质）</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">e * d = <span class="number">1</span> (mod r)</span><br><span class="line">e * d = <span class="number">1</span> (mod <span class="number">8</span>)</span><br><span class="line">e * d = <span class="number">8</span>n + <span class="number">1</span></span><br><span class="line">令 n = <span class="number">4</span></span><br><span class="line">e = <span class="number">3</span></span><br><span class="line">d = <span class="number">11</span></span><br><span class="line">publicKey = (<span class="number">15</span>, <span class="number">3</span>)</span><br><span class="line">privateKey = (<span class="number">15</span>, <span class="number">11</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 <em>p</em> 和 <em>q</em> 的记录销毁, <strong>(N,e)是公钥</strong>，<strong>(N,d)是私钥</strong></p>
+<p>A将公钥(N,e)传给B，而将私钥(N,d)藏起来</p>
+</li>
+<li><p><strong>加密数据</strong></p>
+<p><strong>原始数据</strong> m = 17， <strong>加密数据 m ^ e = c (mod N)</strong> </p>
+<p><strong>还原数据 m = c ^ d % N</strong> = 52 ^ 43 % 77 = 17 </p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/wechatpay.JPG',
+  alipayImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/alipay.JPG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>float</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/12/04/algorithm/" target="_blank" title="算法学习与协议原理">http://zexiplus.github.io/2018/12/04/algorithm/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/04/Interview/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          常用面试问题记录与分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/04/node-library/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">nodejs 实用库收录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#algorithm-amp-protocol"><span class="nav-number">1.</span> <span class="nav-text">algorithm &amp; protocol</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#术语"><span class="nav-number">1.2.</span> <span class="nav-text">术语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运算类"><span class="nav-number">1.2.1.</span> <span class="nav-text">运算类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Coprime（互质）"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Coprime（互质）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MOD-取余-模运算"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">MOD(取余/模运算)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POW（次方）"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">POW（次方）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协议类"><span class="nav-number">1.2.2.</span> <span class="nav-text">协议类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#https"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">https</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法类"><span class="nav-number">1.2.3.</span> <span class="nav-text">算法类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RSA"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">RSA</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2018 Float&#39;s blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Float&#39;s blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 float All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
