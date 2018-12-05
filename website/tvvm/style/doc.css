@@ -1,0 +1,122 @@
+@media only screen and (max-width: 600px) {
+  .left-nav {
+    position: absolute;
+    visibility: hidden;
+    width: 0;
+  }
+  .logo {
+    display: none;
+  }
+  .menu-button {
+    display: block;
+    width: 100px !important;
+    line-height: 60px;
+    padding-left: 20px;
+    cursor: pointer;
+  }
+}
+
+h1, h2, h3, h4 {
+  color: #0048ab;
+}
+
+.container {
+  font-family: 'bebasneue';
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.menu-button {
+  width: 0;
+  overflow: hidden;
+}
+
+.left-nav {
+  width: 200px;
+  height: calc(100vh - 61px);
+  font-family: 'bebasneue';
+  font-size: 14px;
+  display: flex;
+  background-color: #fdfbfb;
+  border-right: 1px solid #ebebeb;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all .1s ease-in-out;
+}
+.menu-hidden {
+  visibility: hidden;
+  width: 0;
+}
+.menu-show {
+  visibility: visible;
+  width: 200px;
+}
+
+.nav-list-wrapper {
+  width: 200px;
+}
+
+.left-nav a {
+  padding: 5px 10px;
+  text-indent: 1rem;
+  display: block;
+}
+.left-nav a:hover {
+  font-weight: bold;
+}
+
+
+.link-title {
+  
+}
+.link-title a {
+  font-size: 16px;
+  color: #0048ab !important;
+}
+.link-group {
+
+}
+.link-group a {
+  text-indent: 2rem;
+}
+.link-detail a {
+  text-indent: 4rem;
+}
+
+.content {
+  padding: 0 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100vh - 61px);
+  overflow: auto;
+}
+
+.content h1 {
+  margin: 20px 0;
+}
+.content h2 {
+  margin: 15px 0;
+}
+.content h3 {
+  margin: 10px 0;
+}
+
+.block-content {
+  margin-bottom: 2rem;
+}
+.desc-text {
+  margin-top: 1rem;
+}
+pre {
+  overflow: hidden;
+  padding: 0 !important;
+  border-radius: 5px;
+  width: 100% !important;
+}
+
+code {
+  border-left: 2px solid #0048ab;
+  border-radius: 0 5px 5px 0;
+}
