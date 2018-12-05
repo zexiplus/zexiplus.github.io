@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Float&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="webFront javascript css html vue react nodejs " />
+  
+  
+  
+  
+  <meta name="description" content="vue源码解读学习笔记学习vue源码解读课程的一些笔记 目录[TOC] vue项目准备类型检查vue使用flow做静态类型检查, 包括  类型推断 12345/*@flow*/function add(x: number, y: number): number &amp;#123;    return x + y&amp;#125;add(&apos;123&apos;, 123)  类型注释   构建 Runtime only">
+<meta name="keywords" content="webFront javascript css html vue react nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Float&#39;s blog">
+<meta property="og:url" content="http://zexiplus.github.io/2018/12/04/vue-code-learn/index.html">
+<meta property="og:site_name" content="Float&#39;s blog">
+<meta property="og:description" content="vue源码解读学习笔记学习vue源码解读课程的一些笔记 目录[TOC] vue项目准备类型检查vue使用flow做静态类型检查, 包括  类型推断 12345/*@flow*/function add(x: number, y: number): number &amp;#123;    return x + y&amp;#125;add(&apos;123&apos;, 123)  类型注释   构建 Runtime only">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-12-04T03:46:17.614Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Float&#39;s blog">
+<meta name="twitter:description" content="vue源码解读学习笔记学习vue源码解读课程的一些笔记 目录[TOC] vue项目准备类型检查vue使用flow做静态类型检查, 包括  类型推断 12345/*@flow*/function add(x: number, y: number): number &amp;#123;    return x + y&amp;#125;add(&apos;123&apos;, 123)  类型注释   构建 Runtime only">
+  
+    <link rel="alternate" href="/atom.xml" title="Float&#39;s blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-vue-code-learn" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2018/12/04/vue-code-learn/" class="article-date">
+	  <time datetime="2018-12-04T03:46:17.614Z" itemprop="datePublished">2018-12-04</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vue源码解读学习笔记"><a href="#vue源码解读学习笔记" class="headerlink" title="vue源码解读学习笔记"></a>vue源码解读学习笔记</h1><p>学习vue源码解读课程的一些笔记</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>[TOC]</p>
+<h3 id="vue项目准备"><a href="#vue项目准备" class="headerlink" title="vue项目准备"></a>vue项目准备</h3><h4 id="类型检查"><a href="#类型检查" class="headerlink" title="类型检查"></a>类型检查</h4><p>vue使用flow做静态类型检查, 包括</p>
+<ul>
+<li><p>类型推断</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*@flow*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x: number, y: number</span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="string">'123'</span>, <span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>类型注释</p>
+</li>
+</ul>
+<h4 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h4><ul>
+<li><p>Runtime only </p>
+<p>在构建时编译, 也叫离线编译,通过webpack,vue-loader等工具编译出能直接使用的js代码.  编译比较耗费性能, 推荐使用构建时编译, 在使用render函数时可使用此选项, 例如</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    render(h) &#123;</span><br><span class="line">        <span class="keyword">return</span> h(<span class="string">'div'</span>, <span class="keyword">this</span>.data)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>runtime + complier</p>
+<p>运行时编译, 使用包含构建功能的vuejs, 在使用template时需要使用运行时编译选项, 例如:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    template: <span class="string">'&lt;div&gt;&#123;&#123;data&#125;&#125;&lt;/div&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="数据驱动"><a href="#数据驱动" class="headerlink" title="数据驱动"></a>数据驱动</h3><h4 id="vue-init-初始化"><a href="#vue-init-初始化" class="headerlink" title="vue init 初始化"></a>vue init 初始化</h4><ul>
+<li><p>new Vue(options) 发生了什么?</p>
+<ul>
+<li>对options进行合并</li>
+<li>执行了一系例初始化方法, initLifecycle, initEvents, initRender, initState等</li>
+<li>将data代理到this对象上(proxy)</li>
+<li>对数据进行响应式处理</li>
+<li>mount挂载</li>
+</ul>
+</li>
+<li><p><strong>调试技巧</strong></p>
+<p>在vue.esm.js中<strong>_init</strong>方法增加debugger, 查看vue初始化时的变量</p>
+</li>
+</ul>
+<h4 id="vue-mount-挂载"><a href="#vue-mount-挂载" class="headerlink" title="vue mount 挂载"></a>vue mount 挂载</h4><h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><h4 id="什么是AST？"><a href="#什么是AST？" class="headerlink" title="什么是AST？"></a>什么是AST？</h4><p>AST（abstruct syntax tree）抽象语法树， 是源代码的抽象结构的树状表现。</p>
+<p>Vue在mount过程中， template会被编译为AST，经过generate（AST转化为render函数）得到render， render函数返回Vnode， Vnode是Vue的虚拟dom节点， 保存着标签名， 子节点， 属性， 文本信息等</p>
+<h2 id="章节"><a href="#章节" class="headerlink" title="章节"></a>章节</h2><h4 id="2-1-数据驱动"><a href="#2-1-数据驱动" class="headerlink" title="2-1 数据驱动"></a>2-1 数据驱动</h4><p>vuejs核心思想之一就是数据驱动. 是指视图是由数据驱动, 对视图的修改不会直接操作dom, 而是修改数据.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-new-Vue发生了什么"><a href="#2-2-new-Vue发生了什么" class="headerlink" title="2-2 new Vue发生了什么"></a>2-2 new Vue发生了什么</h4><ul>
+<li>调试vue, 可以在项目的node_modules/vue/dist/vue.esm.js, 中<strong>Vue.prototype._init里增加debugger</strong></li>
+<li>发生了什么?<ul>
+<li><strong>Vue.prototype._init</strong> —&gt; <strong>initState–&gt;</strong> <strong>initData &amp;&amp; observe</strong>  —&gt; <strong>proxy</strong><ul>
+<li><strong>proxy</strong>: 把data代理到vm对象上</li>
+<li><strong>observe </strong>: 数据监察</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-3-vue实例挂载实现-mount"><a href="#2-3-vue实例挂载实现-mount" class="headerlink" title="2-3 vue实例挂载实现 $mount"></a>2-3 vue实例挂载实现 $mount</h4><ul>
+<li>vue会把template, 或空template, 或用户手写render函数最终都转化为render函数运行输出</li>
+</ul>
+<h4 id="2-4-render"><a href="#2-4-render" class="headerlink" title="2-4 render"></a>2-4 render</h4><ul>
+<li><p>render生成一个Vnode</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    render(createElement) &#123;</span><br><span class="line">        <span class="keyword">return</span> createElement(<span class="string">'div'</span>, &#123;</span><br><span class="line">        	attrs: &#123;</span><br><span class="line">            	id: <span class="string">'app1'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">this</span>.message)</span><br><span class="line">    &#125;, </span><br><span class="line">    data() &#123;</span><br><span class="line">    	message: <span class="string">'hello, world'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-5-virtual-DOM"><a href="#2-5-virtual-DOM" class="headerlink" title="2-5 virtual DOM"></a>2-5 virtual DOM</h4><ul>
+<li>virtual dom指的是用一个原生的javascript描述dom节点</li>
+<li>vue使用snabbdom开源库改造实现virtual dom</li>
+</ul>
+<h4 id="2-6-createElement"><a href="#2-6-createElement" class="headerlink" title="2-6 createElement"></a>2-6 createElement</h4><ul>
+<li>Vue 使用createElemtent 生成 Vnode</li>
+</ul>
+<h4 id="2-7-update"><a href="#2-7-update" class="headerlink" title="2-7 update"></a>2-7 update</h4><ul>
+<li>_update 是vue实例的私有方法, 它调用的时机有两个, 一个是首次渲染, 一个是数据更新的时候.</li>
+<li>_update的作用是把VNode渲染成真实的DOM, 它定义在<code>src/core/instance/lifesycle.js</code>中: </li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/wechatpay.JPG',
+  alipayImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/alipay.JPG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>float</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/12/04/vue-code-learn/" target="_blank" title="">http://zexiplus.github.io/2018/12/04/vue-code-learn/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/04/node-library/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          nodejs 实用库收录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/04/rollup/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">rollup 构建工具总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue源码解读学习笔记"><span class="nav-number">1.</span> <span class="nav-text">vue源码解读学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue项目准备"><span class="nav-number">1.1.1.</span> <span class="nav-text">vue项目准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类型检查"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">类型检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">构建</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据驱动"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-init-初始化"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">vue init 初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-mount-挂载"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">vue mount 挂载</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问答"><span class="nav-number">1.2.</span> <span class="nav-text">问答</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是AST？"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">什么是AST？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#章节"><span class="nav-number">1.3.</span> <span class="nav-text">章节</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-数据驱动"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">2-1 数据驱动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-new-Vue发生了什么"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">2-2 new Vue发生了什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-vue实例挂载实现-mount"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">2-3 vue实例挂载实现 $mount</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-render"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">2-4 render</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-virtual-DOM"><span class="nav-number">1.3.0.5.</span> <span class="nav-text">2-5 virtual DOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-createElement"><span class="nav-number">1.3.0.6.</span> <span class="nav-text">2-6 createElement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-update"><span class="nav-number">1.3.0.7.</span> <span class="nav-text">2-7 update</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2018 Float&#39;s blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Float&#39;s blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 float All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

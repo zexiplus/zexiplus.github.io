@@ -259,7 +259,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Raspberry"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Koa"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -267,7 +267,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/06/14/Raspberry/">树莓派 调试开发配置指南</a>
+      <a class="article-title" href="/2018/07/30/Koa/">Koa 新一代web服务开发框架</a>
     </h1>
   
 
@@ -275,8 +275,8 @@
     
     <div class="article-meta">
       
-	<a href="/2018/06/14/Raspberry/" class="article-date">
-	  <time datetime="2018-06-14T01:12:28.961Z" itemprop="datePublished">2018-06-14</time>
+	<a href="/2018/07/30/Koa/" class="article-date">
+	  <time datetime="2018-07-30T07:13:44.512Z" itemprop="datePublished">2018-07-30</time>
 	</a>
 
       
@@ -285,17 +285,309 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          系统设置App软件源
-文件位置    /etc/apt/sources.list
-Ip地址
-//ip   192.168.17.149
-wlan  192.168.41.89
-Mjpg-streamer  使用
-1./mjpg_streamer -i "./input_uvc.so -d /dev/video0 -n -y -f 25 -r 640x480" -o "./output_http.so -n -w /usr/local/www"
-访问：http://localhost:808...
+          koa
+官方doc  link
+笔记 link
+
+Table of contents[TOC]
+1. koa app
+Index.js
+
+123456789101112131415161718192021const Koa = require('koa')const app = new Koa()// compute response timeapp.use(async (ctx, next) =&gt; &#123;	const startTime = new Date()	await ...
         </p>
         <p class="article-more-link">
-          <a href="/2018/06/14/Raspberry/#more">Read More</a>
+          <a href="/2018/07/30/Koa/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-html"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/07/30/html/">Html</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/30/html/" class="article-date">
+	  <time datetime="2018-07-30T07:13:44.511Z" itemprop="datePublished">2018-07-30</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          html
+html总结
+
+目录[TOC]
+html 组件
+html imports
+
+状态, 草案
+垫片方案   引用google 的 webcomponents.js
+
+1&lt;link rel="imports" href="myFile.html" /&gt;
+
+
+html标签meta 关键字
+viewport
+
+浏览器视窗大小
+
+
+width = device-width  宽度等于设备宽度
+Initial-scale=1  初始化大小为1(不缩放)
+Maxium-scale=1...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/07/30/html/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Graphic"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/07/30/Graphic/">web图形方案总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/07/30/Graphic/" class="article-date">
+	  <time datetime="2018-07-30T07:13:44.511Z" itemprop="datePublished">2018-07-30</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Graphicweb前端常用图形处理
+目录[TOC]
+SVG
+简介：基于xml的矢量图形描述文件
+
+展现方式
+浏览器直接打开
+
+html中标签引用
+
+html中svg标签引入
+
+css的background引入
+
+
+123456789101112131415161718&lt;!-- simple.svg --&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"&gt;  &lt;circle cx=...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/07/30/Graphic/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Bowser"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/06/19/Bowser/">chrome 浏览器接口参考</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/19/Bowser/" class="article-date">
+	  <time datetime="2018-06-19T02:30:44.534Z" itemprop="datePublished">2018-06-19</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          chrome.runtime
+ chrome浏览器接口
+
+Table of contents[TOC]
+chrome.runtime summary
+链接
+
+
+Methods &amp; properties
+connect, id, getURL, getMainifest, onMessage, sendMessage, onConnect
+
+123456789101112// propertieschrome.runtime.id  // the id of the extensio...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/06/19/Bowser/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-ElementUI"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/06/14/ElementUI/">ElementUI 踩坑记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/14/ElementUI/" class="article-date">
+	  <time datetime="2018-06-14T01:15:27.740Z" itemprop="datePublished">2018-06-14</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          elementUiel-table自定义表头jsx实现
+
+1234567891011121314151617181920212223242526&lt;template&gt;  &lt;el-table&gt;    &lt;el-table-column    :render-header=&quot;renderHeader&quot;&gt;    &lt;/el-table-column&gt;  &lt;/el-table&gt;&lt;/template&gt;&lt;scr...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/06/14/ElementUI/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Tensorflow"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/06/14/Tensorflow/">人工智能框架tensorflow学习总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/14/Tensorflow/" class="article-date">
+	  <time datetime="2018-06-14T01:12:28.962Z" itemprop="datePublished">2018-06-14</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          config &amp;&amp; use
+####激活virtualenv
+12345678910# 建立全新的virtualenv $ virtualenv --system-site-packages ~/tensorflow$ cd ~/tensorflow$ source bin/activate  # 如果使用 bash$ source bin/activate.csh  # 如果使用 csh(tensorflow)$  # 终端提示符应该发生变化# 使用完tensorflow...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/06/14/Tensorflow/#more">Read More</a>
         </p>
       
     </div>
@@ -344,6 +636,61 @@ Mjpg-streamer  使用
         </p>
         <p class="article-more-link">
           <a href="/2018/06/14/Regexp/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Raspberry"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/06/14/Raspberry/">树莓派 调试开发配置指南</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/14/Raspberry/" class="article-date">
+	  <time datetime="2018-06-14T01:12:28.961Z" itemprop="datePublished">2018-06-14</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          系统设置App软件源
+文件位置    /etc/apt/sources.list
+Ip地址
+//ip   192.168.17.149
+wlan  192.168.41.89
+Mjpg-streamer  使用
+1./mjpg_streamer -i "./input_uvc.so -d /dev/video0 -n -y -f 25 -r 640x480" -o "./output_http.so -n -w /usr/local/www"
+访问：http://localhost:808...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/06/14/Raspberry/#more">Read More</a>
         </p>
       
     </div>
@@ -459,151 +806,6 @@ Unexpected side effect in “sortArr” computed property
         </p>
         <p class="article-more-link">
           <a href="/2018/06/14/Puzzle/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Mini-programe"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-    <div class="article-meta">
-      
-	<a href="/2018/06/14/Mini-programe/" class="article-date">
-	  <time datetime="2018-06-14T01:12:28.959Z" itemprop="datePublished">2018-06-14</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/06/14/Mini-programe/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Git"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/06/14/Git/">Git 操作大全</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/06/14/Git/" class="article-date">
-	  <time datetime="2018-06-14T01:12:28.915Z" itemprop="datePublished">2018-06-14</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Git
-git 配置, 命令
-
-Table of contents[TOC]
-##git config
-
-新建ssh key
-1ssh-keygen -t rsa -C 'zexiplus@outlook.com'
-
-新增远程仓库
-1git remote add origin git@github.com:zexiplus/oo.git
-
-显示秘钥
-1cat /c/Users/username/.ssh/id_rsa.pub
-
-配置用户名密码
-12git config --global u...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/06/14/Git/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-README"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-    <div class="article-meta">
-      
-	<a href="/2018/06/14/README/" class="article-date">
-	  <time datetime="2018-06-14T01:12:28.914Z" itemprop="datePublished">2018-06-14</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          collection此文档仅分类并记录了一些常用知识点和工作踩坑总结, 供个人使用以提高产码效率，如需转载，请注明出处。
-contentweb
--web-design             「提供一些web整体布局方案,配色,素材选型,web设计原则」
--javascript                「javascript语法, 新特性总结」
--css                            「css总结」
--html                         ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/06/14/README/#more">Read More</a>
         </p>
       
     </div>

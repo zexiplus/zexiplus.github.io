@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nodejs 实用库收录 | Float&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="webFront javascript css html vue react nodejs " />
+  
+  
+  
+  
+  <meta name="description" content="node package librarynodejs 实用仓库收录, 下载/使用方法总结 https://github.com/zexiplus/awesome-nodejs Table of contents[TOC] package.json scripts12345678910&amp;#123;    &quot;scripts&quot;: &amp;#123;         &quot;prebuild&quot;:….,   // np">
+<meta name="keywords" content="webFront javascript css html vue react nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs 实用库收录">
+<meta property="og:url" content="http://zexiplus.github.io/2018/12/04/node-library/index.html">
+<meta property="og:site_name" content="Float&#39;s blog">
+<meta property="og:description" content="node package librarynodejs 实用仓库收录, 下载/使用方法总结 https://github.com/zexiplus/awesome-nodejs Table of contents[TOC] package.json scripts12345678910&amp;#123;    &quot;scripts&quot;: &amp;#123;         &quot;prebuild&quot;:….,   // np">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-12-04T03:46:17.628Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs 实用库收录">
+<meta name="twitter:description" content="node package librarynodejs 实用仓库收录, 下载/使用方法总结 https://github.com/zexiplus/awesome-nodejs Table of contents[TOC] package.json scripts12345678910&amp;#123;    &quot;scripts&quot;: &amp;#123;         &quot;prebuild&quot;:….,   // np">
+  
+    <link rel="alternate" href="/atom.xml" title="Float&#39;s blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-node-library" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      nodejs 实用库收录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/12/04/node-library/" class="article-date">
+	  <time datetime="2018-12-04T03:46:17.627Z" itemprop="datePublished">2018-12-04</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="node-package-library"><a href="#node-package-library" class="headerlink" title="node package library"></a>node package library</h1><p>nodejs 实用仓库收录, 下载/使用方法总结 <a href="https://github.com/zexiplus/awesome-nodejs" target="_blank" rel="noopener">https://github.com/zexiplus/awesome-nodejs</a></p>
+<h3 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h3><p>[TOC]</p>
+<h3 id="package-json-scripts"><a href="#package-json-scripts" class="headerlink" title="package.json scripts"></a>package.json scripts</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"scripts"</span>: &#123;</span><br><span class="line">         <span class="string">"prebuild"</span>:….,   <span class="comment">// npm run build 前执行</span></span><br><span class="line">         <span class="string">"build"</span>:….,</span><br><span class="line">         <span class="string">"postbuild"</span>:….  <span class="comment">// npm run build 后执行</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"bin"</span>: &#123;</span><br><span class="line">		<span class="string">"command"</span>: <span class="string">"./bin/script.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="package-structor"><a href="#package-structor" class="headerlink" title="package structor"></a>package structor</h3><table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bin</td>
+<td>命令行脚本</td>
+</tr>
+<tr>
+<td>docs</td>
+<td>文档</td>
+</tr>
+<tr>
+<td>example</td>
+<td>例子</td>
+</tr>
+<tr>
+<td>lib</td>
+<td>程序的核心功能</td>
+</tr>
+<tr>
+<td>test</td>
+<td>测试脚本及相关资源</td>
+</tr>
+</tbody>
+</table>
+<h3 id="npm-script"><a href="#npm-script" class="headerlink" title="npm script"></a>npm script</h3><ul>
+<li><p><strong>初始化仓库</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>登录 npm 账号</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>发布包</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br><span class="line"><span class="meta">#</span><span class="bash"> 发布共有包</span></span><br><span class="line">npm publish --access=public</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>全局链接</strong></p>
+<blockquote>
+<p>可以让包在机器上全局使用 bin 命令</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo npm link</span><br><span class="line"></span><br><span class="line">sudo npm unlink</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>bin 文件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env node</span></span><br><span class="line">console.log(<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>自定义参数</strong></p>
+<blockquote>
+<p>自定义参数 – 会把之后的所有参数存入process.argv</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm run command -- --someArg </span><br><span class="line">npm run -- --test</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> index.js</span></span><br><span class="line">process.argv.includes('--test') // true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>锁定版本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm shrinkwrap</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>设置镜像</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://registry.npmjs.org</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="node-packages"><a href="#node-packages" class="headerlink" title="node packages"></a>node packages</h3><h4 id="puppeteer"><a href="#puppeteer" class="headerlink" title="puppeteer"></a>puppeteer</h4><blockquote>
+<p>Puppeteer is a Node library which provides a high-level API to control Chrome or Chromium over the DevTools Protoco</p>
+</blockquote>
+<p>example.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch();</span><br><span class="line">  <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">  <span class="keyword">await</span> page.goto(<span class="string">'https://example.com'</span>);</span><br><span class="line">  <span class="keyword">await</span> page.screenshot(&#123;<span class="attr">path</span>: <span class="string">'example.png'</span>&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p><code>node example.js</code></p>
+<h4 id="moment"><a href="#moment" class="headerlink" title="moment"></a>moment</h4><blockquote>
+<p>时间格式化库</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/moment/moment" target="_blank" rel="noopener">https://github.com/moment/moment</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i moment</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//es6 import引入</span></span><br><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span> </span><br><span class="line"><span class="comment">//nodejs 引入</span></span><br><span class="line"><span class="keyword">var</span> moment = <span class="built_in">require</span>(<span class="string">'moment'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//把时间对象格式化为文本 2018-01-09 12:14:27</span></span><br><span class="line">moment(<span class="keyword">new</span> <span class="built_in">Date</span>).format(<span class="string">'YYYY-MM-DD hh:mm:ss'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//把文本解析为date对象   </span></span><br><span class="line">moment(<span class="string">'2018-01-09 12:14:27'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="rollup"><a href="#rollup" class="headerlink" title="rollup"></a>rollup</h4><blockquote>
+<p>整合多个js文件到一个js文件</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/rollup/rollup#quick-start-guide" target="_blank" rel="noopener">https://github.com/rollup/rollup#quick-start-guide</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i rollup</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> rollup = <span class="built_in">require</span>(<span class="string">'rollup'</span>).rollup</span><br><span class="line"></span><br><span class="line">rollup(&#123;</span><br><span class="line">    input: path.resolve(__dirname, <span class="string">'../src/vue.js'</span>)</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">bundle</span>) =&gt;</span> &#123;</span><br><span class="line">    bundle.write(&#123;</span><br><span class="line">        file: path.resolve(__dirname, <span class="string">'../dist/vue.js'</span>),</span><br><span class="line">        format: <span class="string">'umd'</span>,</span><br><span class="line">        name: <span class="string">'Vue'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(e)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="busboy"><a href="#busboy" class="headerlink" title="busboy"></a>busboy</h4><blockquote>
+<p>文件上传</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/mscdex/busboy" target="_blank" rel="noopener">https://github.com/mscdex/busboy</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i busboy</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Busboy = <span class="built_in">require</span>(<span class="string">'busboy'</span>)</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">var</span> busboy = <span class="keyword">new</span> Busboy(&#123; <span class="attr">headers</span>: req.headers &#125;);</span><br><span class="line">    busboy.on(<span class="string">'file'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">fieldname, file, filename, encoding, mimetype</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> saveTo = path.join(os.tmpDir(), path.basename(fieldname));</span><br><span class="line">      file.pipe(fs.createWriteStream(saveTo));</span><br><span class="line">    &#125;);</span><br><span class="line">    busboy.on(<span class="string">'finish'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      res.writeHead(<span class="number">200</span>, &#123; <span class="string">'Connection'</span>: <span class="string">'close'</span> &#125;);</span><br><span class="line">      res.end(<span class="string">"That's all folks!"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> req.pipe(busboy);</span><br><span class="line">  &#125;</span><br><span class="line">  res.writeHead(<span class="number">404</span>);</span><br><span class="line">  res.end();</span><br><span class="line">&#125;).listen(<span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="opn"><a href="#opn" class="headerlink" title="opn"></a>opn</h4><blockquote>
+<p>预览文件插件 浏览器/图片</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/sindresorhus/opn" target="_blank" rel="noopener">https://github.com/sindresorhus/opn</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i opn</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> opn = <span class="built_in">require</span>(<span class="string">'opn'</span>)   </span><br><span class="line">open(<span class="string">'http://localhost:8080'</span>)</span><br><span class="line"></span><br><span class="line">opn(<span class="string">'unicorn.png'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 预览图片</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">opn(<span class="string">'http://sindresorhus.com'</span>, &#123;<span class="attr">app</span>: <span class="string">'firefox'</span>&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor"></a>supervisor</h4><blockquote>
+<p>检测node.js代码变化， 自动重启脚本 </p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/petruisfan/node-supervisor" target="_blank" rel="noopener">https://github.com/petruisfan/node-supervisor</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> download</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo npm i -g supervisor</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> use </span></span><br><span class="line">supervisor test.js</span><br></pre></td></tr></table></figure>
+<h4 id="mocha"><a href="#mocha" class="headerlink" title="mocha"></a>mocha</h4><blockquote>
+<p>用于node测试代码 </p>
+</blockquote>
+<blockquote>
+<p><a href="https://mochajs.org/" target="_blank" rel="noopener">https://mochajs.org/</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> download</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo npm i -g mocha</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> use</span></span><br><span class="line">mocha test.js</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>test.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br><span class="line">describe(<span class="string">'Array'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  describe(<span class="string">'#indexOf()'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    it(<span class="string">'should return -1 when the value is not present'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      assert.equal([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].indexOf(<span class="number">4</span>), <span class="number">-1</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="should-js"><a href="#should-js" class="headerlink" title="should.js"></a>should.js</h4><blockquote>
+<p>BDD 风格（behavior driven development) 测试库，是assert模块的扩展</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/shouldjs/should.js" target="_blank" rel="noopener">https://github.com/shouldjs/should.js</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i should -D</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> should = <span class="built_in">require</span>(<span class="string">'should'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    name: <span class="string">'tj'</span></span><br><span class="line">  , <span class="attr">pets</span>: [<span class="string">'tobi'</span>, <span class="string">'loki'</span>, <span class="string">'jane'</span>, <span class="string">'bandit'</span>]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">user.should.have.property(<span class="string">'name'</span>, <span class="string">'tj'</span>);</span><br><span class="line">user.should.have.property(<span class="string">'pets'</span>).with.lengthOf(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// If the object was created with Object.create(null)</span></span><br><span class="line"><span class="comment">// then it doesn't inherit `Object.prototype`, so it will not have `.should` getter</span></span><br><span class="line"><span class="comment">// so you can do:</span></span><br><span class="line">should(user).have.property(<span class="string">'name'</span>, <span class="string">'tj'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// also you can test in that way for null's</span></span><br><span class="line">should(<span class="literal">null</span>).not.be.ok();</span><br><span class="line"></span><br><span class="line">someAsyncTask(foo, <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>)</span>&#123;</span><br><span class="line">  should.not.exist(err);</span><br><span class="line">  should.exist(result);</span><br><span class="line">  result.bar.should.equal(foo);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="uglifyjs"><a href="#uglifyjs" class="headerlink" title="uglifyjs"></a>uglifyjs</h4><blockquote>
+<p> 压缩混淆代码工具</p>
+</blockquote>
+<h4 id="node-notifier"><a href="#node-notifier" class="headerlink" title="node-notifier"></a>node-notifier</h4><blockquote>
+<p>跨平台的系统通知插件</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/mikaelbr/node-notifier" target="_blank" rel="noopener">https://github.com/mikaelbr/node-notifier</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install node-notifier</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> notifier = <span class="built_in">require</span>(<span class="string">'node-notifier'</span>)</span><br><span class="line">notifier.notify(<span class="string">'message'</span>)</span><br><span class="line">notifier.nogiry(&#123;</span><br><span class="line">    title: <span class="string">'My title'</span>,</span><br><span class="line">    message: <span class="string">'hello world'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="ora"><a href="#ora" class="headerlink" title="ora"></a>ora</h4><blockquote>
+<p> 界面友好的交互式输出工具 spinner</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/sindresorhus/ora" target="_blank" rel="noopener">https://github.com/sindresorhus/ora</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm i ora</span><br><span class="line">const spinner = ora('Loading unicorns').start();</span><br><span class="line"></span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">	spinner.color = 'yellow';</span><br><span class="line">	spinner.text = 'Loading rainbows';</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
+<h4 id="ansi-js"><a href="#ansi-js" class="headerlink" title="ansi.js"></a>ansi.js</h4><blockquote>
+<p>彩色化命令行 文字, 前景色, 背景色 </p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/TooTallNate/ansi.js" target="_blank" rel="noopener">https://github.com/TooTallNate/ansi.js</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install ansi</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ansi = <span class="built_in">require</span>(<span class="string">'ansi'</span>), </span><br><span class="line">      cursor = ansi(process.stdout)</span><br><span class="line"></span><br><span class="line"><span class="comment">// You can chain your calls forever:</span></span><br><span class="line">cursor</span><br><span class="line">    .red()                 <span class="comment">// Set font color to red</span></span><br><span class="line">    .bg.grey()             <span class="comment">// Set background color to grey</span></span><br><span class="line">    .write(<span class="string">'Hello World!'</span>) <span class="comment">// Write 'Hello World!' to stdout</span></span><br><span class="line">    .bg.reset()            <span class="comment">// Reset the bgcolor before writing the trailing \n,</span></span><br><span class="line"><span class="comment">//      to avoid Terminal glitches</span></span><br><span class="line">    .write(<span class="string">'\n'</span>)           <span class="comment">// And a final \n to wrap things up</span></span><br></pre></td></tr></table></figure>
+<h4 id="chalk"><a href="#chalk" class="headerlink" title="chalk"></a>chalk</h4><blockquote>
+<p>彩色化输出</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/chalk/chalk" target="_blank" rel="noopener">https://github.com/chalk/chalk</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i chalk</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> chalk = <span class="built_in">require</span>(<span class="string">'chalk'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(chalk.red(<span class="string">'hello'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义</span></span><br><span class="line"><span class="keyword">const</span> error = chalk.bold.red</span><br><span class="line"><span class="keyword">const</span> info = chalk.keyword(<span class="string">'origin'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(error(<span class="string">'error occured'</span>))</span><br><span class="line"><span class="built_in">console</span>.log(info(<span class="string">'be careful origin'</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="commander-js"><a href="#commander-js" class="headerlink" title="commander.js"></a>commander.js</h4><blockquote>
+<p>创建命令行工具的库</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/tj/commander.js" target="_blank" rel="noopener">https://github.com/tj/commander.js</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install commander --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>基本用法</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"><span class="keyword">const</span> programe = <span class="built_in">require</span>(<span class="string">'commander'</span>)</span><br><span class="line"></span><br><span class="line">programe.version(<span class="built_in">require</span>(<span class="string">'../package.json'</span>).version)</span><br><span class="line"></span><br><span class="line">programe</span><br><span class="line">	.command(<span class="string">'init [env]'</span>)  <span class="comment">// 命令名称</span></span><br><span class="line">	.alias(<span class="string">'i'</span>)       <span class="comment">// 简称</span></span><br><span class="line">	.description(<span class="string">'init a project'</span>)  <span class="comment">// 描述</span></span><br><span class="line">	.option(<span class="string">'-s --setup_mode [mode]'</span>, <span class="string">'which setup mode to use'</span>)</span><br><span class="line">	.action(<span class="function">(<span class="params">env, options</span>) =&gt;</span> &#123;                 <span class="comment">// 执行命令的回调函数</span></span><br><span class="line">        <span class="keyword">let</span> mode = options.setup_mode</span><br><span class="line">        env = env || <span class="string">'dev'</span></span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">programe.parse(process.argv)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>API</strong></p>
+<ul>
+<li><p><strong>version 版本</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">programe.version(<span class="string">'1.2.3'</span>, <span class="string">'-v --version'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">programe --version</span><br><span class="line">programe -v</span><br><span class="line"><span class="meta">#</span><span class="bash"> returns 1.2.3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>option 选项</strong></p>
+<blockquote>
+<p>与参数不同的是 option 不区分顺序</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br><span class="line">	.option(<span class="string">'-p --peppers'</span>, <span class="string">'Add peppers'</span>)</span><br><span class="line">	.parse(process.argv)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(programe.peppers) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">programe -p</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="literal">true</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>command 命令</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br><span class="line">	.command(<span class="string">'list &lt;num&gt;'</span>)</span><br><span class="line">    .action(<span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">    	conosle.log(num)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 一定要加这一句传递参数 **/</span></span><br><span class="line">programe.parse(process.argv)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">programe list 10</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">log</span> 10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>命令必选参数 \<param></strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br><span class="line">	.command(<span class="string">'rm &lt;dir&gt;'</span>)</span><br><span class="line">	.option(<span class="string">'-r --recursive'</span>)</span><br><span class="line">    .action(<span class="function">(<span class="params">dir, cmd</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(dir)</span><br><span class="line">        <span class="built_in">console</span>.log(cmd.recursive)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">programe rm /bin</span><br><span class="line"><span class="meta">#</span><span class="bash"> /bin</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="literal">false</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>命令可选参数 [param]</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br><span class="line">	.command(<span class="string">'rm &lt;dir&gt; [otherdirs...]'</span>)</span><br><span class="line">    .action(<span class="function">(<span class="params">dir, otherdirs</span>) =&gt;</span> &#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(dir)</span><br><span class="line">    	<span class="keyword">if</span> (otherdirs) &#123;</span><br><span class="line">        	othersdirs.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(item) &#125;)</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>arguments 声明参数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br><span class="line">	.arguments(<span class="string">'&lt;dir&gt; [env]'</span>)</span><br><span class="line">    .action(<span class="function">(<span class="params">dir, env</span>) =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>正则参数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br><span class="line">	.option(<span class="string">'-s --size &lt;size&gt;'</span>, <span class="string">'dick size'</span>, /^(large|medium|small)$/i, <span class="string">'medium'</span>)</span><br><span class="line">    .action(<span class="function"><span class="params">cmd</span> =&gt;</span> &#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(<span class="string">`dick size is  <span class="subst">$&#123;cmd.size&#125;</span>`</span>)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">programe -s 18</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">log</span> medium</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>usage 使用提示</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">programe.usage(<span class="string">'command [option] &lt;param&gt;'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br><span class="line"><span class="meta">#</span><span class="bash"> returns Usage: programe <span class="built_in">command</span> [option] &lt;param&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>参数列表</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">programe</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>生成命令</strong></p>
+<p><code>package.json</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"bin": &#123;</span><br><span class="line">    "runname": "./bin/script.js"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm link</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="chromix-too-chromix"><a href="#chromix-too-chromix" class="headerlink" title="chromix-too, chromix"></a>chromix-too, chromix</h4><blockquote>
+<p>控制浏览器刷新, 关闭, 重启, 不支持windows系统</p>
+</blockquote>
+<blockquote>
+<p><strong>npm</strong> <a href="https://www.npmjs.com/package/chromix-too" target="_blank" rel="noopener">https://www.npmjs.com/package/chromix-too</a></p>
+<p><strong>chrome插件</strong> chromix-too</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载</span></span><br><span class="line">npm i -g chromix-too</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动服务</span></span><br><span class="line">chromix-too-server</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看浏览器列表</span></span><br><span class="line">chromix-too ls</span><br><span class="line"><span class="meta">#</span><span class="bash"> 输出如下</span></span><br><span class="line">17 https://blog.zfanw.com/webpack-tutorial/ webpack 4 教程</span><br><span class="line">373 https://www.npmjs.com/package/chromix-too chromix-too - npm</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> focus a tab</span></span><br><span class="line">chromix focus https://blog.zfanw.com/webpack-tutorial</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 刷新某页面</span></span><br><span class="line">chromix reload https://blog.zfanw.com/webpack-tutorial</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 打开新的页面</span></span><br><span class="line">chromix open https://blog.zfanw.com/webpack-tutorial</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 通过id 关闭页面</span></span><br><span class="line">chromix rm 17</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module use</span></span><br><span class="line"><span class="keyword">const</span> chromix = <span class="built_in">require</span>(<span class="string">'chromix-too'</span>)().chromix</span><br></pre></td></tr></table></figure>
+<h4 id="shields"><a href="#shields" class="headerlink" title="shields"></a>shields</h4><blockquote>
+<p>git repository 图标生成工具</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/badges/shields" target="_blank" rel="noopener">https://github.com/badges/shields</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g gh-badges</span><br><span class="line">badge build passed :green .png &gt; mybadge.png</span><br></pre></td></tr></table></figure>
+<h4 id="Inquirer-js"><a href="#Inquirer-js" class="headerlink" title="Inquirer.js"></a>Inquirer.js</h4><blockquote>
+<p>命令行用户交互界面库</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/sboudrias/Inquirer.js" target="_blank" rel="noopener">https://github.com/sboudrias/Inquirer.js</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i inquirer</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>单个询问</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> inquirer = <span class="built_in">require</span>(<span class="string">'inquirer'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> prompt = inquirer.createPromptModule()</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">    type: <span class="string">'list | rawlist | expand | checkbox | confirm | input | password | editor'</span>,</span><br><span class="line">    name: <span class="string">'question name'</span>,</span><br><span class="line">    choices: [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3 hello'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">prompt(options).then(cb)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多个询问</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> inquirer = <span class="built_in">require</span>(<span class="string">'inquirer'</span>)</span><br><span class="line">inquirer</span><br><span class="line">    .prompt([</span><br><span class="line">    	option1, </span><br><span class="line">    	option2,</span><br><span class="line">    	option3,</span><br><span class="line">	])</span><br><span class="line">    .then(<span class="function"><span class="params">anwser</span> =&gt;</span> &#123;</span><br><span class="line">    	</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="prerender-io"><a href="#prerender-io" class="headerlink" title="prerender.io"></a>prerender.io</h4><blockquote>
+<p>服务端渲染</p>
+</blockquote>
+<blockquote>
+<p><a href="https://prerender.io/" target="_blank" rel="noopener">https://prerender.io/</a></p>
+</blockquote>
+<h4 id="js-cookie"><a href="#js-cookie" class="headerlink" title="js-cookie"></a>js-cookie</h4><blockquote>
+<p>操作cookie</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/js-cookie/js-cookie" target="_blank" rel="noopener">https://github.com/js-cookie/js-cookie</a></p>
+</blockquote>
+<ul>
+<li><p><strong>Install</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i js-cookie</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>usage</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookies.set(<span class="string">'name'</span>, <span class="string">'value'</span>, &#123; <span class="attr">expires</span>: <span class="number">7</span> &#125;) <span class="comment">// 七天过期时间</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="http-server"><a href="#http-server" class="headerlink" title="http-server"></a>http-server</h4><blockquote>
+<p>http静态服务器 <a href="https://github.com/indexzero/http-server" target="_blank" rel="noopener">https://github.com/indexzero/http-server</a></p>
+</blockquote>
+<ul>
+<li><p><strong>install</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g http-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>usage</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http-server [path] [optionis]</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> demo</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 指定8080端口</span></span><br><span class="line">http-server -p 8080</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 指定ip地址</span></span><br><span class="line">http-server -a 0.0.0.0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h4><p>博客搭建生成器 <a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></p>
+<ul>
+<li><p><strong>install</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>usage</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动静态页面服务器</span></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="highlightjs"><a href="#highlightjs" class="headerlink" title="highlightjs"></a>highlightjs</h4><p>页面语法高亮插件 <a href="https://github.com/highlightjs/highlight.js" target="_blank" rel="noopener">https://github.com/highlightjs/highlight.js</a></p>
+<ul>
+<li><p><strong>import</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/path/to/styles/default.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/path/to/highlight.pack.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">hljs.initHighlightingOnLoad();</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>usage</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span> <span class="attr">class</span>=<span class="string">"html"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/wechatpay.JPG',
+  alipayImage: 'https://raw.githubusercontent.com/zexiplus/Blog/master/source/_posts/imgs/alipay.JPG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>float</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/12/04/node-library/" target="_blank" title="nodejs 实用库收录">http://zexiplus.github.io/2018/12/04/node-library/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/04/algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          算法学习与协议原理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/04/vue-code-learn/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#node-package-library"><span class="nav-number">1.</span> <span class="nav-text">node package library</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Table-of-contents"><span class="nav-number">1.0.1.</span> <span class="nav-text">Table of contents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-json-scripts"><span class="nav-number">1.0.2.</span> <span class="nav-text">package.json scripts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-structor"><span class="nav-number">1.0.3.</span> <span class="nav-text">package structor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-script"><span class="nav-number">1.0.4.</span> <span class="nav-text">npm script</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-packages"><span class="nav-number">1.0.5.</span> <span class="nav-text">node packages</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#puppeteer"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">puppeteer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#moment"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">moment</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rollup"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">rollup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#busboy"><span class="nav-number">1.0.5.4.</span> <span class="nav-text">busboy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#opn"><span class="nav-number">1.0.5.5.</span> <span class="nav-text">opn</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#supervisor"><span class="nav-number">1.0.5.6.</span> <span class="nav-text">supervisor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mocha"><span class="nav-number">1.0.5.7.</span> <span class="nav-text">mocha</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#should-js"><span class="nav-number">1.0.5.8.</span> <span class="nav-text">should.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uglifyjs"><span class="nav-number">1.0.5.9.</span> <span class="nav-text">uglifyjs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#node-notifier"><span class="nav-number">1.0.5.10.</span> <span class="nav-text">node-notifier</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ora"><span class="nav-number">1.0.5.11.</span> <span class="nav-text">ora</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ansi-js"><span class="nav-number">1.0.5.12.</span> <span class="nav-text">ansi.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chalk"><span class="nav-number">1.0.5.13.</span> <span class="nav-text">chalk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#commander-js"><span class="nav-number">1.0.5.14.</span> <span class="nav-text">commander.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chromix-too-chromix"><span class="nav-number">1.0.5.15.</span> <span class="nav-text">chromix-too, chromix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shields"><span class="nav-number">1.0.5.16.</span> <span class="nav-text">shields</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inquirer-js"><span class="nav-number">1.0.5.17.</span> <span class="nav-text">Inquirer.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prerender-io"><span class="nav-number">1.0.5.18.</span> <span class="nav-text">prerender.io</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js-cookie"><span class="nav-number">1.0.5.19.</span> <span class="nav-text">js-cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-server"><span class="nav-number">1.0.5.20.</span> <span class="nav-text">http-server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo"><span class="nav-number">1.0.5.21.</span> <span class="nav-text">hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#highlightjs"><span class="nav-number">1.0.5.22.</span> <span class="nav-text">highlightjs</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2018 Float&#39;s blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Float&#39;s blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 float All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
